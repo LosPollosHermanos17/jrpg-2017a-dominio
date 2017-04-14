@@ -2,6 +2,10 @@ package dominio;
 
 import java.io.Serializable;
 
+/*
+ * Se definen las cualidades porcentuales, nombre y habilidades de cada tipo de Personaje
+ *@param Setter de probabilidad de generar golpe critico
+ */
 public abstract class Casta implements Serializable {
 	protected double probabilidadGolpeCritico;
 	protected double probabilidadEvitarDaño;
@@ -39,7 +43,15 @@ public abstract class Casta implements Serializable {
 	public double getProbabilidadGolpeCritico() {
 		return probabilidadGolpeCritico;
 	}
-
+	
+	/*
+	 * Setter de la probabilidad de generar un golpe critico
+	 * Recibe como parametro un Double 
+	 * que sirve como porcentaje de un golpe critico
+	 * 
+	 *
+	 *@param Setter de probabilidad de generar golpe critico
+	 */
 	public void setProbabilidadGolpeCritico(double probabilidadGolpeCritico) {
 		this.probabilidadGolpeCritico = probabilidadGolpeCritico;
 	}
@@ -48,6 +60,14 @@ public abstract class Casta implements Serializable {
 		return probabilidadEvitarDaño;
 	}
 
+	/*
+	 * Setter de la probabilidad de evitar un daño
+	 * Recibe como parametro un Double 
+	 * que sirve como porcentaje de evitar un daño
+	 * 
+	 *
+	 *@param Setter de probabilidad de evitar un daño
+	 */
 	public void setProbabilidadEvitarDaño(double probabilidadEvitarDaño) {
 		this.probabilidadEvitarDaño = probabilidadEvitarDaño;
 	}

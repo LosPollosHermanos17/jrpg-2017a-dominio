@@ -1,5 +1,13 @@
 package dominio;
 
+
+ /*
+ * Define las acciones de las clases que 
+ * implementen esta interfaz
+ * 
+ * 
+ * @param Se definen los metodos a implementar
+ */
 public interface Peleable {
 	public int serAtacado(int daño);
 	public int getSalud();
