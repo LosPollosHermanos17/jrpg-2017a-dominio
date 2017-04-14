@@ -1,0 +1,13 @@
+TP1
+
+Para hacer la documentación de javadocs:
+https://es.wikipedia.org/wiki/Javadoc
+http://www.oracle.com/technetwork/articles/java/index-137868.html
+
+Alianza, Peliable y Casa ya están.
+
+Fede: Asesino
+Rodrigo: Elfo
+Mati: Guerrero
+Ale: Hechisero, Humano, MyRandom
+Maxi: NonPlayableCharacter, Orco, Personaje
