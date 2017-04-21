@@ -12,12 +12,12 @@
 
 ### Integrantes del equipo
 
-* Completar ([Carlos Tomalino](https://github.com/Charly87))
-* Completar ([Sergio Amoruso](https://github.com/sergioamoruso91))
-* Completar ([Alejandro Brude](https://github.com/abrude))
-* Completar ([Rodrigo Cabral](https://github.com/CabralRodrigoAriel))
-* Completar ([Matias Lell](https://github.com/MatiasLell))
-* Completar ([Maximiliano Meneghini](https://github.com/MeneghiniDaniel))
+* Carlos Tomalino ([Charly87](https://github.com/Charly87))
+* Sergio Amoruso ([sergioamoruso91](https://github.com/sergioamoruso91))
+* Alejandro Brude ([abrude](https://github.com/abrude))
+* Rodrigo Cabral ([CabralRodrigoAriel](https://github.com/CabralRodrigoAriel))
+* Matias Lell ([MatiasLell](https://github.com/MatiasLell))
+* Maximiliano Meneghini ([MeneghiniDaniel](https://github.com/MeneghiniDaniel))
 
 ## Sobre la tecnología
 
