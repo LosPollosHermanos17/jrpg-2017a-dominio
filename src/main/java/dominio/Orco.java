@@ -1,5 +1,8 @@
 package dominio;
-
+/**
+ * Clase derivada de Personaje. se define las habilidades y la raza correspondiente dentro de Orco.
+ * @version ultimate
+ */
 public class Orco extends Personaje {
 
 	public Orco(String nombre, Casta casta, int id) {
@@ -23,7 +26,11 @@ public class Orco extends Personaje {
 		habilidadesRaza[0] = "Golpe Defensa";
 		habilidadesRaza[1] = "Mordisco de Vida";
 	}
-
+	/**
+	 * Establece ataque por habilidad, de ser posible, causando daño equivalente al doble de la propia defensa.
+	 * @param atacado La instancia de Personaje es enviada en pos de efectivizar el ataque.
+	 * @return true si daño infligido > 0, al mismo tiempo que el objeto llamador disponga de energía suficiente.
+	 */
 	// Golpe Defensa
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
@@ -33,7 +40,11 @@ public class Orco extends Personaje {
 		}
 		return false;
 	}
-
+	/**
+	 * Establece ataque por habilidad, de ser posible, causando daño y curando al personaje en valores equivalentes al daño efectivo causado.
+	 * @param atacado La instancia de Personaje es enviada en pos de efectivizar el ataque.
+	 * @return true si daño causado > 0, al mismo tiempo que el objeto llamador disponga de energía suficiente. En otro caso, false
+	 */
 	// Mordisco de Vida
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
