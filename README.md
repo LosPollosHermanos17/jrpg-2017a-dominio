@@ -12,12 +12,12 @@
 
 ### Integrantes del equipo
 
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
-* Completar ([xxxx](https://github.com/xxxx))
+* Completar ([Carlos Tomalino](https://github.com/Charly87))
+* Completar ([Sergio Amoruso](https://github.com/sergioamoruso91))
+* Completar ([Alejandro Brude](https://github.com/abrude))
+* Completar ([Rodrigo Cabral](https://github.com/CabralRodrigoAriel))
+* Completar ([Matias Lell](https://github.com/MatiasLell))
+* Completar ([Maximiliano Meneghini](https://github.com/MeneghiniDaniel))
 
 ## Sobre la tecnología
 
