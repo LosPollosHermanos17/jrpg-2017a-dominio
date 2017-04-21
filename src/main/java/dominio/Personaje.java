@@ -1,9 +1,14 @@
 package dominio;
 
 import java.io.Serializable;
-
+/**
+ * Esta clase es usada de plantilla para crear personajes con un conjunto de características generales que lo definen, e información de índole general.
+ * @author El grupo del año pasado
+ * @version Ni idea 2.0
+ *
+ */
 public abstract class Personaje implements Peleable, Serializable {
-
+	//campos de la clase
 	protected int salud;
 	protected int energia;
 	protected int defensa;// depende de la destreza
@@ -33,15 +38,17 @@ public abstract class Personaje implements Peleable, Serializable {
 	public static int tablaDeNiveles[];
 
 	protected String[] habilidadesRaza;
-
+	
 	public String[] getHabilidadesRaza() {
 		return habilidadesRaza;
 	}
-
+	
 	public String[] getHabilidadesCasta() {
 		return casta.getHabilidadesCasta();
 	}
-
+	/**
+	 * Inicializa los valores correspondientes a cada nivel para su posterior acceso.
+	 */
 	public static void cargarTablaNivel() {
 		Personaje.tablaDeNiveles = new int[101];
 		Personaje.tablaDeNiveles[0] = 0;
@@ -49,7 +56,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		for (int i = 2; i < 101; i++)
 			Personaje.tablaDeNiveles[i] = Personaje.tablaDeNiveles[i - 1] + 50;
 	}
-
+	
 	public Personaje(String nombre, Casta casta, int id) {
 		this.nombre = nombre;
 		this.casta = casta;
@@ -76,7 +83,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		magia = this.calcularPuntosDeMagia();
 
 	}
-
+	
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel,
 			int idPersonaje) {
@@ -100,144 +107,148 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.magia = this.calcularPuntosDeMagia();
 	}
-
+	
 	public String getNombreRaza() {
 		return nombreRaza;
 	}
-
+	
 	public void setNombreRaza(String nombreRaza) {
 		this.nombreRaza = nombreRaza;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
 	public int getAtaque() {
 		return ataque;
 	}
-
+	
 	public void setAtaque(int ataque) {
 		this.ataque = ataque;
 	}
-
+	
 	public int getMagia() {
 		return magia;
 	}
-
+	
 	public void setMagia(int magia) {
 		this.magia = magia;
 	}
-
+	
 	public Alianza getClan() {
 		return clan;
 	}
-
+	
 	public void setClan(Alianza clan) {
 		this.clan = clan;
 		clan.aÃ±adirPersonaje(this);
 	}
-
+	
 	public int getSalud() {
 		return salud;
 	}
-
+	
 	public void setSalud(int salud) {
 		this.salud = salud;
 	}
-
+	
 	public int getEnergia() {
 		return energia;
 	}
-
+	
 	public void setEnergia(int energia) {
 		this.energia = energia;
 	}
-
+	
 	public int getFuerza() {
 		return fuerza;
 	}
-
+	
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
 	}
-
+	
 	public int getDestreza() {
 		return destreza;
 	}
-
+	
 	public void setDestreza(int destreza) {
 		this.destreza = destreza;
 	}
-
+	
 	public int getInteligencia() {
 		return inteligencia;
 	}
-
+	
 	public void setInteligencia(int inteligencia) {
 		this.inteligencia = inteligencia;
 	}
-
+	
 	public Casta getCasta() {
 		return casta;
 	}
-
+	
 	public void setCasta(Casta casta) {
 		this.casta = casta;
 	}
-
+	
 	public int getExperiencia() {
 		return experiencia;
 	}
-
+	
 	public void setExperiencia(int experiencia) {
 		this.experiencia = experiencia;
 	}
-
+	
 	public int getNivel() {
 		return nivel;
 	}
-
+	
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-
+	
 	public int getIdPersonaje() {
 		return idPersonaje;
 	}
-
+	
 	public void setIdPersonaje(int idPersonaje) {
 		this.idPersonaje = idPersonaje;
 	}
-
+	
 	public int getDefensa() {
 		return defensa;
 	}
-
+	
 	public void setDefensa(int defensa) {
 		this.defensa = defensa;
 	}
-
+	
 	public int getSaludTope() {
 		return saludTope;
 	}
-
+	
 	public void setSaludTope(int saludTope) {
 		this.saludTope = saludTope;
 	}
-
+	
 	public int getEnergiaTope() {
 		return energiaTope;
 	}
-
+	
 	public void setEnergiaTope(int energiaTope) {
 		this.energiaTope = energiaTope;
 	}
-
+	/**
+	 * Establece el ataque por parte del personaje llamador al personaje atacado,teniendo en cuenta la posibilidad de causar golpe crítico.
+	 * @param atacado Recibe una instancia de otra clase, la cual representa al personaje que ha de recibir el daño.
+	 * @return Daño infligido real, o 0 de no ser posible provocar daño.
+	 */
 	public int atacar(Peleable atacado) {
 		if (salud == 0)
 			return 0;
@@ -292,7 +303,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	public boolean estaVivo() {
 		return salud > 0;
 	}
-
+	/**
+	 * Calcula el daño efectivo sufrido a partir las características del personaje en cuestión y el daño recibido.
+	 * @param daño Representa el daño, previamente calculado, que el rival está habilitado a infligir.
+	 * @return Devuelve 0 en caso de no ser posible producir daño; el daño mismo si daño<salud; o el valor anterior de salud antes de ser atacado si salud<=daño
+	 */
 	public int serAtacado(int daÃ±o) {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaÃ±o()) {
 			daÃ±o -= this.defensa;
