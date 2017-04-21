@@ -1,5 +1,8 @@
 package dominio;
-
+/*
+ * Se definen las habilidades especiales de la clase Guerrero 
+ * que tiene los atributos definidos por la clase Casta
+ */
 public class Guerrero extends Casta {
 
 	public Guerrero(double prob_crit, double evasion, double daño_crit) {
@@ -16,7 +19,15 @@ public class Guerrero extends Casta {
 		habilidadesCasta[1] = "Aumentar Defensa";
 		habilidadesCasta[2] = "Ignorar Defensa";
 	}
-
+	/*
+	 * Permite que un Personaje Peleable Guerrero ataque y le saque
+	 * el doble de daño a otro Personaje Peleable
+	 * @return Boolean: True en caso de que la variable energia sea
+	 * mayor a 10 y false en caso contrario 
+	 * @param Un Personaje ya definido con sus atributos al cual
+	 * atacar y un Peleable que son las acciones a utilizar para 
+	 * atacar
+	 */
 	// Ataque Doble
 	public boolean habilidad1(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
@@ -36,7 +47,15 @@ public class Guerrero extends Casta {
 		}
 		return false;
 	}
-
+	/*
+	 * Permite que un Personaje Peleable Guerrero iguale la defensa
+	 * a cero y ataque al otro Personaje Peleable
+	 * @return Boolean: True en caso de que la variable energia sea
+	 * mayor a 10 y false en caso contrario 
+	 * @param Un Personaje ya definido con sus atributos al cual
+	 * atacar y un Peleable que son las acciones a utilizar para 
+	 * atacar
+	 */
 	// Ignorar Defensa
 	public boolean habilidad3(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
