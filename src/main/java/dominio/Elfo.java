@@ -1,20 +1,20 @@
 package dominio;
 
 /**
- * Clase que define las caracteristicas y habilidades 
- * de el tipo de personaje "Elfo"
+ * Define las caracteristicas y habilidades de un personaje Elfo
+ * 
+ * @since 21/04/2017
+ * @version 1.0
  */
 
 public class Elfo extends Personaje {
 
 	/**
-	 * Método que define el nombre, la casta y el id del
-	 * personaje de tipo "Elfo"
-	 * @param nombre de tipo string, es el nombre de un personaje creado
-	 * @param casta de tipo Casta, es la casta a la que pertenece el personaje
-	 * @param id de tipo int, define el id del personaje
-	 */
-	
+	 * Asigna un objeto Elfo y lo inicializa de acuerdo a los parÃ¡metros recibidos
+	 * @param nombre : Nombre del personaje 
+	 * @param casta : Casta a la que pertenece el personaje
+	 * @param id : Identificador Ãºnico del personaje
+	 */	
 	public Elfo(String nombre, Casta casta, int id) {
 		super(nombre, casta, id);
 		energiaTope += 10;
@@ -28,28 +28,18 @@ public class Elfo extends Personaje {
 	}
     
 	/**
-	 * Método que define las habilidades de la raza de personaje "Elfo",
-	 * no tiene retorno
-	 * @param nombre de tipo string, nombre de un personaje creado
-	 * @param salud de tipo int, cantidad de salud del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param energia de tipo int, cantidad de energia  del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param fuerza de tipo int, cantidad de fuerza  del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param destreza de tipo int, cantidad de destreza  del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param inteligencia de tipo int, cantidad de inteligencia del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param casta de tipo Casta, corresponde a el tipo de casta del personaje.
-	 * @param experiencia de tipo int, es la cantidad de experiencia  del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param nivel de tipo int, corresponde a el nivel del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 * @param idPersonaje de tipo int, nivel del personaje al que se le 
-	 * quiere determinar su habilidad.
-	 */
-	
+	 * Asigna un objeto Elfo y lo inicializa de acuerdo a los parÃ¡metros recibidos
+	 * @param nombre : Nombre del personaje.
+	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
+	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
+	 * @param fuerza : Cantidad de fuerza inicial del personaje.
+	 * @param destreza : Cantidad de destreza inicial del personaje.
+	 * @param inteligencia : Cantidad de inteligencia inicial del personaje.
+	 * @param casta : Casta a la que el personaje deberÃ¡ pertenecer.
+	 * @param experiencia : Cantidad de experiencia inicial del personaje.
+	 * @param nivel : Nivel inicial del personaje.
+	 * @param idPersonaje : Identificador Ãºnico del personaje
+	 */	
 	public Elfo(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel,
 			int idPersonaje) {
@@ -63,10 +53,9 @@ public class Elfo extends Personaje {
 	}
 
 	/**
-	 * Método que determina el resultado de una pelea
-	 * que utilice la habilidad "Golpe Level".
-	 * @param atacado : De tipo Peleable, es el personaje que recibe el ataque.
-	 * @return boolean : Retorna verdadero o falso dependiendo de la cantidad de energia
+	 * Permite al Elfo atacar a otro personaje utilizando la primer habilidad.
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return boolean : True si el Elfo pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
@@ -78,10 +67,9 @@ public class Elfo extends Personaje {
 	}
 
 	/**
-	 * Método que determina el resultado de una pelea
-	 * que utilice la habilidad "Ataque Bosque".
-	 * @param atacado : De tipo Peleable, es el personaje que recibe el ataque.
-	 * @return boolean : Retorna verdadero o falso dependiendo de la cantidad de energia
+	 * Permite al Elfo atacar a otro personaje utilizando la segunda habilidad.
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return boolean : True si el Elfo pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
