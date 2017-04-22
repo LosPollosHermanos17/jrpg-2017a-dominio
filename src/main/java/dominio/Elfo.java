@@ -53,9 +53,9 @@ public class Elfo extends Personaje {
 	}
 
 	/**
-	 * Permite al Elfo atacar a otro personaje utilizando la primer habilidad.
+	 * Permite atacar a otro personaje utilizando el golpe level
 	 * @param atacado : Es el personaje que recibe el ataque.
-	 * @return boolean : True si el Elfo pudo atacar al otro personaje.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
@@ -67,9 +67,9 @@ public class Elfo extends Personaje {
 	}
 
 	/**
-	 * Permite al Elfo atacar a otro personaje utilizando la segunda habilidad.
+	 * Permite atacar a otro personaje utilizando el golpe level
 	 * @param atacado : Es el personaje que recibe el ataque.
-	 * @return boolean : True si el Elfo pudo atacar al otro personaje.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {

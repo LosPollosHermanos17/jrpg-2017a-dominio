@@ -1,12 +1,9 @@
 package dominio;
-
-
- /*
- * Define las acciones de las clases que 
- * implementen esta interfaz
+/**
+ * Define las caracteristicas y habilidades de un objeto Peleable
  * 
- * 
- * @param Se definen los metodos a implementar
+ * @since 21/04/2017
+ * @version 1.0
  */
 public interface Peleable {
 	public int serAtacado(int daño);

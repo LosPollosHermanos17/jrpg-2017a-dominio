@@ -1,6 +1,6 @@
 package dominio;
 /**
- * Establece, de acuerdo a la dificultad deseada, el conjunto de características deseadas para estos personajes controlados en forma automática.
+ * Establece, de acuerdo a la dificultad deseada, el conjunto de caracterï¿½sticas deseadas para estos personajes controlados en forma automï¿½tica.
  */
 public class NonPlayableCharacter implements Peleable {
 
@@ -87,10 +87,11 @@ public class NonPlayableCharacter implements Peleable {
 	public void setSalud(int salud) {
 		this.salud = salud;
 	}
+	
 	/**
-	 * Establece el ataque por parte del NPC a otro personaje teniendo en cuenta la posibilidad de causar golpe crítico.
-	 * @param atacado Recibe una instancia de otra clase, la cual representa al personaje que ha de recibir el daño.
-	 * @return Daño infligido real, o 0 de no ser posible provocar daño.
+	 * Permite atacar a otro personaje
+	 * @param atacado Personaje a atacar
+	 * @return Devuelve el daÃ±o efectivo infligido al personaje
 	 */
 	public int atacar(Peleable atacado) {
 		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
@@ -98,10 +99,11 @@ public class NonPlayableCharacter implements Peleable {
 		} else
 			return atacado.serAtacado(this.getAtaque());
 	}
+	
 	/**
-	 * Calcula el daño efectivo sufrido a partir las características del personaje en cuestión y el daño recibido.
-	 * @param daño Representa el daño, previamente calculado, que el rival está habilitado a infligir.
-	 * @return Devuelve 0 en caso de no ser posible producir daño o si daño<defensa. De haber sido efectivo el ataque, devuelve el valor del daño. 
+	 * Permite que el personaje sea atacado
+	 * @param daÃ±o : Cantidad que indica el daÃ±o a infligir sobre el personaje
+	 * @return Devuelve el daÃ±o efectivo infligido al personaje
 	 */
 	public int serAtacado(int daÃ±o) {
 		if (MyRandom.nextDouble() >= 0.15) {

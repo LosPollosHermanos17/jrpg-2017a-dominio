@@ -1,14 +1,19 @@
 package dominio;
 
+/**
+ * Define las caracteristicas y habilidades de un personaje Humano
+ * 
+ * @since 21/04/2017
+ * @version 1.0
+ */
 public class Humano extends Personaje {
 
 	/**
-	 * Constructor
-	 * @param nombre Nombre del personaje
-	 * @param casta Casta del personaje
-	 * @param id iD del personaje
-	 */
-	
+	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
+	 * @param nombre : Nombre del personaje 
+	 * @param casta : Casta a la que deberá pertenecer.
+	 * @param id : Identificador único del personaje
+	 */	
 	public Humano(String nombre, Casta casta, int id) {
 		super(nombre, casta, id);
 		saludTope += 5;
@@ -19,19 +24,18 @@ public class Humano extends Personaje {
 	}
 
 	/**
-	 * Constructor
-	 * @param nombre String Nombre del personaje
-	 * @param salud int Salud del personaje
-	 * @param energia int Energia del personaje
-	 * @param fuerza int Fuerza del personaje
-	 * @param destreza int Destreza del personaje
-	 * @param inteligencia int Inteligencia del personaje
-	 * @param casta Casta Casta del personaje
-	 * @param experiencia int Experiencia del personaje
-	 * @param nivel int Nivel del personaje
-	 * @param idPersonaje int iD del personaje
+	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
+	 * @param nombre : Nombre del personaje.
+	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
+	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
+	 * @param fuerza : Cantidad de fuerza inicial del personaje.
+	 * @param destreza : Cantidad de destreza inicial del personaje.
+	 * @param inteligencia : Cantidad de inteligencia inicial del personaje.
+	 * @param casta : Casta a la que el personaje deberá pertenecer.
+	 * @param experiencia : Cantidad de experiencia inicial del personaje.
+	 * @param nivel : Nivel inicial del personaje.
+	 * @param idPersonaje : Identificador único del personaje
 	 */
-	
 	public Humano(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
 		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
@@ -43,12 +47,10 @@ public class Humano extends Personaje {
 	}
 
 	/**
-	 *Devuelve un boolean en funcion del resultado del calculo de los parametros
-	 *@param atacado Peleable El personaje atacado
-	 *@return retorna un boolean en funcion del resultado calculado
+	 * Permite atacar a otro personaje utilizando la habilidad de incentivar
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
-	
-	// Incentivar
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -59,12 +61,10 @@ public class Humano extends Personaje {
 	}
 
 	/**
-	 *Devuelve un boolean en funcion del resultado del calculo de los parametros
-	 *@param atacado Peleable El personaje atacado
-	 *@return retorna un boolean en funcion del resultado calculado
+	 * Permite atacar a otro personaje utilizando el golpe fatal
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
-	
-	// Golpe Fatal
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			if (atacado.serAtacado(atacado.getSalud() / 2) > 0) {

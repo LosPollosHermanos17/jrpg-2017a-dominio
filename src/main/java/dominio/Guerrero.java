@@ -1,6 +1,9 @@
 package dominio;
-/*
- * Se definen las habilidades con las que cuenta Guerrero. 
+/**
+ * Define las caracteristicas y habilidades de un personaje Guerrero
+ * 
+ * @since 21/04/2017
+ * @version 1.0
  */
 public class Guerrero extends Casta {
 
@@ -18,15 +21,13 @@ public class Guerrero extends Casta {
 		habilidadesCasta[1] = "Aumentar Defensa";
 		habilidadesCasta[2] = "Ignorar Defensa";
 	}
-	/*
-	 * Permite que un personaje le quite el doble
-	 * de salud al personaje atacado
-	 * @return True si pudo atacar
-	 * @return False si no puedo atacar
-	 * @param casta Personaje atacante
-	 * @param atacado Personaje atacado
+
+	/**
+	 * Permite que un personaje pueda atacar a otro personaje con el doble de fuerza
+	 * @param casta : Es el personaje atacante
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	// Ataque Doble
 	public boolean habilidad1(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -36,7 +37,12 @@ public class Guerrero extends Casta {
 		return false;
 	}
 	
-	// Aumentar Defensa
+	/**
+	 * Permite que un personaje pueda aumentar su defensa
+	 * @param casta : Es el personaje que aumenta su defensa.
+	 * @param atacado : Es el personaje de quien se defiende.
+	 * @return True si el personaje pudo atacar al otro personaje.
+	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -45,14 +51,13 @@ public class Guerrero extends Casta {
 		}
 		return false;
 	}
-	/*
-	 * Permite que un personaje le quite salud ignorando
-	 * la defensa
-	 * @return True si pudo atacar
-	 * @param casta Personaje atacante
-	 * @param atacado Personaje atacado
+
+	/**
+	 * Permite que un personaje pueda atacar a otro personaje anulando su defensa
+	 * @param casta : Es el personaje atacante
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	// Ignorar Defensa
 	public boolean habilidad3(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

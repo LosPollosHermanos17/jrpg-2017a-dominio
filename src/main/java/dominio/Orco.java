@@ -1,10 +1,18 @@
 package dominio;
 /**
- * Clase derivada de Personaje. se define las habilidades y la raza correspondiente dentro de Orco.
- * @version ultimate
+ * Define las caracteristicas y habilidades de un personaje Orco
+ * 
+ * @since 21/04/2017
+ * @version 1.0
  */
 public class Orco extends Personaje {
 
+	/**
+	 * Asigna un objeto Orco y lo inicializa de acuerdo a los parÃ¡metros recibidos
+	 * @param nombre : Nombre del personaje 
+	 * @param casta : Casta a la que deberÃ¡ pertenecer.
+	 * @param id : Identificador Ãºnico del personaje
+	 */	
 	public Orco(String nombre, Casta casta, int id) {
 		super(nombre, casta, id);
 		saludTope += 10;
@@ -17,6 +25,19 @@ public class Orco extends Personaje {
 		habilidadesRaza[1] = "Mordisco de Vida";
 	}
 
+	/**
+	 * Asigna un objeto Orco y lo inicializa de acuerdo a los parÃ¡metros recibidos
+	 * @param nombre : Nombre del personaje.
+	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
+	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
+	 * @param fuerza : Cantidad de fuerza inicial del personaje.
+	 * @param destreza : Cantidad de destreza inicial del personaje.
+	 * @param inteligencia : Cantidad de inteligencia inicial del personaje.
+	 * @param casta : Casta a la que el personaje deberÃ¡ pertenecer.
+	 * @param experiencia : Cantidad de experiencia inicial del personaje.
+	 * @param nivel : Nivel inicial del personaje.
+	 * @param idPersonaje : Identificador Ãºnico del personaje
+	 */	
 	public Orco(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
 		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
@@ -26,12 +47,12 @@ public class Orco extends Personaje {
 		habilidadesRaza[0] = "Golpe Defensa";
 		habilidadesRaza[1] = "Mordisco de Vida";
 	}
+	
 	/**
-	 * Establece ataque por habilidad, de ser posible, causando daño equivalente al doble de la propia defensa.
-	 * @param atacado La instancia de Personaje es enviada en pos de efectivizar el ataque.
-	 * @return true si daño infligido > 0, al mismo tiempo que el objeto llamador disponga de energía suficiente.
+	 * Permite atacar a otro personaje usando el golpe defensa 
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
-	// Golpe Defensa
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -40,12 +61,12 @@ public class Orco extends Personaje {
 		}
 		return false;
 	}
+	
 	/**
-	 * Establece ataque por habilidad, de ser posible, causando daño y curando al personaje en valores equivalentes al daño efectivo causado.
-	 * @param atacado La instancia de Personaje es enviada en pos de efectivizar el ataque.
-	 * @return true si daño causado > 0, al mismo tiempo que el objeto llamador disponga de energía suficiente. En otro caso, false
+	 * Permite atacar a otro personaje usando el mordisco de vida
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si se pudo atacar al otro personaje.
 	 */
-	// Mordisco de Vida
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);

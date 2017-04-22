@@ -2,9 +2,11 @@ package dominio;
 
 import java.io.Serializable;
 
-/*
- * Se definen las cualidades porcentuales, nombre y habilidades de cada tipo de Personaje
- *@param Setter de probabilidad de generar golpe critico
+/**
+ * Define las caracteristicas y habilidades de un objeto Casta
+ * 
+ * @since 21/04/2017
+ * @version 1.0
  */
 public abstract class Casta implements Serializable {
 	protected double probabilidadGolpeCritico;
@@ -14,12 +16,21 @@ public abstract class Casta implements Serializable {
 
 	protected String[] habilidadesCasta;
 
+	/**
+	 * Asigna un objeto Hechicero y lo inicializa 
+	 */
 	public Casta() {
 		this.probabilidadGolpeCritico = 0.2;
 		this.probabilidadEvitarDaño = 0.2;
 		this.dañoCritico = 1.5;
 	}
 
+	/**
+	 * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros recibidos
+	 * @param prob_crit : Probabilidad de golpe critico.
+	 * @param evasion : Valor de evasion.
+	 * @param daño_crit : Valor del daño crítico.
+	 */	
 	public Casta(double prob_crit, double evasion, double daño_crit) {
 		this.probabilidadGolpeCritico = prob_crit;
 		this.probabilidadEvitarDaño = evasion;
@@ -42,16 +53,8 @@ public abstract class Casta implements Serializable {
 
 	public double getProbabilidadGolpeCritico() {
 		return probabilidadGolpeCritico;
-	}
-	
-	/*
-	 * Setter de la probabilidad de generar un golpe critico
-	 * Recibe como parametro un Double 
-	 * que sirve como porcentaje de un golpe critico
-	 * 
-	 *
-	 *@param Setter de probabilidad de generar golpe critico
-	 */
+	}	
+
 	public void setProbabilidadGolpeCritico(double probabilidadGolpeCritico) {
 		this.probabilidadGolpeCritico = probabilidadGolpeCritico;
 	}
@@ -59,15 +62,7 @@ public abstract class Casta implements Serializable {
 	public double getProbabilidadEvitarDaño() {
 		return probabilidadEvitarDaño;
 	}
-
-	/*
-	 * Setter de la probabilidad de evitar un daño
-	 * Recibe como parametro un Double 
-	 * que sirve como porcentaje de evitar un daño
-	 * 
-	 *
-	 *@param Setter de probabilidad de evitar un daño
-	 */
+	
 	public void setProbabilidadEvitarDaño(double probabilidadEvitarDaño) {
 		this.probabilidadEvitarDaño = probabilidadEvitarDaño;
 	}

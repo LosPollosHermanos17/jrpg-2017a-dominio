@@ -16,7 +16,12 @@ public class Asesino extends Casta {
 		habilidadesCasta[2] = "Robar";
 	}
 
-	// Golpe Crítico
+	/**
+	 * Permite que un personaje pueda atacar a otro personaje usando un golpe crítico
+	 * @param casta : Es el personaje atacante
+	 * @param atacado : Es el personaje que recibe el ataque.
+	 * @return True si el personaje pudo atacar al otro personaje.
+	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -26,7 +31,12 @@ public class Asesino extends Casta {
 		return false;
 	}
 
-	// Aumentar Evasion
+	/**
+	 * Permite que un personaje pueda aumentar su evasión
+	 * @param casta : Es el personaje que aumenta su evasión.
+	 * @param atacado : Es el personaje de quien se quiere evadir.
+	 * @return True si el personaje pudo aumentar la evasión
+	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -39,7 +49,12 @@ public class Asesino extends Casta {
 		return false;
 	}
 
-	// Robar
+	/**
+	 * Permite que un personaje pueda robar a otro personaje
+	 * @param casta : Es el personaje que roba
+	 * @param atacado : Es el personaje robado.
+	 * @return True si el personaje pudo robar al otro personaje.
+	 */
 	public boolean habilidad3(Personaje caster, Peleable atacado) {
 		return false;
 	}

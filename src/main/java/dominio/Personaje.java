@@ -2,10 +2,10 @@ package dominio;
 
 import java.io.Serializable;
 /**
- * Esta clase es usada de plantilla para crear personajes con un conjunto de características generales que lo definen, e información de índole general.
- * @author El grupo del año pasado
- * @version Ni idea 2.0
- *
+ * Define las caracteristicas y habilidades de un Personaje
+ * 
+ * @since 21/04/2017
+ * @version 1.0
  */
 public abstract class Personaje implements Peleable, Serializable {
 	//campos de la clase
@@ -84,9 +84,21 @@ public abstract class Personaje implements Peleable, Serializable {
 
 	}
 	
+	/**
+	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parÃ¡metros recibidos
+	 * @param nombre : Nombre del personaje.
+	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
+	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
+	 * @param fuerza : Cantidad de fuerza inicial del personaje.
+	 * @param destreza : Cantidad de destreza inicial del personaje.
+	 * @param inteligencia : Cantidad de inteligencia inicial del personaje.
+	 * @param casta : Casta a la que el personaje deberÃ¡ pertenecer.
+	 * @param experiencia : Cantidad de experiencia inicial del personaje.
+	 * @param nivel : Nivel inicial del personaje.
+	 * @param idPersonaje : Identificador Ãºnico del personaje
+	 */	
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
-			int experiencia, int nivel,
-			int idPersonaje) {
+			int experiencia, int nivel, int idPersonaje) {
 
 		this.nombre = nombre;
 		this.salud = salud;
@@ -244,10 +256,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	public void setEnergiaTope(int energiaTope) {
 		this.energiaTope = energiaTope;
 	}
+
 	/**
-	 * Establece el ataque por parte del personaje llamador al personaje atacado,teniendo en cuenta la posibilidad de causar golpe crítico.
-	 * @param atacado Recibe una instancia de otra clase, la cual representa al personaje que ha de recibir el daño.
-	 * @return Daño infligido real, o 0 de no ser posible provocar daño.
+	 * Permite atacar a otro personaje
+	 * @param atacado Personaje a atacar
+	 * @return Devuelve el daÃ±o efectivo infligido al personaje
 	 */
 	public int atacar(Peleable atacado) {
 		if (salud == 0)
@@ -303,10 +316,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	public boolean estaVivo() {
 		return salud > 0;
 	}
+
 	/**
-	 * Calcula el daño efectivo sufrido a partir las características del personaje en cuestión y el daño recibido.
-	 * @param daño Representa el daño, previamente calculado, que el rival está habilitado a infligir.
-	 * @return Devuelve 0 en caso de no ser posible producir daño; el daño mismo si daño<salud; o el valor anterior de salud antes de ser atacado si salud<=daño
+	 * Permite que el personaje sea atacado
+	 * @param daÃ±o : Cantidad que indica el daÃ±o a infligir sobre el personaje
+	 * @return Devuelve el daÃ±o efectivo infligido al personaje
 	 */
 	public int serAtacado(int daÃ±o) {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaÃ±o()) {
