@@ -11,3 +11,32 @@ Rodrigo: Elfo
 Mati: Guerrero
 Ale: Hechisero, Humano, MyRandom
 Maxi: NonPlayableCharacter, Orco, Personaje
+
+
+TP2
+
+Consigna:
+https://github.com/programacion-avanzada/jrpg-2017a-consigna/blob/master/20170506-segunda-entrega.md
+
+TP2
+
+Consigna:
+https://github.com/programacion-avanzada/jrpg-2017a-consigna/blob/master/20170506-segunda-entrega.md
+
+1) Javadoc y Checkstyle,6) eliminar comentarios de todos lados. (Maxi) 
+2) Test Unitarios e instalar la aplicacion ()
+
+Fede: Asesino, Alianza
+Rodrigo: Elfo, Casta
+Mati: Guerrero, Peliable,
+Ale:  Personaje , NonPlayableCharacter,
+Maxi: , Orco, MyRandom
+Carlos : Hechisero, Humano,
+    
+3) Crear abstraccion de Personaje y NonPlayableCharacter (Ale)
+4) Orco,Humano y Elfo: codigo duplicado en cosntructor (Matias) 
+5) Personaje,  eliminar instanceof Eliminarlo de todos lados instance Of (Fede)
+
+
+
+
