@@ -13,10 +13,6 @@ Ale: Hechisero, Humano, MyRandom
 Maxi: NonPlayableCharacter, Orco, Personaje
 
 
-TP2
-
-Consigna:
-https://github.com/programacion-avanzada/jrpg-2017a-consigna/blob/master/20170506-segunda-entrega.md
 
 TP2
 
