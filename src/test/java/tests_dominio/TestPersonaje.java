@@ -11,10 +11,55 @@ public class TestPersonaje {
 	public void testPersonaje(){
 		Humano p1 = new Humano("Personaje",100,100,100,100,100,new Hechicero(),100,100,100);
 		Humano p2 = new Humano("Personaje",100,100,100,100,100,new Hechicero(),100,0,100);
+		Humano p3 = new Humano("Personaje",0,0,0,0,0,new Hechicero(),0,0,0);
 		p1.cargarTablaNivel();
 		p1.subirNivel();
-		p2.subirNivel();
-		p2.ganarExperiencia(100);
+		p3.subirNivel();
+		Assert.assertTrue(p3.getNivel() == 1);
+		p3.setExperiencia(10);
+		Assert.assertTrue(p3.getExperiencia() == 10);
+		p3.ganarExperiencia(10);
+		Assert.assertTrue(p3.getExperiencia() == 20);
+		p3.setNombre("Nombre");
+		Assert.assertTrue(p3.getNombre() == "Nombre");
+		p3.setNombreRaza("Raza");
+		Assert.assertTrue(p3.getNombreRaza() == "Raza");
+		p3.getCasta();
+		p1.getClan();
+		p1.golpe_critico();
+		p3.setMagia(10);
+		Assert.assertTrue(p3.getMagia() == 10);
+		p3.setSalud(10);
+		Assert.assertTrue(p3.getSalud() == 10);
+		p3.setSaludTope(10);
+		Assert.assertTrue(p3.getSaludTope() == 10);
+		p3.setFuerza(10);
+		Assert.assertTrue(p3.getFuerza() == 10);
+		p3.setEnergia(10);
+		Assert.assertTrue(p3.getEnergia() == 10);
+		p3.setInteligencia(10);
+		Assert.assertTrue(p3.getInteligencia() == 10);
+		p3.setDefensa(10);
+		Assert.assertTrue(p3.getDefensa() == 10);
+		p3.setDestreza(10);
+		Assert.assertTrue(p3.getDestreza() == 10);
+		p3.serEnergizado(10);
+		Assert.assertTrue(p3.getEnergia() == 20);
+		p3.setEnergiaTope(10);
+		Assert.assertTrue(p3.getEnergiaTope() == 10);
+		p3.setSaludTope(10);
+		Assert.assertTrue(p3.getSaludTope() == 10);
+		p3.setIdPersonaje(10);
+		Assert.assertTrue(p3.getIdPersonaje() == 10);
+		p3.setNivel(1);
+		Assert.assertTrue(p3.otorgarExp() == 40);
+		Assert.assertTrue(p3.getNivel() == 1);
+		p3.setCasta(new Hechicero());
+		p3.setExperiencia(10);
+		Assert.assertTrue(p3.getExperiencia() == 10);
+		p2.crearAlianza("Nombre");
+		Assert.assertTrue(p2.getClan().obtenerNombre()=="Nombre");
+		
 	}
 	
 	@Test
@@ -40,29 +85,31 @@ public class TestPersonaje {
 		Assert.assertTrue(h3.getDestreza() == 15);
 		Assert.assertTrue(h3.getInteligencia() == 10);
 		
-		h3.AsignarPuntosSkills(100, 1, 1);
+		h3.AsignarPuntosSkills(100, 100, 100);
+		Assert.assertTrue(h3.getFuerza() == 110);
+		Assert.assertTrue(h3.getInteligencia() == 110);
+		Assert.assertTrue(h3.getDestreza() == 115);
 		
 		h3.atacar(h2);
 		
 		h3.aliar(h2);
 		
-		h3.calcularPuntosDeAtaque();
-		
-		h3.calcularPuntosDeDefensa();
-		
-		h3.calcularPuntosDeMagia();
-		
-		h3.crearAlianza("Alianza");
+		Assert.assertTrue(h3.getFuerza()*1.5 == h3.calcularPuntosDeAtaque());
+		Assert.assertTrue(h3.getDestreza() == h3.calcularPuntosDeDefensa());
+		Assert.assertTrue(h3.getInteligencia()*1.5 == h3.calcularPuntosDeMagia());
 		
 		h3.despuesDeTurno();
 		
 		h3.distanciaCon(h2);
 		
 		h3.equals(h3);
+		Assert.assertTrue(h3.getNombre() == h3.getNombre());
 		
 		h3.equals(h2);
+		Assert.assertTrue(h3.getNombre() != h2.getNombre());
 		
 		h3.estaVivo();
+		Assert.assertTrue(h3.getSalud() > 0);
 		
 		h3.getHabilidadesCasta();
 		
@@ -78,21 +125,31 @@ public class TestPersonaje {
 		
 		h3.getHabilidadesRaza();
 		
-		h3.puedeAtacar();
+		Assert.assertTrue(h3.puedeAtacar());
 		
 		h3.restablecerEnergia();
+		Assert.assertTrue(h3.getEnergia()==h3.getEnergiaTope());
 		
 		h3.restablecerSalud();
+		Assert.assertTrue(h3.getSalud()==h3.getSaludTope());
 		
 		h3.salirDeAlianza();
+		Assert.assertTrue(h3.getClan()==null);
 		
 		h3.serAtacado(1000);
 		
 		h3.serCurado(1000);
+		Assert.assertTrue(h3.getSalud() == h3.getSaludTope());
 		
 		h3.serDesernegizado(1000);
+		Assert.assertTrue(h3.getEnergia() == 0);
 		
-		h3.serRobadoSalud(20);
+		h3.serRobadoSalud(1);
+		Assert.assertTrue(h3.getSalud() == h3.getSaludTope());
+		h3.serRobadoSalud(150);
+		Assert.assertTrue(h3.getSalud() == 70);
+		h3.serRobadoSalud(1500);
+		Assert.assertTrue(h3.getSalud() == 0);
 		
 		
 	}
@@ -101,7 +158,7 @@ public class TestPersonaje {
 	
 	@Test
 	public void testElfo() {
-		Elfo e1 = new Elfo("Personaje",100,100,100,100,100,new Hechicero(),100,100,100);
+		Elfo e1 = new Elfo("Personaje",0,0,0,0,0,new Hechicero(),0,0,0);
 		
 		
 		Elfo e = new Elfo("Nicolas", new Guerrero(), 1);
@@ -125,64 +182,19 @@ public class TestPersonaje {
 		Assert.assertTrue(e3.getDestreza() == 15);
 		Assert.assertTrue(e3.getInteligencia() == 10);
 		
-		e3.AsignarPuntosSkills(100, 1, 1);
+		Assert.assertTrue(e3.habilidadRaza1(e2) == true);
+		Assert.assertTrue(e3.habilidadRaza2(e2) == true);
 		
-		e3.atacar(e2);
+		Assert.assertTrue(e1.habilidadRaza1(e2) == false);
+		Assert.assertTrue(e1.habilidadRaza2(e2) == false);
 		
-		e3.aliar(e2);
-		
-		e3.calcularPuntosDeAtaque();
-		
-		e3.calcularPuntosDeDefensa();
-		
-		e3.calcularPuntosDeMagia();
-		
-		e3.crearAlianza("Alianza");
-		
-		e3.despuesDeTurno();
-		
-		e3.distanciaCon(e2);
-		
-		e3.equals(e3);
-		
-		e3.equals(e2);
-		
-		e3.estaVivo();
-		
-		e3.getHabilidadesCasta();
-		
-		e3.habilidadCasta1(e2);
-		
-		e3.habilidadCasta2(e2);
-		
-		e3.habilidadCasta3(e2);
-		
-		e3.habilidadRaza1(e2);
-		
-		e3.habilidadRaza2(e2);
-		
-		e3.puedeAtacar();
-		
-		e3.restablecerEnergia();
-		
-		e3.restablecerSalud();
-		
-		e3.salirDeAlianza();
-		
-		e3.serAtacado(1000);
-		
-		e3.serCurado(1000);
-		
-		e3.serDesernegizado(1000);
-		
-		e3.serRobadoSalud(20);
 		
 		
 	}
 
 	@Test
 	public void testOrco() {
-		Orco o1 = new Orco("Personaje",100,100,100,100,100,new Hechicero(),100,100,100);
+		Orco o1 = new Orco("Personaje",0,0,0,0,0,new Hechicero(),0,0,0);
 		
 		Orco o = new Orco("Nicolas", new Guerrero(), 1);
 		Assert.assertTrue(o.getSalud() == 110);
@@ -205,56 +217,14 @@ public class TestPersonaje {
 		Assert.assertTrue(o3.getDestreza() == 15);
 		Assert.assertTrue(o3.getInteligencia() == 10);
 		
-		o3.AsignarPuntosSkills(100, 1, 1);
+		Assert.assertTrue(o3.habilidadRaza1(o2) == true);
+		Assert.assertTrue(o3.habilidadRaza2(o2) == false);
 		
-		o3.atacar(o2);
+		Assert.assertTrue(o1.habilidadRaza1(o2) == false);
+		Assert.assertTrue(o1.habilidadRaza2(o2) == false);
 		
-		o3.aliar(o2);
 		
-		o3.calcularPuntosDeAtaque();
 		
-		o3.calcularPuntosDeDefensa();
 		
-		o3.calcularPuntosDeMagia();
-		
-		o3.crearAlianza("Alianza");
-		
-		o3.despuesDeTurno();
-		
-		o3.distanciaCon(o2);
-		
-		o3.equals(o3);
-		
-		o3.equals(o2);
-		
-		o3.estaVivo();
-		
-		o3.getHabilidadesCasta();
-		
-		o3.habilidadCasta1(o2);
-		
-		o3.habilidadCasta2(o2);
-		
-		o3.habilidadCasta3(o2);
-		
-		o3.habilidadRaza1(o2);
-		
-		o3.habilidadRaza2(o2);
-		
-		o3.puedeAtacar();
-		
-		o3.restablecerEnergia();
-		
-		o3.restablecerSalud();
-		
-		o3.salirDeAlianza();
-		
-		o3.serAtacado(1000);
-		
-		o3.serCurado(1000);
-		
-		o3.serDesernegizado(1000);
-		
-		o3.serRobadoSalud(20);
 	}
 }
