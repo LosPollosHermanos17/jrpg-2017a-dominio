@@ -8,21 +8,21 @@ import java.io.Serializable;
  * @since 21/04/2017
  * @version 1.0
  */
-public abstract class Personaje implements Peleable, Serializable {
+public abstract class Personaje extends Peleable implements Serializable {
 	// campos de la clase
-	protected int salud;
+	
 	protected int energia;
 	protected int defensa;// depende de la destreza
 	protected int ataque;// depende de la fuerza
 	protected int magia;// depende de la inteligencia
 
-	protected String nombre;// hay que agregarlo a todos los constructores
+	
 	protected String nombreRaza;
 
 	protected int saludTope;
 	protected int energiaTope;
 
-	protected int fuerza;
+	
 	protected int destreza;
 	protected int inteligencia;
 	protected Casta casta;
@@ -64,7 +64,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		this(nombre, casta, id);
 		saludTope += incSalud;
 		energiaTope += incEnergia;
-		salud = saludTope;
+		this.setSalud(saludTope);
 		energia = energiaTope;
 	}
 	
@@ -75,16 +75,16 @@ public abstract class Personaje implements Peleable, Serializable {
 	}
 	
 	public Personaje(String nombre, Casta casta, int id) {
-		this.nombre = nombre;
+		this.setNombre(nombre);
 		this.casta = casta;
 		this.idPersonaje = id;
 		experiencia = 0;
 		nivel = 1;
-		fuerza = 10;
+		this.setFuerza(10);
 		inteligencia = 10;
 		destreza = 10;
 		if (casta instanceof Guerrero)
-			fuerza += 5;
+			this.setFuerza(this.getFuerza()+5);
 		if (casta instanceof Hechicero)
 			inteligencia += 5;
 		if (casta instanceof Asesino)
@@ -95,7 +95,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		saludTope = 100;
 		energiaTope = 100;
 		
-		salud = saludTope;
+		this.setSalud(saludTope);
 		energia = energiaTope;
 		
 		ataque = this.calcularPuntosDeAtaque();
@@ -132,10 +132,10 @@ public abstract class Personaje implements Peleable, Serializable {
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
 
-		this.nombre = nombre;
-		this.salud = salud;
+		this.setNombre(nombre);
+		this.setSalud(salud);
 		this.energia = energia;
-		this.fuerza = fuerza;
+		this.setFuerza(fuerza);
 		this.destreza = destreza;
 		this.inteligencia = inteligencia;
 		this.casta = casta;
@@ -143,7 +143,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.experiencia = experiencia;
 		this.nivel = nivel;
 
-		this.saludTope = this.salud;
+		this.saludTope = this.getSalud();
 		this.energiaTope = this.energia;
 
 		this.idPersonaje = idPersonaje;
@@ -166,13 +166,9 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.nombreRaza = nombreRaza;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
+	
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	
 
 	public int getAtaque() {
 		return ataque;
@@ -199,13 +195,9 @@ public abstract class Personaje implements Peleable, Serializable {
 		clan.añadirPersonaje(this);
 	}
 
-	public int getSalud() {
-		return salud;
-	}
+	
 
-	public void setSalud(int salud) {
-		this.salud = salud;
-	}
+	
 
 	public int getEnergia() {
 		return energia;
@@ -215,13 +207,9 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.energia = energia;
 	}
 
-	public int getFuerza() {
-		return fuerza;
-	}
+	
 
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
-	}
+	
 
 	public int getDestreza() {
 		return destreza;
@@ -303,7 +291,7 @@ public abstract class Personaje implements Peleable, Serializable {
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
 	public int atacar(Peleable atacado) {
-		if (salud == 0)
+		if (this.getSalud() == 0)
 			return 0;
 		if (atacado.getSalud() > 0) {
 			if (MyRandom.nextDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
@@ -317,10 +305,6 @@ public abstract class Personaje implements Peleable, Serializable {
 
 	public int golpe_critico() {
 		return (int) (this.ataque * this.getCasta().getDañoCritico());
-	}
-
-	public void despuesDeTurno() {
-
 	}
 
 	public boolean puedeAtacar() {
@@ -340,7 +324,7 @@ public abstract class Personaje implements Peleable, Serializable {
 	}
 
 	public void restablecerSalud() {
-		this.salud = this.saludTope;
+		this.setSalud(this.saludTope);
 	}
 
 	public void restablecerEnergia() {
@@ -353,9 +337,7 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.magia = this.calcularPuntosDeMagia();
 	}
 
-	public boolean estaVivo() {
-		return salud > 0;
-	}
+	
 
 	/**
 	 * Permite que el personaje sea atacado
@@ -368,11 +350,11 @@ public abstract class Personaje implements Peleable, Serializable {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
 			daño -= this.defensa;
 			if (daño > 0) {
-				if (salud <= daño) {
-					daño = salud;
-					salud = 0;
+				if (this.getSalud() <= daño) {
+					daño = this.getSalud();
+					this.setSalud(0);
 				} else {
-					salud -= daño;
+					this.setSalud(this.getSalud()-daño);
 				}
 				return daño;
 			}
@@ -385,11 +367,11 @@ public abstract class Personaje implements Peleable, Serializable {
 		daño -= this.defensa;
 		if (daño <= 0)
 			return 0;
-		if ((salud - daño) >= 0)
-			salud -= daño;
+		if ((this.getSalud() - daño) >= 0)
+			this.setSalud(this.getSalud()-daño);
 		else {
-			daño = salud;// le queda menos salud que el daño inflingido
-			salud = 0;
+			daño = this.getSalud();// le queda menos salud que el daño inflingido
+			this.setSalud(0);
 		}
 		return daño;
 	}
@@ -408,10 +390,10 @@ public abstract class Personaje implements Peleable, Serializable {
 	}
 
 	public void serCurado(int salud) {
-		if ((this.salud + salud) <= this.saludTope)
-			this.salud += salud;
+		if ((this.getSalud() + salud) <= this.saludTope)
+			this.setSalud(this.getSalud()+salud);
 		else
-			this.salud = this.saludTope;
+			this.setSalud(this.saludTope);
 	}
 
 	public void serEnergizado(int energia) {
@@ -449,8 +431,8 @@ public abstract class Personaje implements Peleable, Serializable {
 	}
 
 	public void AsignarPuntosSkills(int fuerza, int destreza, int inteligencia) {
-		if (this.fuerza + fuerza <= 200)
-			this.fuerza += fuerza;
+		if (this.getFuerza() + fuerza <= 200)
+			this.setFuerza(this.getFuerza()+fuerza);
 		if (this.destreza + destreza <= 200)
 			this.destreza += destreza;
 		if (this.inteligencia + inteligencia <= 200)
