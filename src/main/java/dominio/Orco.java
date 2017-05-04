@@ -13,16 +13,8 @@ public class Orco extends Personaje {
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
 	 */	
-	public Orco(String nombre, Casta casta, int id) {
-		super(nombre, casta, id);
-		saludTope += 10;
-		salud = saludTope;
-		energia = energiaTope;
-		nombreRaza = "Orco";
-
-		habilidadesRaza = new String[2];
-		habilidadesRaza[0] = "Golpe Defensa";
-		habilidadesRaza[1] = "Mordisco de Vida";
+	public Orco(String nombre, Casta casta, int id) {		
+		super(nombre, casta, id, 10, 0,"Orco",new String[]{"Golpe Defensa","Mordisco de Vida"});
 	}
 
 	/**
@@ -40,12 +32,7 @@ public class Orco extends Personaje {
 	 */	
 	public Orco(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
-		nombreRaza = "Orco";
-
-		habilidadesRaza = new String[2];
-		habilidadesRaza[0] = "Golpe Defensa";
-		habilidadesRaza[1] = "Mordisco de Vida";
+		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje,"Orco",new String[]{"Golpe Defensa","Mordisco de Vida"});
 	}
 	
 	/**
