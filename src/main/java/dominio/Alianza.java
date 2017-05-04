@@ -3,24 +3,25 @@ package dominio;
 import java.util.LinkedList;
 
 /**
- * Define las caracteristicas y habilidades para poder crear Alianzas entre personajes
- * 
+ * Define las caracteristicas y habilidades para poder
+ * crear Alianzas entre personajes.
+ *
  * @since 21/04/2017
  * @version 1.0
  */
 public class Alianza {
 
-	String nombre;
-	LinkedList<Personaje> aliados;
-	
-	/**
-	 * Asigna un objeto Alianza y lo inicializa
-	 * @param nombre : Nombre de la alianza
-	 */
-	public Alianza(String nombre) {
-		this.nombre = nombre;
-		this.aliados = new LinkedList <Personaje>();
-	}
+    String nombre;
+    LinkedList<Personaje> aliados;
+
+    /**
+     * Inicializa un objeto Alianza con el nombre especificado.
+     * @param nombre : Nombre de la alianza
+     */
+    public Alianza(final String nombre) {
+      this.nombre = nombre;
+      this.aliados = new LinkedList<Personaje>();
+    }
 
 	/**
 	 * Devuelve la lista de personajes aliados
