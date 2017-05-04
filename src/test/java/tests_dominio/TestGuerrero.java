@@ -40,7 +40,7 @@ public class TestGuerrero {
 	}
 
 	@Test
-	public void testHechiceroPorDefecto() {
+	public void testGuerreroPorDefecto() {
 		Guerrero h = new Guerrero();
 	}
 
