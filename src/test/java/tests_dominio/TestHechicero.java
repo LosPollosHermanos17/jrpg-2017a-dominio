@@ -2,13 +2,29 @@ package tests_dominio;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
 import dominio.Asesino;
 import dominio.Elfo;
+import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
 
 public class TestHechicero {
+
+	@Test
+	public void testSinEnergia() {
+		Humano h = new Humano("Nico", 100, 3, 25, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
+		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+		Assert.assertFalse(h.habilidadCasta1(e));
+		Assert.assertFalse(h.habilidadCasta2(e));
+		Assert.assertFalse(h.habilidadCasta3(e));
+	}
+
+	@Test
+	public void testHechiceroPorDefecto() {
+		Hechicero h = new Hechicero();
+	}
 
 	@Test
 	public void testCurar() {
@@ -28,10 +44,9 @@ public class TestHechicero {
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
 		Assert.assertTrue(e.getSalud() == 100);
-		if (h.habilidadCasta1(e))
-			Assert.assertTrue(e.getSalud() < 100);
-		else
-			Assert.assertTrue(e.getSalud() == 100);
+		Assert.assertTrue(h.habilidadCasta1(e));
+		Assert.assertTrue(e.getSalud() < 100);
+
 	}
 
 	@Test
@@ -42,14 +57,11 @@ public class TestHechicero {
 		Assert.assertTrue(e.getSalud() == 100);
 		h.setSalud(50);
 		h.setEnergia(50);
-		if (h.habilidadCasta3(e)) {
-			Assert.assertTrue(e.getSalud() < 100);
-			Assert.assertTrue(h.getEnergia() > 50);
-			Assert.assertTrue(h.getSalud() > 50);
-		} else {
-			Assert.assertTrue(h.getSalud() == 50);
-			Assert.assertTrue(h.getEnergia() < 50);
-			Assert.assertTrue(e.getSalud() == 100);
-		}
+		Assert.assertTrue(h.habilidadCasta3(e));
+		Assert.assertTrue(e.getSalud() < 100);
+		Assert.assertTrue(h.getEnergia() > 50);
+		Assert.assertTrue(h.getSalud() > 50);
+
 	}
+
 }
