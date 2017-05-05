@@ -104,4 +104,15 @@ public class Asesino extends Casta {
                               final Peleable atacado) {
        return false;
      }
+
+
+     /**
+      * Inicializa un Personaje de tipo Asesino,
+      * incrementando su atributo <b>destreza</b>.
+      * @param p - objeto Personaje a inicializar.
+      */
+     public void inicializarPersonaje(Personaje p)
+     {
+        p.setDestreza(p.getDestreza() + 5);
+     }
 }
