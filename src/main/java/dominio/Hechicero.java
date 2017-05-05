@@ -82,4 +82,15 @@ public class Hechicero extends Casta {
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * Inicializa un Personaje de tipo Hechicero, 
+	 * incrementando su atributo <b>inteligencia</b>.
+	 * @param p - objeto Personaje a inicializar.
+	 */
+	public void inicializarPersonaje(Personaje p)
+	{
+		p.setInteligencia(p.getInteligencia() + 5);
+	}
 }

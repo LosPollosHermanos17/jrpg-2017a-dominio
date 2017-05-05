@@ -73,4 +73,16 @@ public class Guerrero extends Casta {
 		}
 		return false;
 	}
+	
+	
+	/**
+	 * Inicializa un Personaje de tipo Guerrero, 
+	 * incrementando su atributo <b>fuerza</b>.
+	 * @param p - objeto Personaje a inicializar.
+	 */
+	public void inicializarPersonaje(Personaje p)
+	{
+		p.setFuerza(p.getFuerza() + 5);
+	}
+	
 }

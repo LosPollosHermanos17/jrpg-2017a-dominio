@@ -11,55 +11,66 @@ import java.util.LinkedList;
  */
 public class Alianza {
 
-    String nombre;
-    LinkedList<Personaje> aliados;
+    /**
+     * Nombre de la Alianza.
+     */
+    private String nombre;
+
+    /**
+     * Vector de tipo LinkedList<Personaje> que contiene
+     * los personajes que forman parte de dicha alianza.
+     */
+    private LinkedList<Personaje> aliados;
 
     /**
      * Inicializa un objeto Alianza con el nombre especificado.
-     * @param nombre : Nombre de la alianza
+     * @param nombre - nombre de la alianza.
      */
     public Alianza(final String nombre) {
       this.nombre = nombre;
       this.aliados = new LinkedList<Personaje>();
     }
 
-	/**
-	 * Devuelve la lista de personajes aliados
-	 * @return Lista de personajes aliados
-	 */
-	public LinkedList<Personaje> getAliados() {
-		return aliados;
-	}
-	
-	/**
-	 * Permite añadir una lista de personajes aliados
-	 * @param aliados : Personajes aliados 
-	 */	
-	public void setAliados(LinkedList<Personaje> aliados) {
-		this.aliados = aliados;
-	}
+    /**
+     * Devuelve la lista de personajes aliados.
+     * @return un array de tipo LinkedList<Personaje> con los
+     *         integrantes de la alianza.
+     */
+     public LinkedList<Personaje> getAliados() {
+       return aliados;
+     }
 
-	/**
-	 * Devuelve el nombre de la alianza
-	 * @return Nombre de la alianza
-	 */
-	public String obtenerNombre(){
-		return nombre;
-	}
-	
-	/**
-	 * Elimina a un personaje de la alianza
-	 * @param pj Personaje a eliminar
-	 */
-	public void eliminarPersonaje(Personaje pj){
-		aliados.remove(pj);
-	}	
+    /**
+     * Setea el array de tipo LinkedList<Personaje> con los
+     * integrantes de la alianza.
+     * @param aliados - personajes que formaran parte de la alianza.
+     */
+     public void setAliados(final LinkedList<Personaje> aliados) {
+       this.aliados = aliados;
+     }
 
-	/**
-	 * Añade un personaje a la alianza
-	 * @param pj Personaje a añadir
-	 */
-	public void añadirPersonaje(Personaje pj){
-		aliados.add(pj);
-	}
+    /**
+     * Devuelve el nombre de la alianza.
+     * @return variable String que representa el nombre de la alianza.
+     */
+     public String obtenerNombre() {
+       return nombre;
+     }
+
+    /**
+     * Remueve el Personaje especificado del array <b>aliados</b>.
+     * @param pj - Personaje a eliminar del array.
+     */
+     public void eliminarPersonaje(final Personaje pj) {
+       aliados.remove(pj);
+     }
+
+    /**
+     * Agrega el Personaje especificado al array <b>aliados</b>.
+     * @param pj - Personaje a añadir al array.
+     */
+     public void añadirPersonaje(final Personaje pj) {
+       aliados.add(pj);
+     }
+
 }
