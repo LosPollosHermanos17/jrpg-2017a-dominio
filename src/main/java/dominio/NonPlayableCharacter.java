@@ -90,7 +90,7 @@ public class NonPlayableCharacter extends Peleable {
         }
         return 0;
     }
-    
+
     /**
      * Permite que el personaje sea atacado anulando su defensa
      * @param atacante : Es el personaje que ataca
@@ -99,12 +99,20 @@ public class NonPlayableCharacter extends Peleable {
     public boolean serAtacadoSinDefensa(final Personaje atacante) {
         return false;
     }
-    
+
     /**
      * Permite que al personaje le den salud
      * @param caster : Personaje que le va a dar salud
      */
-    public boolean serCurado(final Personaje caster) {     
+    public boolean serCurado(final Personaje aliado) {
+        return false;
+    }
+
+    /**
+     * Permite que al personaje le roben salud y energia
+     * @param atacante : Es el personaje que ataca
+     */
+    public boolean serRobadoYDesenergizado(final Personaje atacante) {
         return false;
     }
 

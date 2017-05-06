@@ -585,10 +585,22 @@ public abstract class Personaje extends Peleable implements Serializable {
 
     /**
      * Permite que al personaje le den salud
-     * @param caster : Personaje que le va a dar salud
+     * @param aliado : Personaje que le va a dar salud
      */
-    public boolean serCurado(final Personaje caster) {
-        this.serCurado(caster.calcularPuntosDeMagia());
+    public boolean serCurado(final Personaje aliado) {
+        this.serCurado(aliado.calcularPuntosDeMagia());
+        return true;
+    }
+
+    /**
+     * Permite que al personaje le roben salud y energia
+     * @param atacante : Es el personaje que ataca
+     */
+    public boolean serRobadoYDesenergizado(final Personaje atacante) {
+        int energiaRobada = this.serDesernegizado(atacante.calcularPuntosDeMagia());
+        int saludRobada = this.serRobadoSalud(atacante.calcularPuntosDeMagia() / 2);
+        atacante.serEnergizado(energiaRobada);
+        atacante.serCurado(saludRobada);
         return true;
     }
 
