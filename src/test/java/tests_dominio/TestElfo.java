@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import dominio.Asesino;
-import dominio.Casta;
 import dominio.Elfo;
 import dominio.Humano;
 
@@ -32,7 +31,7 @@ public class TestElfo {
       Assert.assertTrue(e.getEnergia() > 10);
     }
   }
-  
+
   @Test
   public void testAtaqueBosque() {
     Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
@@ -41,6 +40,6 @@ public class TestElfo {
     Assert.assertTrue(h.getSalud() == 100);
     if (e.habilidadRaza2(h)) {
       Assert.assertTrue(h.getSalud() < 100);
-    } 
-  }   
+        }
+    }
 }

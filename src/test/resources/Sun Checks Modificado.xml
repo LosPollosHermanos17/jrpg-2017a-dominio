@@ -4,18 +4,15 @@
 <!--
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
-<!--
-    Checkstyle-Configuration: Sun Modificado
-    Description: 
-Checkstyle configuration that checks the sun coding conventions.
--->
+<!-- Checkstyle-Configuration: Sun Modificado Description: Checkstyle configuration 
+	that checks the sun coding conventions. -->
 <module name="Checker">
   <property name="severity" value="warning"/>
   <property name="fileExtensions" value="java, properties, xml"/>
   <module name="TreeWalker">
     <module name="JavadocMethod"/>
     <module name="JavadocType"/>
-    <module name="JavadocVariable"/>   
+	<module name="JavadocVariable" />   
     <module name="JavadocStyle">
         <property name="checkFirstSentence" value="false"/>
     </module>
