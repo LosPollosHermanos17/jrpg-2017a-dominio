@@ -6,50 +6,50 @@ package dominio;
  * @version 1.0
  */
 public abstract class Peleable {
-	private int salud;
-	private int fuerza;
-	private String nombre;
+    private int salud;
+    private int fuerza;
+    private String nombre;
 
-	public abstract int serAtacado(int danio);
+    public abstract int serAtacado(int danio);
 
-	public int getSalud() {
-		return this.salud;
-	}
+    public int getSalud() {
+        return this.salud;
+    }
 
-	public void setSalud(final int salud) {
-		this.salud = salud;
-	}
+    public void setSalud(final int salud) {
+        this.salud = salud;
+    }
 
-	public int getFuerza() {
-		return this.fuerza;
-	}
+    public int getFuerza() {
+        return this.fuerza;
+    }
 
-	public void setFuerza(final int fuerza) {
-		this.fuerza = fuerza;
-	}
+    public void setFuerza(final int fuerza) {
+        this.fuerza = fuerza;
+    }
 
-	public String getNombre() {
-		return this.nombre;
-	}
+    public String getNombre() {
+        return this.nombre;
+    }
 
-	public void setNombre(final String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(final String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void despuesDeTurno() {
+    public void despuesDeTurno() {
 
-	}
+    }
 
-	public abstract int atacar(Peleable atacado);
+    public abstract int atacar(Peleable atacado);
 
-	public abstract int otorgarExp();
+    public abstract int otorgarExp();
 
-	public abstract int getAtaque();
+    public abstract int getAtaque();
 
-	public abstract void setAtaque(int ataque);
+    public abstract void setAtaque(int ataque);
 
-	public boolean estaVivo() {
-		return salud > 0;
-	}
+    public boolean estaVivo() {
+        return salud > 0;
+    }
 
 }
