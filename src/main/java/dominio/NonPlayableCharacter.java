@@ -6,13 +6,13 @@ public class NonPlayableCharacter extends Peleable {
 
 	private int defensa;
 	private int nivel;
-	private static final int dificultadAleatoria = -1;
+	private static final int DIFICULTADALEATORIA = -1;
 
 	public NonPlayableCharacter(String nombre, int nivel, int dificultadNPC) {
 		this.setNombre(nombre);
 		this.nivel = nivel;
 		int dificultad;
-		if (dificultadNPC == dificultadAleatoria)
+		if (dificultadNPC == DIFICULTADALEATORIA)
 			dificultad = MyRandom.nextInt(3);
 		else
 			dificultad = dificultadNPC;
@@ -74,15 +74,15 @@ public class NonPlayableCharacter extends Peleable {
 	
 	/**
 	 * Permite que el personaje sea atacado
-	 * @param daño : Cantidad que indica el daño a infligir sobre el personaje
+	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(int daño) {
+	public int serAtacado(int danio) {
 		if (MyRandom.nextDouble() >= 0.15) {
-			daño -= this.getDefensa() / 2;
-			if (daño > 0) {
-				this.setSalud(this.getSalud()-daño);
-				return daño;
+			danio -= this.getDefensa() / 2;
+			if (danio > 0) {
+				this.setSalud(this.getSalud()-danio);
+				return danio;
 			}
 			return 0;// no le hace daño ya que la defensa fue mayor
 		}

@@ -11,7 +11,7 @@ package dominio;
 		private String nombre;
 		
 		
-	public abstract int serAtacado(int daño);
+	public abstract int serAtacado(int danio);
 	
 	public int getSalud()
 	{

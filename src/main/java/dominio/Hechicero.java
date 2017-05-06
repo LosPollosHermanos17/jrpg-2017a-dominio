@@ -9,12 +9,12 @@ public class Hechicero extends Casta {
 
 	/**
 	 * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros recibidos
-	 * @param prob_crit : Probabilidad de golpe critico.
+	 * @param probCritico : Probabilidad de golpe critico.
 	 * @param evasion : Valor de evasion.
-	 * @param daño_crit : Valor del daño crítico.
+	 * @param danioCritico : Valor del daño crítico.
 	 */	
-	public Hechicero(double prob_crit, double evasion, double daño_crit) {
-		super(prob_crit, evasion, daño_crit);
+	public Hechicero(double probCritico, double evasion, double danioCritico) {
+		super(probCritico, evasion, danioCritico);
 		this.nombreCasta = "Hechicero";
 	}
 
@@ -72,10 +72,10 @@ public class Hechicero extends Casta {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			if (atacado instanceof Personaje) {
-				int energia_robada = ((Personaje) atacado).serDesernegizado(caster.calcularPuntosDeMagia());
-				int salud_robada = ((Personaje) atacado).serRobadoSalud(caster.calcularPuntosDeMagia() / 2);
-				caster.serEnergizado(energia_robada);
-				caster.serCurado(salud_robada);
+				int energiaRobada = ((Personaje) atacado).serDesernegizado(caster.calcularPuntosDeMagia());
+				int saludRobada = ((Personaje) atacado).serRobadoSalud(caster.calcularPuntosDeMagia() / 2);
+				caster.serEnergizado(energiaRobada);
+				caster.serCurado(saludRobada);
 				return true;
 			}
 

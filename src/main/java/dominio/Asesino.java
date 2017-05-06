@@ -90,9 +90,9 @@ public class Asesino extends Casta {
     if (caster.getEnergia() > cantEnergiaMinima) {
       caster.setEnergia(caster.getEnergia() - cantEnergiaMinima);
       if (this.getProbabilidadEvitarDaño() + probEvitarDanioAIncrementar < probEvitarDanioMaxima) {
-        this.probabilidadEvitarDaño += probEvitarDanioAIncrementar;
+        this.probabilidadEvitarDanio += probEvitarDanioAIncrementar;
       } else {
-        this.probabilidadEvitarDaño = probEvitarDanioMaxima;
+        this.probabilidadEvitarDanio = probEvitarDanioMaxima;
       }
       return true;
     }

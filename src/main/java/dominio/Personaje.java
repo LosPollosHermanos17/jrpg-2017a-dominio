@@ -499,51 +499,51 @@ public abstract class Personaje extends Peleable implements Serializable {
 	/**
 	 * Permite que el personaje sea atacado
 	 * 
-	 * @param daño
+	 * @param danio
 	 *            : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(int daño) {
+	public int serAtacado(int danio) {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
-			daño -= this.defensa;
-			if (daño > 0) {
-				if (this.getSalud() <= daño) {
-					daño = this.getSalud();
+			danio -= this.defensa;
+			if (danio > 0) {
+				if (this.getSalud() <= danio) {
+					danio = this.getSalud();
 					this.setSalud(0);
 				} else {
-					this.setSalud(this.getSalud()-daño);
+					this.setSalud(this.getSalud()-danio);
 				}
-				return daño;
+				return danio;
 			}
 			return 0;
 		}
 		return 0;
 	}
 
-	public int serRobadoSalud(int daño) {
-		daño -= this.defensa;
-		if (daño <= 0)
+	public int serRobadoSalud(int danio) {
+		danio -= this.defensa;
+		if (danio <= 0)
 			return 0;
-		if ((this.getSalud() - daño) >= 0)
-			this.setSalud(this.getSalud()-daño);
+		if ((this.getSalud() - danio) >= 0)
+			this.setSalud(this.getSalud()-danio);
 		else {
-			daño = this.getSalud();// le queda menos salud que el daño inflingido
+			danio = this.getSalud();// le queda menos salud que el daño inflingido
 			this.setSalud(0);
 		}
-		return daño;
+		return danio;
 	}
 
-	public int serDesernegizado(int daño) {
-		daño -= this.defensa;
-		if (daño <= 0)
+	public int serDesernegizado(int danio) {
+		danio -= this.defensa;
+		if (danio <= 0)
 			return 0;
-		if ((energia - daño) >= 0)
-			energia -= daño;
+		if ((energia - danio) >= 0)
+			energia -= danio;
 		else {
-			daño = energia;// le queda menos energia que el daño inflingido
+			danio = energia;// le queda menos energia que el daño inflingido
 			energia = 0;
 		}
-		return daño;
+		return danio;
 	}
 
 	public void serCurado(int salud) {
@@ -560,8 +560,8 @@ public abstract class Personaje extends Peleable implements Serializable {
 			this.energia = this.energiaTope;
 	}
 
-	public void crearAlianza(String nombre_alianza) {
-		this.clan = new Alianza(nombre_alianza);
+	public void crearAlianza(String nombreAlianza) {
+		this.clan = new Alianza(nombreAlianza);
 		this.clan.añadirPersonaje(this);
 	}
 
@@ -572,16 +572,16 @@ public abstract class Personaje extends Peleable implements Serializable {
 		}
 	}
 
-	public boolean aliar(Personaje nuevo_aliado) {
+	public boolean aliar(Personaje nuevoAliado) {
 		if (this.clan == null) {
 			Alianza a = new Alianza("Alianza 1");
 			this.clan = a;
 			a.añadirPersonaje(this);
 		}
 
-		if (nuevo_aliado.clan == null) {
-			nuevo_aliado.clan = this.clan;
-			this.clan.añadirPersonaje(nuevo_aliado);
+		if (nuevoAliado.clan == null) {
+			nuevoAliado.clan = this.clan;
+			this.clan.añadirPersonaje(nuevoAliado);
 			return true;
 		} else
 			return false;
