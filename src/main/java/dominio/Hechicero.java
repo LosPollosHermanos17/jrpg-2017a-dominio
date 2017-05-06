@@ -32,7 +32,7 @@ public class Hechicero extends Casta {
 	
 	/**
 	 * Permite a un personaje pueda atacar usando una bola de fuego a otro
-	 * @param casta : Es el personaje atacante
+	 * @param caster : Es el personaje atacante
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
@@ -47,8 +47,8 @@ public class Hechicero extends Casta {
 
 	/**
 	 * Permite que un personaje pueda curar a otro personaje aliado
-	 * @param casta : Es el personaje que cura
-	 * @param atacado : Es el personaje a curar.
+	 * @param caster : Es el personaje que cura
+	 * @param aliado : Es el personaje a curar.
 	 * @return True si el personaje pudo curar al otro personaje.
 	 */
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
@@ -64,7 +64,7 @@ public class Hechicero extends Casta {
 
 	/**
 	 * Permite que un personaje pueda robar energia y salud a otro personaje
-	 * @param casta : Es el personaje que roba
+	 * @param caster : Es el personaje que roba
 	 * @param atacado : Es el personaje robado.
 	 * @return True si el personaje pudo robar al otro personaje.
 	 */

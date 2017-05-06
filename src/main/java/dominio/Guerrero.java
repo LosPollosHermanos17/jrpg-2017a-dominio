@@ -24,7 +24,7 @@ public class Guerrero extends Casta {
 
 	/**
 	 * Permite que un personaje pueda atacar a otro personaje con el doble de fuerza
-	 * @param casta : Es el personaje atacante
+	 * @param caster : Es el personaje atacante
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
@@ -39,7 +39,7 @@ public class Guerrero extends Casta {
 	
 	/**
 	 * Permite que un personaje pueda aumentar su defensa
-	 * @param casta : Es el personaje que aumenta su defensa.
+	 * @param caster : Es el personaje que aumenta su defensa.
 	 * @param atacado : Es el personaje de quien se defiende.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
@@ -54,7 +54,7 @@ public class Guerrero extends Casta {
 
 	/**
 	 * Permite que un personaje pueda atacar a otro personaje anulando su defensa
-	 * @param casta : Es el personaje atacante
+	 * @param caster : Es el personaje atacante
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */

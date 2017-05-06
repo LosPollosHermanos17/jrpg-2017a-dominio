@@ -10,7 +10,7 @@ public class MyRandom {
 	}
 	/**
 	 * Resta uno al valor recibido
-	 * @param val: valor
+	 * @param val : valor
 	 * @return numero restado
 	 */
 	public static int nextInt(int val) {
