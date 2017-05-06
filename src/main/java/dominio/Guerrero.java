@@ -8,7 +8,8 @@ package dominio;
  */
 public class Guerrero extends Casta {
 
-	public Guerrero(final double probCritico, final double evasion, final double danioCritico) {
+	public Guerrero(final double probCritico, final double evasion,
+			final double danioCritico) {
 		super(probCritico, evasion, danioCritico);
 		this.nombreCasta = "Guerrero";
 	}
@@ -30,7 +31,8 @@ public class Guerrero extends Casta {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
+	public boolean habilidad1(final Personaje caster,
+			final Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			if (atacado.serAtacado(caster.ataque * 2) > 0)
@@ -45,7 +47,8 @@ public class Guerrero extends Casta {
 	 * @param atacado : Es el personaje de quien se defiende.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	public boolean habilidad2(final Personaje caster, final Peleable atacado) {
+	public boolean habilidad2(final Personaje caster,
+			final Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			caster.setDefensa(caster.getDefensa() + caster.magia);
@@ -61,7 +64,8 @@ public class Guerrero extends Casta {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
+	public boolean habilidad3(final Personaje caster,
+			final Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
 			if (atacado instanceof Personaje) {

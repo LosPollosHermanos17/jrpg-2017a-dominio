@@ -7,6 +7,8 @@ package dominio;
  */
 public class Orco extends Personaje {
 
+	private final int ENERGIAMINIMA = 10;
+
 	/**
 	 * Asigna un objeto Orco y lo inicializa de acuerdo a los parámetros
 	 * recibidos
@@ -15,7 +17,8 @@ public class Orco extends Personaje {
 	 * @param id : Identificador único del personaje
 	 */
 	public Orco(final String nombre, final Casta casta, final int id) {
-		super(nombre, casta, id, 10, 0, "Orco", new String[] { "Golpe Defensa", "Mordisco de Vida" });
+		super(nombre, casta, id, 10, 0, "Orco",
+				new String[] { "Golpe Defensa", "Mordisco de Vida" });
 	}
 
 	/**
@@ -31,9 +34,12 @@ public class Orco extends Personaje {
 	 * @param nivel : Nivel inicial del personaje.
 	 * @param idPersonaje : Identificador único del personaje
 	 */
-	public Orco(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
-			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, "Orco",
+	public Orco(final String nombre, final int salud, final int energia,
+			final int fuerza, final int destreza, final int inteligencia,
+			final Casta casta, final int experiencia, final int nivel,
+			final int idPersonaje) {
+		super(nombre, salud, energia, fuerza, destreza, inteligencia,
+				casta, experiencia, nivel, idPersonaje, "Orco",
 				new String[] { "Golpe Defensa", "Mordisco de Vida" });
 	}
 
@@ -43,8 +49,8 @@ public class Orco extends Personaje {
 	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza1(final Peleable atacado) {
-		if (this.getEnergia() > 10) {
-			this.setEnergia(this.getEnergia() - 10);
+		if (this.getEnergia() > ENERGIAMINIMA) {
+			this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado(this.getDefensa() * 2) > 0) {
 				return true;
 			}
@@ -58,8 +64,8 @@ public class Orco extends Personaje {
 	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza2(final Peleable atacado) {
-		if (this.getEnergia() > 10) {
-			this.setEnergia(this.getEnergia() - 10);
+		if (this.getEnergia() > ENERGIAMINIMA) {
+			this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
 			int danio = atacado.serAtacado(this.getFuerza());
 			if (danio > 0) {
 				this.serCurado(danio);

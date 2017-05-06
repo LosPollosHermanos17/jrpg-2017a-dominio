@@ -10,7 +10,8 @@ public class NonPlayableCharacter extends Peleable {
 	private int nivel;
 	private static final int DIFICULTADALEATORIA = -1;
 
-	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
+	public NonPlayableCharacter(final String nombre, final int nivel,
+			final int dificultadNPC) {
 		this.setNombre(nombre);
 		this.nivel = nivel;
 		int dificultad;

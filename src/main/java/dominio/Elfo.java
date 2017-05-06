@@ -18,7 +18,8 @@ public class Elfo extends Personaje {
 	 * @param id : Identificador único del personaje
 	 */
 	public Elfo(final String nombre, final Casta casta, final int id) {
-		super(nombre, casta, id, 0, 10, "Elfo", new String[] { "Golpe Level", "Ataque Bosque" });
+		super(nombre, casta, id, 0, 10, "Elfo",
+				new String[] { "Golpe Level", "Ataque Bosque" });
 	}
 
 	/**
@@ -36,9 +37,12 @@ public class Elfo extends Personaje {
 	 * @param nivel : Nivel inicial del personaje.
 	 * @param idPersonaje : Identificador único del personaje
 	 */
-	public Elfo(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
-			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, "Elfo",
+	public Elfo(final String nombre, final int salud, final int energia,
+			final int fuerza, final int destreza, final int inteligencia,
+			final Casta casta, final int experiencia, final int nivel,
+			final int idPersonaje) {
+		super(nombre, salud, energia, fuerza, destreza, inteligencia,
+				casta, experiencia, nivel, idPersonaje, "Elfo",
 				new String[] { "Golpe Level", "Ataque Bosque" });
 	}
 
@@ -51,7 +55,8 @@ public class Elfo extends Personaje {
 	public boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
-			if (atacado.serAtacado(this.getFuerza() + this.getNivel() * 10) > 0) {
+			if (atacado.serAtacado(
+					this.getFuerza() + this.getNivel() * 10) > 0) {
 				return true;
 			}
 		}
