@@ -23,14 +23,12 @@ public class Asesino extends Casta {
 	private final double probEvitarDanioMaxima = 0.5;
 
 	/**
-	 * Probabilidad de evitar daño a incrementar con la ejecución de la
-	 * habilidad.
+	 * Probabilidad de evitar daño a incrementar con la ejecución de la habilidad.
 	 */
 	private final double probEvitarDanioAIncrementar = 0.15;
 
 	/**
-	 * Constructor por defecto. Inicializa un objeto Asesino asignandole las
-	 * habilidades.
+	 * Constructor por defecto. Inicializa un objeto Asesino asignandole las habilidades.
 	 */
 	public Asesino() {
 		super();
@@ -42,14 +40,13 @@ public class Asesino extends Casta {
 	}
 
 	/**
-	 * Inicializa un objeto Asesino con los parametros especificados, utilizando
-	 * el constructor de la clase padre "Casta".
+	 * Inicializa un objeto Asesino con los parametros especificados, utilizando el constructor de la clase padre
+	 * "Casta".
 	 * @param probCrit - probabilidad de golpe crítico inicial.
 	 * @param evasion - probabilidad de evitar daño inicial.
 	 * @param danioCrit - cantidad de daño al realizar un golpe crítico.
 	 */
-	public Asesino(final double probCrit, final double evasion,
-			final double danioCrit) {
+	public Asesino(final double probCrit, final double evasion, final double danioCrit) {
 		super(probCrit, evasion, danioCrit);
 		this.nombreCasta = "Asesino";
 	}
@@ -60,12 +57,10 @@ public class Asesino extends Casta {
 	 * @param atacado - objeto que implementa Peleable atacado.
 	 * @return true si se puede realizar el ataque o false en caso contrario
 	 */
-	public boolean habilidad1(final Personaje caster,
-			final Peleable atacado) {
+	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > cantEnergiaMinima) {
 			caster.setEnergia(caster.getEnergia() - cantEnergiaMinima);
-			if (atacado.serAtacado((int) (caster.ataque
-					* caster.getCasta().getDañoCritico())) > 0) {
+			if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDañoCritico())) > 0) {
 				return true;
 			}
 		}
@@ -74,18 +69,14 @@ public class Asesino extends Casta {
 
 	/**
 	 * Define la habilidad2 para la clase Asesino.
-	 * @param caster - objeto de tipo Personaje que aumenta su probabilidad de
-	 *        evasión.
+	 * @param caster - objeto de tipo Personaje que aumenta su probabilidad de evasión.
 	 * @param atacado - objeto que implementa Peleable atacado.
-	 * @return true si el personaje pudo aumentar su probabilidad de evasion o
-	 *         false en caso contrario.
+	 * @return true si el personaje pudo aumentar su probabilidad de evasion o false en caso contrario.
 	 */
-	public boolean habilidad2(final Personaje caster,
-			final Peleable atacado) {
+	public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > cantEnergiaMinima) {
 			caster.setEnergia(caster.getEnergia() - cantEnergiaMinima);
-			if (this.getProbabilidadEvitarDaño()
-					+ probEvitarDanioAIncrementar < probEvitarDanioMaxima) {
+			if (this.getProbabilidadEvitarDaño() + probEvitarDanioAIncrementar < probEvitarDanioMaxima) {
 				this.probabilidadEvitarDanio += probEvitarDanioAIncrementar;
 			} else {
 				this.probabilidadEvitarDanio = probEvitarDanioMaxima;
@@ -101,14 +92,12 @@ public class Asesino extends Casta {
 	 * @param atacado - personaje robado.
 	 * @return false siempre.
 	 */
-	public boolean habilidad3(final Personaje caster,
-			final Peleable atacado) {
+	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		return false;
 	}
 
 	/**
-	 * Inicializa un Personaje de tipo Asesino, incrementando su atributo
-	 * <b>destreza</b>.
+	 * Inicializa un Personaje de tipo Asesino, incrementando su atributo <b>destreza</b>.
 	 * @param p - objeto Personaje a inicializar.
 	 */
 	public void inicializarPersonaje(final Personaje p) {

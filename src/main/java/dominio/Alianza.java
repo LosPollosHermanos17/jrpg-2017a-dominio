@@ -3,8 +3,7 @@ package dominio;
 import java.util.LinkedList;
 
 /**
- * Define las caracteristicas y habilidades para poder crear Alianzas entre
- * personajes.
+ * Define las caracteristicas y habilidades para poder crear Alianzas entre personajes.
  *
  * @since 21/04/2017
  * @version 1.0
@@ -17,8 +16,7 @@ public class Alianza {
 	private String nombre;
 
 	/**
-	 * Vector de tipo LinkedList<Personaje> que contiene los personajes que
-	 * forman parte de dicha alianza.
+	 * Vector de tipo LinkedList<Personaje> que contiene los personajes que forman parte de dicha alianza.
 	 */
 	private LinkedList<Personaje> aliados;
 
@@ -33,16 +31,14 @@ public class Alianza {
 
 	/**
 	 * Devuelve la lista de personajes aliados.
-	 * @return un array de tipo LinkedList<Personaje> con los integrantes de la
-	 *         alianza.
+	 * @return un array de tipo LinkedList<Personaje> con los integrantes de la alianza.
 	 */
 	public LinkedList<Personaje> getAliados() {
 		return aliados;
 	}
 
 	/**
-	 * Setea el array de tipo LinkedList<Personaje> con los integrantes de la
-	 * alianza.
+	 * Setea el array de tipo LinkedList<Personaje> con los integrantes de la alianza.
 	 * @param aliados - personajes que formaran parte de la alianza.
 	 */
 	public void setAliados(final LinkedList<Personaje> aliados) {

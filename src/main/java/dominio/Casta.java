@@ -25,14 +25,12 @@ public abstract class Casta implements Serializable {
 	}
 
 	/**
-	 * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros
-	 * recibidos
+	 * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros recibidos
 	 * @param probCritico : Probabilidad de golpe critico.
 	 * @param evasion : Valor de evasion.
 	 * @param danio : Valor del daño crítico.
 	 */
-	public Casta(final double probCritico, final double evasion,
-			final double danio) {
+	public Casta(final double probCritico, final double evasion, final double danio) {
 		this.probabilidadGolpeCritico = probCritico;
 		this.probabilidadEvitarDanio = evasion;
 		this.danioCritico = danio;
@@ -58,8 +56,7 @@ public abstract class Casta implements Serializable {
 		return probabilidadGolpeCritico;
 	}
 
-	public void setProbabilidadGolpeCritico(
-			final double probabilidadGolpeCritico) {
+	public void setProbabilidadGolpeCritico(final double probabilidadGolpeCritico) {
 		this.probabilidadGolpeCritico = probabilidadGolpeCritico;
 	}
 
@@ -67,8 +64,7 @@ public abstract class Casta implements Serializable {
 		return probabilidadEvitarDanio;
 	}
 
-	public void setProbabilidadEvitarDaño(
-			final double probabilidadEvitarDanio) {
+	public void setProbabilidadEvitarDaño(final double probabilidadEvitarDanio) {
 		this.probabilidadEvitarDanio = probabilidadEvitarDanio;
 	}
 

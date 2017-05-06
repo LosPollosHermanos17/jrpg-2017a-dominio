@@ -33,8 +33,9 @@ public class Guerrero extends Casta {
 			final Peleable atacado) {
 		if (caster.getEnergia() > ENERGIAMINIMA) {
 			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
-			if (atacado.serAtacado(caster.ataque * 2) > 0)
+			if (atacado.serAtacado(caster.ataque * 2) > 0) {
 				return true;
+			}
 		}
 		return false;
 	}

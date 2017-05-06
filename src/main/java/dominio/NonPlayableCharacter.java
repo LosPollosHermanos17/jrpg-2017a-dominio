@@ -15,10 +15,11 @@ public class NonPlayableCharacter extends Peleable {
 		this.setNombre(nombre);
 		this.nivel = nivel;
 		int dificultad;
-		if (dificultadNPC == DIFICULTADALEATORIA)
+		if (dificultadNPC == DIFICULTADALEATORIA) {
 			dificultad = MyRandom.nextInt(3);
-		else
+		} else {
 			dificultad = dificultadNPC;
+		}
 
 		switch (dificultad) {
 		case 0:
@@ -70,7 +71,7 @@ public class NonPlayableCharacter extends Peleable {
 		if (MyRandom.nextDouble() <= 0.15) {
 			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
 		} else
-			return atacado.serAtacado(this.getAtaque());
+			{return atacado.serAtacado(this.getAtaque());}
 	}
 
 	/**
@@ -102,6 +103,5 @@ public class NonPlayableCharacter extends Peleable {
 	@Override
 	public void setAtaque(final int ataque) {
 		this.setFuerza(ataque);
-		;
 	}
 }

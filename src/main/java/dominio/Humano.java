@@ -10,8 +10,7 @@ public class Humano extends Personaje {
 	private final int ENERGIAMINIMA = 10;
 
 	/**
-	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros
-	 * recibidos
+	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
 	 * @param nombre : Nombre del personaje
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
@@ -21,8 +20,7 @@ public class Humano extends Personaje {
 	}
 
 	/**
-	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros
-	 * recibidos
+	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
 	 * @param nombre : Nombre del personaje.
 	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
 	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
@@ -34,13 +32,11 @@ public class Humano extends Personaje {
 	 * @param nivel : Nivel inicial del personaje.
 	 * @param idPersonaje : Identificador único del personaje
 	 */
-	public Humano(final String nombre, final int salud, final int energia,
-			final int fuerza, final int destreza, final int inteligencia,
-			final Casta casta, final int experiencia, final int nivel,
+	public Humano(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+			final int inteligencia, final Casta casta, final int experiencia, final int nivel,
 			final int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia,
-				casta, experiencia, nivel, idPersonaje, "Humano",
-				new String[] { "Incentivar", "Golpe Fatal" });
+		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje,
+				"Humano", new String[] { "Incentivar", "Golpe Fatal" });
 	}
 
 	/**
