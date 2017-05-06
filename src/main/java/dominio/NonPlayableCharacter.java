@@ -36,7 +36,8 @@ public class NonPlayableCharacter extends Peleable {
             this.setSalud(50 + (nivel - 1) * 25);
             this.defensa = 4 + (nivel - 1) * 4;
             break;
-
+        default:
+            break;
         }
     }
 

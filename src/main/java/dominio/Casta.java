@@ -99,6 +99,7 @@ public abstract class Casta implements Serializable {
     public void setProbabilidadEvitarDaño(final double probabilidadEvitarDanio) {
         this.probabilidadEvitarDanio = probabilidadEvitarDanio;
     }
+
     /**
      * Setea el valor del daño crítico
      * @param danioCritico : Valor que indica el daño crítico

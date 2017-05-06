@@ -90,15 +90,6 @@ public abstract class Personaje extends Peleable implements Serializable {
         inteligencia = 10;
         destreza = 10;
 
-        // if (casta instanceof Guerrero)
-        // this.setFuerza(this.getFuerza()+5);
-        // if (casta instanceof Hechicero)
-        // inteligencia += 5;
-        // if (casta instanceof Asesino)
-        // destreza += 5;
-
-        // se utiliza este llamado en reemplazo del trozo
-        // de codigo anterior:
         casta.inicializarPersonaje(this);
 
         x = 0;
