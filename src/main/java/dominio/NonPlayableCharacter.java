@@ -90,6 +90,15 @@ public class NonPlayableCharacter extends Peleable {
         }
         return 0;
     }
+    
+    /**
+     * Permite que el personaje sea atacado anulando su defensa
+     * @param atacante : Es el personaje que ataca
+     * @return Devuelve si el atacante pudo atacar
+     */
+    public boolean serAtacadoSinDefensa(final Personaje atacante) {
+        return false;
+    }
 
     public void ganarExperiencia(final int exp) {
 

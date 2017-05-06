@@ -517,6 +517,21 @@ public abstract class Personaje extends Peleable implements Serializable {
         }
         return 0;
     }
+    
+    /**
+     * Permite que el personaje sea atacado anulando su defensa
+     * @param atacante : Es el personaje que ataca
+     * @return Devuelve si el atacante pudo atacar
+     */
+    public boolean serAtacadoSinDefensa(final Personaje atacante) {
+        int defensaOriginal = this.getDefensa();
+        this.setDefensa(0);
+        if (this.serAtacado(atacante.ataque) > 0) {
+            this.setDefensa(defensaOriginal);
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Permite que al personaje le roben salud
