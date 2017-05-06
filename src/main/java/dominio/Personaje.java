@@ -563,7 +563,7 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Permite que al personaje le den salud
+     * Permite que al personaje le den salud.
      * @param salud : Cantidad que indica la saluda a agregar.
      */
     public void serCurado(final int salud) {
@@ -575,8 +575,9 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Permite que al personaje le den salud
-     * @param aliado : Personaje que le va a dar salud
+     * Permite que al personaje le den salud.
+     * @param aliado : Personaje que le va a dar salud.
+     * @return true si puede ser curado.
      */
     public boolean serCurado(final Personaje aliado) {
         this.serCurado(aliado.calcularPuntosDeMagia());
@@ -595,6 +596,11 @@ public abstract class Personaje extends Peleable implements Serializable {
         return true;
     }
 
+
+    /** Permite que al personaje le den energia.
+     * @param energia : Cantidad que indica la energia a agregar.
+     * @return si puede ser energizado.
+     */
     public void serEnergizado(final int energia) {
         if ((this.energia + energia) <= this.energiaTope) {
             this.energia += energia;
