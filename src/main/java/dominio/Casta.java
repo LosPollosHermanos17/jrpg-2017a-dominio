@@ -18,13 +18,10 @@ public abstract class Casta implements Serializable {
     /**
      * Asigna un objeto Hechicero y lo inicializa.
      */
-    public Casta() {
-        final double gp = 0.2;
-        final double ed = 0.2;
-        final double dc = 1.5;
-    	this.probabilidadGolpeCritico = gp;
-        this.probabilidadEvitarDanio = ed;
-        this.danioCritico = dc;
+    public Casta() { 
+    	this.probabilidadGolpeCritico = 0.2;
+        this.probabilidadEvitarDanio = 0.2;
+        this.danioCritico = 1.5;
     }
 
     /**

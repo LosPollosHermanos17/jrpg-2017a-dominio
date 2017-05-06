@@ -79,8 +79,7 @@ public class Guerrero extends Casta {
      * @param p - objeto Personaje a inicializar.
      */
     public void inicializarPersonaje(final Personaje p) {
-        final int incremento = 5;
-    p.setFuerza(p.getFuerza() + incremento);
+    	p.setFuerza(p.getFuerza() + 5);
     }
 
 }
