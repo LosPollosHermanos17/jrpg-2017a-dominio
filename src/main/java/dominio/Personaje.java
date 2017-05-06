@@ -585,8 +585,9 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Permite que al personaje le roben salud y energia
-     * @param atacante : Es el personaje que ataca
+     * Permite que al personaje le roben salud y energia.
+     * @param atacante : Es el personaje que ataca.
+     * @return true si pudo ser robado y desenergizado
      */
     public boolean serRobadoYDesenergizado(final Personaje atacante) {
         int energiaRobada = this.serDesernegizado(atacante.calcularPuntosDeMagia());
@@ -595,11 +596,10 @@ public abstract class Personaje extends Peleable implements Serializable {
         atacante.serCurado(saludRobada);
         return true;
     }
-
-
-    /** Permite que al personaje le den energia.
-     * @param energia : Cantidad que indica la energia a agregar.
-     * @return si puede ser energizado.
+    
+     /** 
+     * Permite que al personaje le den energia.
+     * @param energia :Cantidad que indica la energia a agregar.
      */
     public void serEnergizado(final int energia) {
         if ((this.energia + energia) <= this.energiaTope) {
@@ -609,11 +609,18 @@ public abstract class Personaje extends Peleable implements Serializable {
         }
     }
 
+    /**
+     * Crea una alianza entre personajes.
+     * @param nombreAlianza : Nombre que identificara la nueva alinza.
+     */
     public void crearAlianza(final String nombreAlianza) {
         this.clan = new Alianza(nombreAlianza);
         this.clan.añadirPersonaje(this);
     }
 
+    /**
+     * Elimina un personaje de la alianza.
+     */
     public void salirDeAlianza() {
         if (this.clan != null) {
             this.clan.eliminarPersonaje(this);
@@ -621,6 +628,11 @@ public abstract class Personaje extends Peleable implements Serializable {
         }
     }
 
+    /**
+     * Ingresa un nuevo personaje a la alianza.
+     * @param nuevoAliado : Personaje a ingresar.
+     * @return true si pudo ser añadido.
+     */
     public boolean aliar(final Personaje nuevoAliado) {
         if (this.clan == null) {
             Alianza a = new Alianza("Alianza 1");
@@ -637,36 +649,55 @@ public abstract class Personaje extends Peleable implements Serializable {
         }
     }
 
+    /**
+     * Asigna puntos de Skill a un personaje.
+     * @param fuerza : Fuerza a asignar.
+     * @param destreza : Destreza a incrementar.
+     * @param inteligencia : Inteligencia a incrementar.
+     */
     public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
-        if (this.getFuerza() + fuerza <= 200) {
+      final int max = 200;
+    if (this.getFuerza() + fuerza <= max) {
             this.setFuerza(this.getFuerza() + fuerza);
         }
-        if (this.destreza + destreza <= 200) {
+        if (this.destreza + destreza <= max) {
             this.destreza += destreza;
         }
-        if (this.inteligencia + inteligencia <= 200) {
+        if (this.inteligencia + inteligencia <= max) {
             this.inteligencia += inteligencia;
         }
         this.modificarAtributos();
     }
 
+    /**
+     * Aumenta el nivel de un personaje
+     * cuando su experiencia es igual a 100.
+     */
     public void subirNivel() {
 
         int acumuladorExperiencia = 0;
-        if (this.nivel == 100) {
+        final int experienciaMaxima = 100;
+        final int salud = 25;
+        final int energia = 20;
+        if (this.nivel == experienciaMaxima) {
             return;
         }
-        while (this.nivel != 100
+        while (this.nivel != experienciaMaxima
                 && (this.experiencia >= Personaje.tablaDeNiveles[this.nivel + 1] + acumuladorExperiencia)) {
             acumuladorExperiencia += Personaje.tablaDeNiveles[this.nivel + 1];
             this.nivel++;
             this.modificarAtributos();
-            this.saludTope += 25;
-            this.energiaTope += 20;
+            this.saludTope += salud;
+            this.energiaTope += energia;
         }
         this.experiencia -= acumuladorExperiencia;
     }
 
+    /**
+     * Verifica si un personaje aumenta su nivel.
+     * @param exp : Experiencia recibida.
+     * @return true si sube de nivel.
+     */
     public boolean ganarExperiencia(final int exp) {
         this.experiencia += exp;
 
@@ -677,32 +708,70 @@ public abstract class Personaje extends Peleable implements Serializable {
         return false;
     }
 
+    /**
+     * Otorga experiencia a un personaje.
+     * @return el nivel multiplicado por la experiencia obtenida.
+     */
     public int otorgarExp() {
-        return this.nivel * 40;
+       final int ex = 40;
+    return this.nivel * ex;
     }
 
+    /**
+     * Sobreescritura del metodo de objetos Clone.
+     */
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
 
+    /**
+     * Verifica la distancia entre dos personajes.
+     * @param p : Personaje a conocer distancia.
+     * @return distancia entre los personajes
+     */
     public double distanciaCon(final Personaje p) {
         return Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
     }
 
+    /**
+     * Define la habilidad1 del personaje.
+     * @param atacado : Personaje a ser atacado.
+     * @return habilidad dependiendo del personaje atacado.
+     */
     public boolean habilidadCasta1(final Peleable atacado) {
         return this.getCasta().habilidad1(this, atacado);
     }
 
+    /**
+     *Define la habilidad2 del personaje.
+     * @param atacado : Personaje a ser atacado.
+     * @return habilidad dependiendo del personaje atacado.
+     */
     public boolean habilidadCasta2(final Peleable atacado) {
         return this.getCasta().habilidad2(this, atacado);
     }
 
+    /**
+     *Define la habilidad3 del personaje.
+     * @param atacado : Personaje a ser atacado.
+     * @return habilidad dependiendo del personaje atacado.
+     */
     public boolean habilidadCasta3(final Peleable atacado) {
         return this.getCasta().habilidad3(this, atacado);
     }
-
+    
+    /**
+     * Define habilidad de raza. 
+     * @param atacado : Personaje a ser atacado.
+     * @return true si obtiene habilidad.
+     */
     public abstract boolean habilidadRaza1(Peleable atacado);
 
-    public abstract boolean habilidadRaza2(Peleable atacado);
+    /**
+	 * Define habilidad2 de raza.
+	 * @param atacado : Personaje a ser atacado.
+	 * @return true si obtiene habilidad.
+	 */
+	public abstract boolean habilidadRaza2(Peleable atacado);
 }
