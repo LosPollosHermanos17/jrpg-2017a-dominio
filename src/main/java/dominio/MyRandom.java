@@ -14,7 +14,7 @@ public class MyRandom {
 	 * @param val : valor
 	 * @return numero restado
 	 */
-	public static int nextInt(int val) {
+	public static int nextInt(final int val) {
 		return val - 1;
 	}
 }

@@ -17,7 +17,7 @@ public abstract class Peleable {
 		return this.salud;
 	}
 
-	public void setSalud(int salud) {
+	public void setSalud(final int salud) {
 		this.salud = salud;
 	}
 
@@ -25,7 +25,7 @@ public abstract class Peleable {
 		return this.fuerza;
 	}
 
-	public void setFuerza(int fuerza) {
+	public void setFuerza(final int fuerza) {
 		this.fuerza = fuerza;
 	}
 
@@ -33,7 +33,7 @@ public abstract class Peleable {
 		return this.nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(final String nombre) {
 		this.nombre = nombre;
 	}
 

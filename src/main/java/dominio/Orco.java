@@ -14,7 +14,7 @@ public class Orco extends Personaje {
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
 	 */
-	public Orco(String nombre, Casta casta, int id) {
+	public Orco(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id, 10, 0, "Orco", new String[] { "Golpe Defensa", "Mordisco de Vida" });
 	}
 
@@ -31,8 +31,8 @@ public class Orco extends Personaje {
 	 * @param nivel : Nivel inicial del personaje.
 	 * @param idPersonaje : Identificador único del personaje
 	 */
-	public Orco(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
-			int experiencia, int nivel, int idPersonaje) {
+	public Orco(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
 		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, "Orco",
 				new String[] { "Golpe Defensa", "Mordisco de Vida" });
 	}
@@ -42,7 +42,7 @@ public class Orco extends Personaje {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
-	public boolean habilidadRaza1(Peleable atacado) {
+	public boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
 			if (atacado.serAtacado(this.getDefensa() * 2) > 0) {
@@ -57,7 +57,7 @@ public class Orco extends Personaje {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
-	public boolean habilidadRaza2(Peleable atacado) {
+	public boolean habilidadRaza2(final Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
 			int danio = atacado.serAtacado(this.getFuerza());

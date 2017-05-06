@@ -18,7 +18,7 @@ public class Humano extends Personaje {
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
 	 */
-	public Humano(String nombre, Casta casta, int id) {
+	public Humano(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id, 5, 5, "Humano", null);
 	}
 
@@ -37,8 +37,8 @@ public class Humano extends Personaje {
 	 * @param nivel : Nivel inicial del personaje.
 	 * @param idPersonaje : Identificador único del personaje
 	 */
-	public Humano(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
-			int experiencia, int nivel, int idPersonaje) {
+	public Humano(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
 		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, "Humano",
 				new String[] { "Incentivar", "Golpe Fatal" });
 	}
@@ -49,7 +49,7 @@ public class Humano extends Personaje {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
-	public boolean habilidadRaza1(Peleable atacado) {
+	public boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() > ENERGIAMINIMA) {
 			this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
 			atacado.setAtaque(atacado.getAtaque() + this.getMagia());
@@ -64,7 +64,7 @@ public class Humano extends Personaje {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
-	public boolean habilidadRaza2(Peleable atacado) {
+	public boolean habilidadRaza2(final Peleable atacado) {
 		if (this.getEnergia() > ENERGIAMINIMA) {
 			if (atacado.serAtacado(atacado.getSalud() / 2) > 0) {
 				this.setEnergia(this.getEnergia() / 2);

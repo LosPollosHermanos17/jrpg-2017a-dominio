@@ -110,7 +110,7 @@ public class Asesino extends Casta {
 	 * <b>destreza</b>.
 	 * @param p - objeto Personaje a inicializar.
 	 */
-	public void inicializarPersonaje(Personaje p) {
+	public void inicializarPersonaje(final Personaje p) {
 		p.setDestreza(p.getDestreza() + 5);
 	}
 }

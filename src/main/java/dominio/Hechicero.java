@@ -17,7 +17,7 @@ public class Hechicero extends Casta {
 	 * @param evasion : Valor de evasion.
 	 * @param danioCritico : Valor del daño crítico.
 	 */
-	public Hechicero(double probCritico, double evasion, double danioCritico) {
+	public Hechicero(final double probCritico, final double evasion, final double danioCritico) {
 		super(probCritico, evasion, danioCritico);
 		this.nombreCasta = "Hechicero";
 	}
@@ -37,7 +37,7 @@ public class Hechicero extends Casta {
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
-	public boolean habilidad1(Personaje caster, Peleable atacado) {
+	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > ENERGIAMINIMA) {
 			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * 1.5)) > 0)
@@ -52,7 +52,7 @@ public class Hechicero extends Casta {
 	 * @param aliado : Es el personaje a curar.
 	 * @return True si el personaje pudo curar al otro personaje.
 	 */
-	public boolean habilidad2(Personaje caster, Peleable aliado) {
+	public boolean habilidad2(final Personaje caster, final Peleable aliado) {
 		if (caster.getEnergia() > ENERGIAMINIMA) {
 			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (aliado instanceof Personaje) {
@@ -69,7 +69,7 @@ public class Hechicero extends Casta {
 	 * @param atacado : Es el personaje robado.
 	 * @return True si el personaje pudo robar al otro personaje.
 	 */
-	public boolean habilidad3(Personaje caster, Peleable atacado) {
+	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > ENERGIAMINIMA) {
 			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado instanceof Personaje) {
@@ -89,7 +89,7 @@ public class Hechicero extends Casta {
 	 * <b>inteligencia</b>.
 	 * @param p - objeto Personaje a inicializar.
 	 */
-	public void inicializarPersonaje(Personaje p) {
+	public void inicializarPersonaje(final Personaje p) {
 		p.setInteligencia(p.getInteligencia() + 5);
 	}
 }

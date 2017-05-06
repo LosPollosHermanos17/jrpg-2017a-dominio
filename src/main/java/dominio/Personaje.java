@@ -8,13 +8,12 @@ import java.io.Serializable;
  * @since 21/04/2017
  * @version 1.0
  */
-public abstract class Personaje extends Peleable implements Serializable {
-	// campos de la clase
+public abstract class Personaje extends Peleable implements Serializable {	
 
 	protected int energia;
-	protected int defensa;// depende de la destreza
-	protected int ataque;// depende de la fuerza
-	protected int magia;// depende de la inteligencia
+	protected int defensa;
+	protected int ataque;
+	protected int magia;
 	protected String nombreRaza;
 	protected int saludTope;
 	protected int energiaTope;
@@ -50,7 +49,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param incSalud - incremento del atributo salud
 	 * @param incEnergia - incremento del atributo energia
 	 */
-	public Personaje(String nombre, Casta casta, int id, int incSalud, int incEnergia) {
+	public Personaje(final String nombre, final Casta casta, final int id, final int incSalud, final int incEnergia) {
 		this(nombre, casta, id);
 		saludTope += incSalud;
 		energiaTope += incEnergia;
@@ -70,8 +69,8 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param habilidadesRaza - array de tipo String que define las habilidades
 	 *        de la raza
 	 */
-	public Personaje(String nombre, Casta casta, int id, int incSalud, int incEnergia, String nomRaza,
-			String[] habilidadesRaza) {
+	public Personaje(final String nombre, final Casta casta, final int id, final int incSalud, final int incEnergia,
+			final String nomRaza, final String[] habilidadesRaza) {
 		this(nombre, casta, id, incSalud, incEnergia);
 		this.nombreRaza = nomRaza;
 		this.habilidadesRaza = habilidadesRaza;
@@ -84,7 +83,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param casta - casta a la cual pertenece.
 	 * @param id - numero identificador del personaje.
 	 */
-	public Personaje(String nombre, Casta casta, int id) {
+	public Personaje(final String nombre, final Casta casta, final int id) {
 		this.setNombre(nombre);
 		this.casta = casta;
 		this.idPersonaje = id;
@@ -132,8 +131,8 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param nivel - Nivel inicial del personaje.
 	 * @param idPersonaje - Identificador único del personaje
 	 */
-	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
-			int experiencia, int nivel, int idPersonaje) {
+	public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
 
 		this.setNombre(nombre);
 		this.setSalud(salud);
@@ -170,8 +169,9 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param nomRaza - nombre de la raza a la cual pertenecera.
 	 * @param habilidadesRaza - habilidades que tendra su raza.
 	 */
-	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
-			int experiencia, int nivel, int idPersonaje, String nomRaza, String habilidadesRaza[]) {
+	public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
+			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje,
+			final String nomRaza, final String habilidadesRaza[]) {
 		this(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
 		this.nombreRaza = nomRaza;
 		this.habilidadesRaza = habilidadesRaza;
@@ -191,7 +191,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param nombreRaza nombre de la raza a la cual pertenece el personaje.
 	 */
-	public void setNombreRaza(String nombreRaza) {
+	public void setNombreRaza(final String nombreRaza) {
 		this.nombreRaza = nombreRaza;
 	}
 
@@ -209,7 +209,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param ataque - cantidad de puntos de ataque.
 	 */
-	public void setAtaque(int ataque) {
+	public void setAtaque(final int ataque) {
 		this.ataque = ataque;
 	}
 
@@ -227,7 +227,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param magia - cantidad de puntos de magia del personaje.
 	 */
-	public void setMagia(int magia) {
+	public void setMagia(final int magia) {
 		this.magia = magia;
 	}
 
@@ -245,7 +245,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param clan - alianza a la cual pertenece el personaje.
 	 */
-	public void setClan(Alianza clan) {
+	public void setClan(final Alianza clan) {
 		this.clan = clan;
 		clan.añadirPersonaje(this);
 	}
@@ -264,7 +264,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param energia - puntos de energia del personaje.
 	 */
-	public void setEnergia(int energia) {
+	public void setEnergia(final int energia) {
 		this.energia = energia;
 	}
 
@@ -300,7 +300,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param destreza - puntos de destreza del personaje.
 	 */
-	public void setDestreza(int destreza) {
+	public void setDestreza(final int destreza) {
 		this.destreza = destreza;
 	}
 
@@ -318,7 +318,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param inteligencia - puntos de inteligencia del personaje.
 	 */
-	public void setInteligencia(int inteligencia) {
+	public void setInteligencia(final int inteligencia) {
 		this.inteligencia = inteligencia;
 	}
 
@@ -336,7 +336,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param casta - Casta del personaje.
 	 */
-	public void setCasta(Casta casta) {
+	public void setCasta(final Casta casta) {
 		this.casta = casta;
 	}
 
@@ -354,7 +354,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param experiencia - experiencia del personaje.
 	 */
-	public void setExperiencia(int experiencia) {
+	public void setExperiencia(final int experiencia) {
 		this.experiencia = experiencia;
 	}
 
@@ -372,7 +372,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param nivel - nivel del personaje.
 	 */
-	public void setNivel(int nivel) {
+	public void setNivel(final int nivel) {
 		this.nivel = nivel;
 	}
 
@@ -390,7 +390,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param idPersonaje - identificacion del personaje.
 	 */
-	public void setIdPersonaje(int idPersonaje) {
+	public void setIdPersonaje(final int idPersonaje) {
 		this.idPersonaje = idPersonaje;
 	}
 
@@ -408,7 +408,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param defensa - defensa del personaje.
 	 */
-	public void setDefensa(int defensa) {
+	public void setDefensa(final int defensa) {
 		this.defensa = defensa;
 	}
 
@@ -426,7 +426,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param saludTope - saluda maxima del personaje.
 	 */
-	public void setSaludTope(int saludTope) {
+	public void setSaludTope(final int saludTope) {
 		this.saludTope = saludTope;
 	}
 
@@ -444,7 +444,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * 
 	 * @param energiaTope - energia maxima del personaje.
 	 */
-	public void setEnergiaTope(int energiaTope) {
+	public void setEnergiaTope(final int energiaTope) {
 		this.energiaTope = energiaTope;
 	}
 
@@ -454,7 +454,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param atacado - Personaje a atacar.
 	 * @return Devuelve el daño efectivo infligido al personaje.
 	 */
-	public int atacar(Peleable atacado) {
+	public int atacar(final Peleable atacado) {
 		if (this.getSalud() == 0)
 			return 0;
 		if (atacado.getSalud() > 0) {
@@ -544,7 +544,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(int danio) {
+	public int serAtacado(final int danio) {
 		if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
 			danio -= this.defensa;
 			if (danio > 0) {
@@ -561,7 +561,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return 0;
 	}
 
-	public int serRobadoSalud(int danio) {
+	public int serRobadoSalud(final int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
 			return 0;
@@ -575,7 +575,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return danio;
 	}
 
-	public int serDesernegizado(int danio) {
+	public int serDesernegizado(final int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
 			return 0;
@@ -588,21 +588,21 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return danio;
 	}
 
-	public void serCurado(int salud) {
+	public void serCurado(final int salud) {
 		if ((this.getSalud() + salud) <= this.saludTope)
 			this.setSalud(this.getSalud() + salud);
 		else
 			this.setSalud(this.saludTope);
 	}
 
-	public void serEnergizado(int energia) {
+	public void serEnergizado(final int energia) {
 		if ((this.energia + energia) <= this.energiaTope)
 			this.energia += energia;
 		else
 			this.energia = this.energiaTope;
 	}
 
-	public void crearAlianza(String nombreAlianza) {
+	public void crearAlianza(final String nombreAlianza) {
 		this.clan = new Alianza(nombreAlianza);
 		this.clan.añadirPersonaje(this);
 	}
@@ -614,7 +614,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		}
 	}
 
-	public boolean aliar(Personaje nuevoAliado) {
+	public boolean aliar(final Personaje nuevoAliado) {
 		if (this.clan == null) {
 			Alianza a = new Alianza("Alianza 1");
 			this.clan = a;
@@ -629,7 +629,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 			return false;
 	}
 
-	public void AsignarPuntosSkills(int fuerza, int destreza, int inteligencia) {
+	public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
 		if (this.getFuerza() + fuerza <= 200)
 			this.setFuerza(this.getFuerza() + fuerza);
 		if (this.destreza + destreza <= 200)
@@ -656,7 +656,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		this.experiencia -= acumuladorExperiencia;
 	}
 
-	public boolean ganarExperiencia(int exp) {
+	public boolean ganarExperiencia(final int exp) {
 		this.experiencia += exp;
 
 		if (experiencia >= Personaje.tablaDeNiveles[this.nivel + 1]) {
@@ -675,19 +675,19 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return super.clone();
 	}
 
-	public double distanciaCon(Personaje p) {
+	public double distanciaCon(final Personaje p) {
 		return Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
 	}
 
-	public boolean habilidadCasta1(Peleable atacado) {
+	public boolean habilidadCasta1(final Peleable atacado) {
 		return this.getCasta().habilidad1(this, atacado);
 	}
 
-	public boolean habilidadCasta2(Peleable atacado) {
+	public boolean habilidadCasta2(final Peleable atacado) {
 		return this.getCasta().habilidad2(this, atacado);
 	}
 
-	public boolean habilidadCasta3(Peleable atacado) {
+	public boolean habilidadCasta3(final Peleable atacado) {
 		return this.getCasta().habilidad3(this, atacado);
 	}
 

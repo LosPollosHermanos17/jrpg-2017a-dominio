@@ -10,7 +10,7 @@ public class NonPlayableCharacter extends Peleable {
 	private int nivel;
 	private static final int DIFICULTADALEATORIA = -1;
 
-	public NonPlayableCharacter(String nombre, int nivel, int dificultadNPC) {
+	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
 		this.setNombre(nombre);
 		this.nivel = nivel;
 		int dificultad;
@@ -47,7 +47,7 @@ public class NonPlayableCharacter extends Peleable {
 		return nivel;
 	}
 
-	public void setNivel(int nivel) {
+	public void setNivel(final int nivel) {
 		this.nivel = nivel;
 	}
 
@@ -55,7 +55,7 @@ public class NonPlayableCharacter extends Peleable {
 		return defensa;
 	}
 
-	public void setDefensa(int defensa) {
+	public void setDefensa(final int defensa) {
 		this.defensa = defensa;
 	}
 
@@ -65,7 +65,7 @@ public class NonPlayableCharacter extends Peleable {
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
 
-	public int atacar(Peleable atacado) {
+	public int atacar(final Peleable atacado) {
 		if (MyRandom.nextDouble() <= 0.15) {
 			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
 		} else
@@ -77,7 +77,7 @@ public class NonPlayableCharacter extends Peleable {
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(int danio) {
+	public int serAtacado(final int danio) {
 		if (MyRandom.nextDouble() >= 0.15) {
 			danio -= this.getDefensa() / 2;
 			if (danio > 0) {
@@ -89,7 +89,7 @@ public class NonPlayableCharacter extends Peleable {
 		return 0;// esquivo el golpe
 	}
 
-	public void ganarExperiencia(int exp) {
+	public void ganarExperiencia(final int exp) {
 
 	}
 
@@ -99,7 +99,7 @@ public class NonPlayableCharacter extends Peleable {
 	}
 
 	@Override
-	public void setAtaque(int ataque) {
+	public void setAtaque(final int ataque) {
 		this.setFuerza(ataque);
 		;
 	}
