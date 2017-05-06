@@ -78,7 +78,7 @@ public class NonPlayableCharacter extends Peleable {
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(final int danio) {
+	public int serAtacado(int danio) {
 		if (MyRandom.nextDouble() >= 0.15) {
 			danio -= this.getDefensa() / 2;
 			if (danio > 0) {

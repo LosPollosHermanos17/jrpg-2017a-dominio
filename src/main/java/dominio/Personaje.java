@@ -556,7 +556,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
-	public int serAtacado(final int danio) {
+	public int serAtacado(int danio) {
 		if (MyRandom.nextDouble() >= this.getCasta()
 				.getProbabilidadEvitarDaño()) {
 			danio -= this.defensa;
@@ -574,7 +574,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return 0;
 	}
 
-	public int serRobadoSalud(final int danio) {
+	public int serRobadoSalud(int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
 			return 0;
@@ -588,7 +588,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return danio;
 	}
 
-	public int serDesernegizado(final int danio) {
+	public int serDesernegizado(int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
 			return 0;
