@@ -2,9 +2,7 @@ package dominio;
 
 /**
  * Define las habilidades de un Asesino.
- * 
  * @author desconocido
- *
  */
 
 public class Asesino extends Casta {
@@ -31,8 +29,8 @@ public class Asesino extends Casta {
 	private final double probEvitarDanioAIncrementar = 0.15;
 
 	/**
-	 * Constructor por defecto. Inicializa un objeto Asesino asignandole
-	 * las habilidades.
+	 * Constructor por defecto. Inicializa un objeto Asesino asignandole las
+	 * habilidades.
 	 */
 	public Asesino() {
 		super();
@@ -44,9 +42,8 @@ public class Asesino extends Casta {
 	}
 
 	/**
-	 * Inicializa un objeto Asesino con los parametros especificados,
-	 * utilizando el constructor de la clase padre "Casta".
-	 * 
+	 * Inicializa un objeto Asesino con los parametros especificados, utilizando
+	 * el constructor de la clase padre "Casta".
 	 * @param probCrit - probabilidad de golpe crítico inicial.
 	 * @param evasion - probabilidad de evitar daño inicial.
 	 * @param danioCrit - cantidad de daño al realizar un golpe crítico.
@@ -59,11 +56,9 @@ public class Asesino extends Casta {
 
 	/**
 	 * Define la habilidad1 para la clase Asesino.
-	 * 
 	 * @param caster - objeto de tipo Personaje atacante.
 	 * @param atacado - objeto que implementa Peleable atacado.
-	 * @return true si se puede realizar el ataque o false en caso
-	 *         contrario
+	 * @return true si se puede realizar el ataque o false en caso contrario
 	 */
 	public boolean habilidad1(final Personaje caster,
 			final Peleable atacado) {
@@ -79,12 +74,11 @@ public class Asesino extends Casta {
 
 	/**
 	 * Define la habilidad2 para la clase Asesino.
-	 * 
-	 * @param caster - objeto de tipo Personaje que aumenta su probabilidad
-	 *        de evasión.
+	 * @param caster - objeto de tipo Personaje que aumenta su probabilidad de
+	 *        evasión.
 	 * @param atacado - objeto que implementa Peleable atacado.
-	 * @return true si el personaje pudo aumentar su probabilidad de
-	 *         evasion o false en caso contrario.
+	 * @return true si el personaje pudo aumentar su probabilidad de evasion o
+	 *         false en caso contrario.
 	 */
 	public boolean habilidad2(final Personaje caster,
 			final Peleable atacado) {

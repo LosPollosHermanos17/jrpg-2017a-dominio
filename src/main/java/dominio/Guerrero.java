@@ -2,11 +2,12 @@ package dominio;
 
 /**
  * Define las caracteristicas y habilidades de un personaje Guerrero
- * 
  * @since 21/04/2017
  * @version 1.0
  */
 public class Guerrero extends Casta {
+
+	private final int ENERGIAMINIMA = 10;
 
 	public Guerrero(final double probCritico, final double evasion,
 			final double danioCritico) {
@@ -17,11 +18,8 @@ public class Guerrero extends Casta {
 	public Guerrero() {
 		super();
 		this.nombreCasta = "Guerrero";
-
-		habilidadesCasta = new String[3];
-		habilidadesCasta[0] = "Ataque Doble";
-		habilidadesCasta[1] = "Aumentar Defensa";
-		habilidadesCasta[2] = "Ignorar Defensa";
+		habilidadesCasta = new String[] { "Ataque Doble",
+				"Aumentar Defensa", "Ignorar Defensa" };
 	}
 
 	/**
@@ -33,8 +31,8 @@ public class Guerrero extends Casta {
 	 */
 	public boolean habilidad1(final Personaje caster,
 			final Peleable atacado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado(caster.ataque * 2) > 0)
 				return true;
 		}
@@ -49,8 +47,8 @@ public class Guerrero extends Casta {
 	 */
 	public boolean habilidad2(final Personaje caster,
 			final Peleable atacado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			caster.setDefensa(caster.getDefensa() + caster.magia);
 			return true;
 		}
@@ -66,8 +64,8 @@ public class Guerrero extends Casta {
 	 */
 	public boolean habilidad3(final Personaje caster,
 			final Peleable atacado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado instanceof Personaje) {
 				int defensaOriginal = ((Personaje) atacado).getDefensa();
 				((Personaje) atacado).setDefensa(0);

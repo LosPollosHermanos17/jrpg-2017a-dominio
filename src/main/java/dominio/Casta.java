@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * Define las caracteristicas y habilidades de un objeto Casta
- * 
  * @since 21/04/2017
  * @version 1.0
  */
@@ -28,7 +27,6 @@ public abstract class Casta implements Serializable {
 	/**
 	 * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros
 	 * recibidos
-	 * 
 	 * @param probCritico : Probabilidad de golpe critico.
 	 * @param evasion : Valor de evasion.
 	 * @param danio : Valor del daño crítico.

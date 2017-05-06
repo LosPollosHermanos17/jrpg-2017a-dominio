@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * Define las caracteristicas y habilidades de un Personaje
- * 
  * @since 21/04/2017
  * @version 1.0
  */
@@ -43,7 +42,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Inicializa un personaje con determinados parametros.
-	 * 
 	 * @param nombre - nombre del personaje
 	 * @param casta - casta a la cual pertenece
 	 * @param id - numero identificador del personaje
@@ -61,7 +59,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Inicializa un objeto Personaje con determinados parametros.
-	 * 
 	 * @param nombre - nombre del personaje
 	 * @param casta - casta a la cual pertenece
 	 * @param id - numero identificador del personaje
@@ -81,7 +78,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Inicializa un objeto Personaje con determinados parametros.
-	 * 
 	 * @param nombre - nombre del personaje.
 	 * @param casta - casta a la cual pertenece.
 	 * @param id - numero identificador del personaje.
@@ -123,7 +119,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna un objeto Personaje de acuerdo a determinados parametros.
-	 * 
 	 * @param nombre - Nombre del personaje.
 	 * @param salud - Cantidad de salud inicial del personaje [0 a 100].
 	 * @param energia - Cantidad de energia inicial del personaje [0 a 100].
@@ -162,7 +157,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Inicializa un objeto Personaje de acuerdo a determinados parametros.
-	 * 
 	 * @param nombre - nombre del personaje.
 	 * @param salud - cantidad de salud inicial.
 	 * @param energia - cantidad de energia incial.
@@ -189,7 +183,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el nombre de la raza.
-	 * 
 	 * @return nombre de la raza a la cual pertenece el personaje.
 	 */
 	public String getNombreRaza() {
@@ -198,7 +191,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna el nombre de la raza.
-	 * 
 	 * @param nombreRaza nombre de la raza a la cual pertenece el personaje.
 	 */
 	public void setNombreRaza(final String nombreRaza) {
@@ -207,7 +199,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el ataque.
-	 * 
 	 * @return ataque - cantidad de puntos de ataque.
 	 */
 	public int getAtaque() {
@@ -216,7 +207,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna el ataque.
-	 * 
 	 * @param ataque - cantidad de puntos de ataque.
 	 */
 	public void setAtaque(final int ataque) {
@@ -225,7 +215,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la magia.
-	 * 
 	 * @return magia - cantidad de puntos de magia del personaje.
 	 */
 	public int getMagia() {
@@ -234,7 +223,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la magia.
-	 * 
 	 * @param magia - cantidad de puntos de magia del personaje.
 	 */
 	public void setMagia(final int magia) {
@@ -243,7 +231,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el clan.
-	 * 
 	 * @return la alianza a la cual pertenece el personaje.
 	 */
 	public Alianza getClan() {
@@ -252,7 +239,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna el clan.
-	 * 
 	 * @param clan - alianza a la cual pertenece el personaje.
 	 */
 	public void setClan(final Alianza clan) {
@@ -262,7 +248,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la energia.
-	 * 
 	 * @return los puntos de energia del personaje.
 	 */
 	public int getEnergia() {
@@ -271,7 +256,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la energia.
-	 * 
 	 * @param energia - puntos de energia del personaje.
 	 */
 	public void setEnergia(final int energia) {
@@ -280,7 +264,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve las habilidades de la raza.
-	 * 
 	 * @return habilidades de la raza a la cual pertenece el personaje.
 	 */
 	public String[] getHabilidadesRaza() {
@@ -289,7 +272,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve las habilidades de la Casta.
-	 * 
 	 * @return habilidades de la casta a la cual pertenece el personaje.
 	 */
 	public String[] getHabilidadesCasta() {
@@ -298,7 +280,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la destreza.
-	 * 
 	 * @return - puntos de destreza del personaje.
 	 */
 	public int getDestreza() {
@@ -307,7 +288,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la destreza.
-	 * 
 	 * @param destreza - puntos de destreza del personaje.
 	 */
 	public void setDestreza(final int destreza) {
@@ -316,7 +296,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la inteligencia.
-	 * 
 	 * @return - puntos de inteligencia del personaje.
 	 */
 	public int getInteligencia() {
@@ -325,7 +304,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la inteligencia.
-	 * 
 	 * @param inteligencia - puntos de inteligencia del personaje.
 	 */
 	public void setInteligencia(final int inteligencia) {
@@ -334,7 +312,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la Casta.
-	 * 
 	 * @return - Casta del personaje.
 	 */
 	public Casta getCasta() {
@@ -343,7 +320,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la Casta.
-	 * 
 	 * @param casta - Casta del personaje.
 	 */
 	public void setCasta(final Casta casta) {
@@ -352,7 +328,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la experiencia.
-	 * 
 	 * @return - experiencia del personaje.
 	 */
 	public int getExperiencia() {
@@ -361,7 +336,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la experiencia
-	 * 
 	 * @param experiencia - experiencia del personaje.
 	 */
 	public void setExperiencia(final int experiencia) {
@@ -370,7 +344,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el nivel.
-	 * 
 	 * @return - nivel del personaje.
 	 */
 	public int getNivel() {
@@ -379,7 +352,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna el nivel.
-	 * 
 	 * @param nivel - nivel del personaje.
 	 */
 	public void setNivel(final int nivel) {
@@ -388,7 +360,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el idPersonaje.
-	 * 
 	 * @return - identificacion del personaje.
 	 */
 	public int getIdPersonaje() {
@@ -397,7 +368,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna el idPersonaje.
-	 * 
 	 * @param idPersonaje - identificacion del personaje.
 	 */
 	public void setIdPersonaje(final int idPersonaje) {
@@ -406,7 +376,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la defensa.
-	 * 
 	 * @return - defensa del personaje.
 	 */
 	public int getDefensa() {
@@ -415,7 +384,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la defensa.
-	 * 
 	 * @param defensa - defensa del personaje.
 	 */
 	public void setDefensa(final int defensa) {
@@ -424,7 +392,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve la saludTope.
-	 * 
 	 * @return - salud maxima del personaje.
 	 */
 	public int getSaludTope() {
@@ -433,7 +400,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la saludTope.
-	 * 
 	 * @param saludTope - saluda maxima del personaje.
 	 */
 	public void setSaludTope(final int saludTope) {
@@ -442,7 +408,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve energiaTope.
-	 * 
 	 * @return - energia maxima del personaje.
 	 */
 	public int getEnergiaTope() {
@@ -451,7 +416,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Asigna la energiaTope.
-	 * 
 	 * @param energiaTope - energia maxima del personaje.
 	 */
 	public void setEnergiaTope(final int energiaTope) {
@@ -460,7 +424,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Permite atacar a otro personaje.
-	 * 
 	 * @param atacado - Personaje a atacar.
 	 * @return Devuelve el daño efectivo infligido al personaje.
 	 */
@@ -481,7 +444,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Devuelve el daño ocasionado por el realizar el golpe critico.
-	 * 
 	 * @return daño ocasionado cuando el personaje realiza un golpe critico.
 	 */
 	public int golpe_critico() {
@@ -490,7 +452,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Indica si el personaje puede atacar.
-	 * 
 	 * @return booleano que confirma si puede atacar.
 	 */
 	public boolean puedeAtacar() {
@@ -500,7 +461,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 	/**
 	 * Devuelve puntos de ataque incrementados segun la fuerza que posee el
 	 * personaje.
-	 * 
 	 * @return la cantidad de puntos de ataque.
 	 */
 	public int calcularPuntosDeAtaque() {
@@ -510,7 +470,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 	/**
 	 * Devuelve los puntos de defensa incrementados segun la destreza que posee
 	 * el personaje.
-	 * 
 	 * @return la cantidad de puntos de defensa.
 	 */
 	public int calcularPuntosDeDefensa() {
@@ -520,7 +479,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 	/**
 	 * Devuelve los puntos de magia incrementados segun la inteligencia que
 	 * posee el personaje.
-	 * 
 	 * @return la cantidad de puntos de magia.
 	 */
 	public int calcularPuntosDeMagia() {
@@ -542,7 +500,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 	}
 
 	/**
-	 * 
+	 * Calcula el ataque, defensa y magia.
 	 */
 	public void modificarAtributos() {
 		this.ataque = this.calcularPuntosDeAtaque();
@@ -552,7 +510,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	/**
 	 * Permite que el personaje sea atacado
-	 * 
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
@@ -574,6 +531,11 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return 0;
 	}
 
+	/**
+	 * Permite que al personaje le roben salud
+	 * @param danio : Cantidad que indica el daño que recibe el personaje
+	 * @return Devuelve el daño efectivo infligido al personaje
+	 */
 	public int serRobadoSalud(int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
@@ -588,6 +550,11 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return danio;
 	}
 
+	/**
+	 * Permite que al personaje le quiten energia
+	 * @param danio : Cantidad que indica el daño que recibe el personaje
+	 * @return Devuelve el daño efectivo infligido al personaje
+	 */
 	public int serDesernegizado(int danio) {
 		danio -= this.defensa;
 		if (danio <= 0)
@@ -602,6 +569,10 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return danio;
 	}
 
+	/**
+	 * Permite que al personaje le den salud
+	 * @param salud : Cantidad que indica la saluda a agregar.
+	 */
 	public void serCurado(final int salud) {
 		if ((this.getSalud() + salud) <= this.saludTope)
 			this.setSalud(this.getSalud() + salud);

@@ -2,7 +2,6 @@ package dominio;
 
 /**
  * Define las caracteristicas y habilidades de un personaje Humano
- * 
  * @since 21/04/2017
  * @version 1.0
  */
@@ -13,7 +12,6 @@ public class Humano extends Personaje {
 	/**
 	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros
 	 * recibidos
-	 * 
 	 * @param nombre : Nombre del personaje
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
@@ -25,7 +23,6 @@ public class Humano extends Personaje {
 	/**
 	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros
 	 * recibidos
-	 * 
 	 * @param nombre : Nombre del personaje.
 	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
 	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
@@ -48,7 +45,6 @@ public class Humano extends Personaje {
 
 	/**
 	 * Permite atacar a otro personaje utilizando la habilidad de incentivar
-	 * 
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
@@ -63,7 +59,6 @@ public class Humano extends Personaje {
 
 	/**
 	 * Permite atacar a otro personaje utilizando el golpe fatal
-	 * 
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */

@@ -2,17 +2,17 @@ package dominio;
 
 /**
  * Define las caracteristicas y habilidades de un personaje Elfo
- * 
  * @since 21/04/2017
  * @version 1.0
  */
 
 public class Elfo extends Personaje {
 
+	private final int ENERGIAMINIMA = 10;
+
 	/**
 	 * Asigna un objeto Elfo y lo inicializa de acuerdo a los parámetros
 	 * recibidos
-	 * 
 	 * @param nombre : Nombre del personaje
 	 * @param casta : Casta a la que pertenece el personaje
 	 * @param id : Identificador único del personaje
@@ -25,7 +25,6 @@ public class Elfo extends Personaje {
 	/**
 	 * Asigna un objeto Elfo y lo inicializa de acuerdo a los parámetros
 	 * recibidos
-	 * 
 	 * @param nombre : Nombre del personaje.
 	 * @param salud : Cantidad de salud inicial del personaje [0 a 100].
 	 * @param energia : Cantidad de energia inicial del personaje [0 a 100].
@@ -48,13 +47,12 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Permite atacar a otro personaje utilizando el golpe level
-	 * 
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza1(final Peleable atacado) {
-		if (this.getEnergia() > 10) {
-			this.setEnergia(this.getEnergia() - 10);
+		if (this.getEnergia() > ENERGIAMINIMA) {
+			this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado(
 					this.getFuerza() + this.getNivel() * 10) > 0) {
 				return true;
@@ -65,13 +63,12 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Permite atacar a otro personaje utilizando el golpe level
-	 * 
 	 * @param atacado : Es el personaje que recibe el ataque.
 	 * @return True si se pudo atacar al otro personaje.
 	 */
 	public boolean habilidadRaza2(final Peleable atacado) {
-		if (this.getEnergia() > 10) {
-			this.setEnergia(this.getEnergia() - 10);
+		if (this.getEnergia() > ENERGIAMINIMA) {
+			this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado((int) (this.magia)) > 0) {
 				return true;
 			}

@@ -2,7 +2,6 @@ package dominio;
 
 /**
  * Define las caracteristicas y habilidades de un objeto Peleable
- * 
  * @since 21/04/2017
  * @version 1.0
  */
