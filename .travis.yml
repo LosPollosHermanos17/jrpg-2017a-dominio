@@ -2,3 +2,10 @@ language: java
 jdk:
   - oraclejdk7
   - openjdk7
+notifications:
+  email:
+    - c.ctomalino@gmail.com
+    - cabralrodrigoariel@gmail.com
+    - sergioamoruso91@gmail.com
+    - alejandrobrude@gmail.com
+    - matsamed@gmail.com
