@@ -1,20 +1,21 @@
 package dominio;
+
 /**
- *Define las caracteristicas y habilidades de un personaje Orco.
+ * Define las caracteristicas y habilidades de un personaje Orco.
  * @since 21/04/2017
  * @version 1.0
  */
 public class Orco extends Personaje {
 
-
 	/**
-	 * Asigna un objeto Orco y lo inicializa de acuerdo a los parámetros recibidos
-	 * @param nombre : Nombre del personaje 
+	 * Asigna un objeto Orco y lo inicializa de acuerdo a los parámetros
+	 * recibidos
+	 * @param nombre : Nombre del personaje
 	 * @param casta : Casta a la que deberá pertenecer.
 	 * @param id : Identificador único del personaje
-	 */	
-	public Orco(String nombre, Casta casta, int id) {		
-		super(nombre, casta, id, 10, 0,"Orco",new String[]{"Golpe Defensa","Mordisco de Vida"});
+	 */
+	public Orco(String nombre, Casta casta, int id) {
+		super(nombre, casta, id, 10, 0, "Orco", new String[] { "Golpe Defensa", "Mordisco de Vida" });
 	}
 
 	/**
@@ -32,8 +33,10 @@ public class Orco extends Personaje {
 	 */
 	public Orco(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
-		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje,"Orco",new String[]{"Golpe Defensa","Mordisco de Vida"});
-	}	
+		super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, "Orco",
+				new String[] { "Golpe Defensa", "Mordisco de Vida" });
+	}
+
 	/**
 	 * Permite atacar a otro personaje usando el golpe defensa.
 	 * @param atacado : Es el personaje que recibe el ataque.
@@ -48,6 +51,7 @@ public class Orco extends Personaje {
 		}
 		return false;
 	}
+
 	/**
 	 * Permite atacar a otro personaje usando el mordisco de vida.
 	 * @param atacado : Es el personaje que recibe el ataque.

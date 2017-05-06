@@ -96,7 +96,7 @@ public class Asesino extends Casta {
 	}
 
 	/**
-	 * Permite que un personaje pueda robar a otro personaje.	 * 
+	 * Permite que un personaje pueda robar a otro personaje. *
 	 * @param caster - personaje que roba.
 	 * @param atacado - personaje robado.
 	 * @return false siempre.

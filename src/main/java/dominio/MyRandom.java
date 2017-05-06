@@ -8,6 +8,7 @@ public class MyRandom {
 	public static double nextDouble() {
 		return 0.49;
 	}
+
 	/**
 	 * Resta uno al valor recibido
 	 * @param val : valor

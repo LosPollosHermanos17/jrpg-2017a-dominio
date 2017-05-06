@@ -9,72 +9,73 @@ import java.io.Serializable;
  * @version 1.0
  */
 public abstract class Casta implements Serializable {
-  protected double probabilidadGolpeCritico;
-  protected double probabilidadEvitarDanio;
-  protected double danioCritico;
-  protected String nombreCasta;
+	protected double probabilidadGolpeCritico;
+	protected double probabilidadEvitarDanio;
+	protected double danioCritico;
+	protected String nombreCasta;
 
-  protected String[] habilidadesCasta;
+	protected String[] habilidadesCasta;
 
-  /**
-   * Asigna un objeto Hechicero y lo inicializa
-   */
-  public Casta() {
-    this.probabilidadGolpeCritico = 0.2;
-    this.probabilidadEvitarDanio = 0.2;
-    this.danioCritico = 1.5;
-  }
+	/**
+	 * Asigna un objeto Hechicero y lo inicializa
+	 */
+	public Casta() {
+		this.probabilidadGolpeCritico = 0.2;
+		this.probabilidadEvitarDanio = 0.2;
+		this.danioCritico = 1.5;
+	}
 
-  /**
-   * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros recibidos
-   * 
-   * @param probCritico : Probabilidad de golpe critico.
-   * @param evasion : Valor de evasion.
-   * @param danioCritico : Valor del daño crítico.
-   */
-  public Casta(double probCritico, double evasion, double danioCritico) {
-    this.probabilidadGolpeCritico = probCritico;
-    this.probabilidadEvitarDanio = evasion;
-    this.danioCritico = danioCritico;
-  }
+	/**
+	 * Asigna un objeto Casta y lo inicializa de acuerdo a los parámetros
+	 * recibidos
+	 * 
+	 * @param probCritico : Probabilidad de golpe critico.
+	 * @param evasion : Valor de evasion.
+	 * @param danioCritico : Valor del daño crítico.
+	 */
+	public Casta(double probCritico, double evasion, double danioCritico) {
+		this.probabilidadGolpeCritico = probCritico;
+		this.probabilidadEvitarDanio = evasion;
+		this.danioCritico = danioCritico;
+	}
 
-  public abstract boolean habilidad1(Personaje caster, Peleable atacado);
+	public abstract boolean habilidad1(Personaje caster, Peleable atacado);
 
-  public abstract boolean habilidad2(Personaje caster, Peleable atacado);
-  
-  public abstract boolean habilidad3(Personaje caster, Peleable atacado);
+	public abstract boolean habilidad2(Personaje caster, Peleable atacado);
 
-  public abstract void inicializarPersonaje(Personaje p);
+	public abstract boolean habilidad3(Personaje caster, Peleable atacado);
 
-  public String getNombreCasta() {
-    return this.nombreCasta;
-  }
+	public abstract void inicializarPersonaje(Personaje p);
 
-  public String[] getHabilidadesCasta() {
-    return habilidadesCasta;
-  }
+	public String getNombreCasta() {
+		return this.nombreCasta;
+	}
 
-  public double getProbabilidadGolpeCritico() {
-    return probabilidadGolpeCritico;
-  }
+	public String[] getHabilidadesCasta() {
+		return habilidadesCasta;
+	}
 
-  public void setProbabilidadGolpeCritico(double probabilidadGolpeCritico) {
-    this.probabilidadGolpeCritico = probabilidadGolpeCritico;
-  }
+	public double getProbabilidadGolpeCritico() {
+		return probabilidadGolpeCritico;
+	}
 
-  public double getProbabilidadEvitarDaño() {
-    return probabilidadEvitarDanio;
-  }
+	public void setProbabilidadGolpeCritico(double probabilidadGolpeCritico) {
+		this.probabilidadGolpeCritico = probabilidadGolpeCritico;
+	}
 
-  public void setProbabilidadEvitarDaño(double probabilidadEvitarDanio) {
-    this.probabilidadEvitarDanio = probabilidadEvitarDanio;
-  }
+	public double getProbabilidadEvitarDaño() {
+		return probabilidadEvitarDanio;
+	}
+
+	public void setProbabilidadEvitarDaño(double probabilidadEvitarDanio) {
+		this.probabilidadEvitarDanio = probabilidadEvitarDanio;
+	}
 
 	public void setDañoCritico(double danioCritico) {
 		this.danioCritico = danioCritico;
 	}
-	
+
 	public double getDañoCritico() {
-    return this.danioCritico;
-  }
+		return this.danioCritico;
+	}
 }

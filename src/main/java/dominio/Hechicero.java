@@ -9,6 +9,7 @@ package dominio;
 public class Hechicero extends Casta {
 
 	private final int ENERGIAMINIMA = 10;
+
 	/**
 	 * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros
 	 * recibidos
