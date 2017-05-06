@@ -596,8 +596,8 @@ public abstract class Personaje extends Peleable implements Serializable {
         atacante.serCurado(saludRobada);
         return true;
     }
-    
-     /** 
+
+    /**
      * Permite que al personaje le den energia.
      * @param energia :Cantidad que indica la energia a agregar.
      */
@@ -656,8 +656,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param inteligencia : Inteligencia a incrementar.
      */
     public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
-      final int max = 200;
-    if (this.getFuerza() + fuerza <= max) {
+        final int max = 200;
+        if (this.getFuerza() + fuerza <= max) {
             this.setFuerza(this.getFuerza() + fuerza);
         }
         if (this.destreza + destreza <= max) {
@@ -670,8 +670,7 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Aumenta el nivel de un personaje
-     * cuando su experiencia es igual a 100.
+     * Aumenta el nivel de un personaje cuando su experiencia es igual a 100.
      */
     public void subirNivel() {
 
@@ -713,8 +712,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return el nivel multiplicado por la experiencia obtenida.
      */
     public int otorgarExp() {
-       final int ex = 40;
-    return this.nivel * ex;
+        final int ex = 40;
+        return this.nivel * ex;
     }
 
     /**
@@ -744,7 +743,7 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     *Define la habilidad2 del personaje.
+     * Define la habilidad2 del personaje.
      * @param atacado : Personaje a ser atacado.
      * @return habilidad dependiendo del personaje atacado.
      */
@@ -753,25 +752,25 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     *Define la habilidad3 del personaje.
+     * Define la habilidad3 del personaje.
      * @param atacado : Personaje a ser atacado.
      * @return habilidad dependiendo del personaje atacado.
      */
     public boolean habilidadCasta3(final Peleable atacado) {
         return this.getCasta().habilidad3(this, atacado);
     }
-    
+
     /**
-     * Define habilidad de raza. 
+     * Define habilidad de raza.
      * @param atacado : Personaje a ser atacado.
      * @return true si obtiene habilidad.
      */
     public abstract boolean habilidadRaza1(Peleable atacado);
 
     /**
-	 * Define habilidad2 de raza.
-	 * @param atacado : Personaje a ser atacado.
-	 * @return true si obtiene habilidad.
-	 */
-	public abstract boolean habilidadRaza2(Peleable atacado);
+     * Define habilidad2 de raza.
+     * @param atacado : Personaje a ser atacado.
+     * @return true si obtiene habilidad.
+     */
+    public abstract boolean habilidadRaza2(Peleable atacado);
 }
