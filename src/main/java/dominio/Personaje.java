@@ -15,42 +15,24 @@ public abstract class Personaje extends Peleable implements Serializable {
 	protected int defensa;// depende de la destreza
 	protected int ataque;// depende de la fuerza
 	protected int magia;// depende de la inteligencia
-
-	
 	protected String nombreRaza;
-
 	protected int saludTope;
 	protected int energiaTope;
-
-	
 	protected int destreza;
 	protected int inteligencia;
 	protected Casta casta;
-
 	protected int x;
 	protected int y;
-
 	protected int experiencia;
 	protected int nivel;
-
 	protected int idPersonaje;
-
 	protected Alianza clan = null;
 	public static int tablaDeNiveles[];
-
 	protected String[] habilidadesRaza;
 
-	public String[] getHabilidadesRaza() {
-		return habilidadesRaza;
-	}
-
-	public String[] getHabilidadesCasta() {
-		return casta.getHabilidadesCasta();
-	}
-
 	/**
-	 * Inicializa los valores correspondientes a cada nivel para su posterior
-	 * acceso.
+	 * Inicializa los valores correspondientes a 
+	 * cada nivel del personaje.
 	 */
 	public static void cargarTablaNivel() {
 		Personaje.tablaDeNiveles = new int[101];
@@ -60,6 +42,14 @@ public abstract class Personaje extends Peleable implements Serializable {
 			Personaje.tablaDeNiveles[i] = Personaje.tablaDeNiveles[i - 1] + 50;
 	}
 
+	/**
+	 * Inicializa un personaje con determinados parametros.
+	 * @param nombre - nombre del personaje
+	 * @param casta - casta a la cual pertenece
+	 * @param id - numero identificador del personaje
+	 * @param incSalud - incremento del atributo salud
+	 * @param incEnergia - incremento del atributo energia
+	 */
 	public Personaje(String nombre, Casta casta, int id, int incSalud, int incEnergia) {
 		this(nombre, casta, id);
 		saludTope += incSalud;
@@ -68,12 +58,28 @@ public abstract class Personaje extends Peleable implements Serializable {
 		energia = energiaTope;
 	}
 	
+	/**
+	 * Inicializa un objeto Personaje con determinados parametros.
+	 * @param nombre - nombre del personaje 
+	 * @param casta - casta a la cual pertenece
+	 * @param id - numero identificador del personaje
+	 * @param incSalud - incremento del atributo salud
+	 * @param incEnergia - incremento del atributo energia
+	 * @param nomRaza - raza a la cual pertenece
+	 * @param habilidadesRaza - array de tipo String que define las habilidades de la raza
+	 */
 	public Personaje(String nombre, Casta casta, int id, int incSalud, int incEnergia, String nomRaza, String[] habilidadesRaza) {
 		this(nombre,casta,id,incSalud,incEnergia);
 		this.nombreRaza = nomRaza;
 		this.habilidadesRaza = habilidadesRaza;
 	}
 	
+	/**
+	 * Inicializa un objeto Personaje con determinados parametros.
+	 * @param nombre - nombre del personaje.
+	 * @param casta - casta a la cual pertenece.
+	 * @param id - numero identificador del personaje.
+	 */
 	public Personaje(String nombre, Casta casta, int id) {
 		this.setNombre(nombre);
 		this.casta = casta;
@@ -110,29 +116,17 @@ public abstract class Personaje extends Peleable implements Serializable {
 
 	
 	/**
-	 * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros
-	 * recibidos
-	 * 
-	 * @param nombre
-	 *            : Nombre del personaje.
-	 * @param salud
-	 *            : Cantidad de salud inicial del personaje [0 a 100].
-	 * @param energia
-	 *            : Cantidad de energia inicial del personaje [0 a 100].
-	 * @param fuerza
-	 *            : Cantidad de fuerza inicial del personaje.
-	 * @param destreza
-	 *            : Cantidad de destreza inicial del personaje.
-	 * @param inteligencia
-	 *            : Cantidad de inteligencia inicial del personaje.
-	 * @param casta
-	 *            : Casta a la que el personaje deberá pertenecer.
-	 * @param experiencia
-	 *            : Cantidad de experiencia inicial del personaje.
-	 * @param nivel
-	 *            : Nivel inicial del personaje.
-	 * @param idPersonaje
-	 *            : Identificador único del personaje
+	 * Asigna un objeto Personaje de acuerdo a determinados parametros.
+	 * @param nombre - Nombre del personaje.
+	 * @param salud - Cantidad de salud inicial del personaje [0 a 100].
+	 * @param energia - Cantidad de energia inicial del personaje [0 a 100].
+	 * @param fuerza - Cantidad de fuerza inicial del personaje.
+	 * @param destreza - Cantidad de destreza inicial del personaje.
+	 * @param inteligencia - Cantidad de inteligencia inicial del personaje.
+	 * @param casta - Casta a la que el personaje deberá pertenecer.
+	 * @param experiencia - Cantidad de experiencia inicial del personaje.
+	 * @param nivel - Nivel inicial del personaje.
+	 * @param idPersonaje - Identificador único del personaje
 	 */
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje) {
@@ -144,7 +138,6 @@ public abstract class Personaje extends Peleable implements Serializable {
 		this.destreza = destreza;
 		this.inteligencia = inteligencia;
 		this.casta = casta;
-
 		this.experiencia = experiencia;
 		this.nivel = nivel;
 
@@ -157,143 +150,273 @@ public abstract class Personaje extends Peleable implements Serializable {
 		this.magia = this.calcularPuntosDeMagia();
 	}
 
+	/**
+	 * Inicializa un objeto Personaje de acuerdo a determinados parametros.
+	 * @param nombre - nombre del personaje.
+	 * @param salud - cantidad de salud inicial.
+	 * @param energia - cantidad de energia incial.
+	 * @param fuerza - cantidad de fuerza inicial.
+	 * @param destreza - cantidad de destreza inicial.
+	 * @param inteligencia - cantidad de inteligencia inicial.
+	 * @param casta - casta a la cual pertenecera.
+	 * @param experiencia - puntos de experiencia inicial.
+	 * @param nivel - nivel inicial.
+	 * @param idPersonaje - numero identificador de personaje.
+	 * @param nomRaza - nombre de la raza a la cual pertenecera.
+	 * @param habilidadesRaza - habilidades que tendra su raza.
+	 */
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel, int idPersonaje, String nomRaza, String habilidadesRaza[]) {
 		this(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
 		this.nombreRaza = nomRaza;
 		this.habilidadesRaza = habilidadesRaza;
 	}
+	
+	/**
+	 * Devuelve el nombre de la raza.
+	 * @return nombre de la raza a la cual pertenece el personaje.
+	 */
 	public String getNombreRaza() {
 		return nombreRaza;
 	}
 
+	/**
+	 * Asigna el nombre de la raza.
+	 * @param nombreRaza nombre de la raza a la cual pertenece el personaje.
+	 */
 	public void setNombreRaza(String nombreRaza) {
 		this.nombreRaza = nombreRaza;
 	}
 
-	
-
-	
-
+	/**
+	 * Devuelve el ataque.
+	 * @return ataque - cantidad de puntos de ataque.
+	 */
 	public int getAtaque() {
 		return ataque;
 	}
 
+	/**
+	 * Asigna el ataque.
+	 * @param ataque - cantidad de puntos de ataque.
+	 */
 	public void setAtaque(int ataque) {
 		this.ataque = ataque;
 	}
 
+	/**
+	 * Devuelve la magia.
+	 * @return magia - cantidad de puntos de magia del personaje.
+	 */
 	public int getMagia() {
 		return magia;
 	}
 
+	/**
+	 * Asigna la magia.
+	 * @param magia - cantidad de puntos de magia del personaje.
+	 */
 	public void setMagia(int magia) {
 		this.magia = magia;
 	}
 
+	/**
+	 * Devuelve el clan.
+	 * @return la alianza a la cual pertenece el personaje.
+	 */
 	public Alianza getClan() {
 		return clan;
 	}
 
+	/**
+	 * Asigna el clan.
+	 * @param clan - alianza a la cual pertenece el personaje.
+	 */
 	public void setClan(Alianza clan) {
 		this.clan = clan;
 		clan.añadirPersonaje(this);
 	}
 
-	
-
-	
-
+	/**
+	 * Devuelve la energia.
+	 * @return los puntos de energia del personaje.
+	 */
 	public int getEnergia() {
 		return energia;
 	}
 
+	/**
+	 * Asigna la energia.
+	 * @param energia - puntos de energia del personaje.
+	 */
 	public void setEnergia(int energia) {
 		this.energia = energia;
 	}
 
-	
+	/**
+	 * Devuelve las habilidades de la raza.
+	 * @return habilidades de la raza a la cual pertenece el personaje.
+	 */
+	public String[] getHabilidadesRaza() {
+		return habilidadesRaza;
+	}
 
+	/**
+	 * Devuelve las habilidades de la Casta.
+	 * @return habilidades de la casta a la cual pertenece el personaje.
+	 */
+	public String[] getHabilidadesCasta() {
+		return casta.getHabilidadesCasta();
+	}
 	
-
+	/**
+	 *Devuelve la destreza.
+	 * @return - puntos de destreza del personaje.
+	 */
 	public int getDestreza() {
 		return destreza;
 	}
-
+	
+	/**
+	 *Asigna la destreza.
+	 * @param destreza - puntos de destreza del personaje.
+	 */
 	public void setDestreza(int destreza) {
 		this.destreza = destreza;
 	}
-
+	
+	/**
+	 * Devuelve la inteligencia.
+	 * @return - puntos de inteligencia del personaje.
+	 */
 	public int getInteligencia() {
 		return inteligencia;
 	}
-
+	
+	/**
+	 * Asigna la inteligencia.
+	 * @param inteligencia - puntos de inteligencia del personaje.
+	 */
 	public void setInteligencia(int inteligencia) {
 		this.inteligencia = inteligencia;
 	}
 
+	/**
+	 * Devuelve la Casta.
+	 * @return - Casta del personaje.
+	 */
 	public Casta getCasta() {
 		return casta;
 	}
 
+	/**
+	 * Asigna la Casta.
+	 * @param casta - Casta del personaje.
+	 */
 	public void setCasta(Casta casta) {
 		this.casta = casta;
 	}
 
+	/**
+	 * Devuelve la experiencia.
+	 * @return - experiencia del personaje.
+	 */
 	public int getExperiencia() {
 		return experiencia;
 	}
 
+	/**
+	 * Asigna la experiencia
+	 * @param experiencia - experiencia del personaje.
+	 */
 	public void setExperiencia(int experiencia) {
 		this.experiencia = experiencia;
 	}
 
+	/**
+	 * Devuelve el nivel.
+	 * @return - nivel del personaje.
+	 */
 	public int getNivel() {
 		return nivel;
 	}
 
+	/**
+	 * Asigna el nivel.
+	 * @param nivel - nivel del personaje.
+	 */
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
 
+	/**
+	 * Devuelve el idPersonaje.
+	 * @return - identificacion del personaje.
+	 */
 	public int getIdPersonaje() {
 		return idPersonaje;
 	}
 
+	/**
+	 * Asigna el idPersonaje.
+	 * @param idPersonaje - identificacion del personaje.
+	 */
 	public void setIdPersonaje(int idPersonaje) {
 		this.idPersonaje = idPersonaje;
 	}
 
+	/**
+	 * Devuelve la defensa.
+	 * @return - defensa del personaje.
+	 */
 	public int getDefensa() {
 		return defensa;
 	}
 
+	/**
+	 * Asigna la defensa.
+	 * @param defensa - defensa del personaje.
+	 */
 	public void setDefensa(int defensa) {
 		this.defensa = defensa;
 	}
 
+	/**
+	 * Devuelve la saludTope.
+	 * @return - salud maxima del personaje.
+	 */
 	public int getSaludTope() {
 		return saludTope;
 	}
 
+	/**
+	 * Asigna la saludTope.
+	 * @param saludTope - saluda maxima del personaje.
+	 */
 	public void setSaludTope(int saludTope) {
 		this.saludTope = saludTope;
 	}
 
+	/**
+	 * Devuelve energiaTope.
+	 * @return - energia maxima del personaje.
+	 */
 	public int getEnergiaTope() {
 		return energiaTope;
 	}
 
+	/**
+	 * Asigna la energiaTope.
+	 * @param energiaTope - energia maxima del personaje.
+	 */
 	public void setEnergiaTope(int energiaTope) {
 		this.energiaTope = energiaTope;
 	}
 
 	/**
-	 * Permite atacar a otro personaje
-	 * 
-	 * @param atacado
-	 *            Personaje a atacar
-	 * @return Devuelve el daño efectivo infligido al personaje
+	 * Permite atacar a otro personaje.
+	 * @param atacado - Personaje a atacar.
+	 * @return Devuelve el daño efectivo infligido al personaje.
 	 */
 	public int atacar(Peleable atacado) {
 		if (this.getSalud() == 0)
@@ -308,34 +431,63 @@ public abstract class Personaje extends Peleable implements Serializable {
 		return 0;
 	}
 
+	/**
+	 * Devuelve el daño ocasionado por el realizar el golpe critico.
+	 * @return daño ocasionado cuando el personaje realiza un golpe critico.
+	 */
 	public int golpe_critico() {
 		return (int) (this.ataque * this.getCasta().getDañoCritico());
 	}
 
+	/**
+	 * Indica si el personaje puede atacar.
+	 * @return booleano que confirma si puede atacar.
+	 */
 	public boolean puedeAtacar() {
 		return energia > 10;
 	}
 
+	/**
+	 * Devuelve puntos de ataque incrementados segun la fuerza que posee el personaje.
+	 * @return la cantidad de puntos de ataque.
+	 */
 	public int calcularPuntosDeAtaque() {
 		return (int) (this.getFuerza() * 1.5);
 	}
 
+	/**
+	 * Devuelve los puntos de defensa incrementados segun la destreza que posee el personaje.
+	 * @return la cantidad de puntos de defensa.
+	 */
 	public int calcularPuntosDeDefensa() {
 		return (int) (this.getDestreza());
 	}
 
+	/**
+	 * Devuelve los puntos de magia incrementados segun la inteligencia que posee el personaje.
+	 * @return la cantidad de puntos de magia.
+	 */
 	public int calcularPuntosDeMagia() {
 		return (int) (this.getInteligencia() * 1.5);
 	}
 
+	/**
+	 * Restaura la salud del personaje hasta el tope.
+	 */
 	public void restablecerSalud() {
 		this.setSalud(this.saludTope);
 	}
 
+	/**
+	 * Restaura la energia del personaje hasta el tope.
+	 */
 	public void restablecerEnergia() {
 		this.energia = this.energiaTope;
 	}
 
+	/**
+	 * 
+	 */
 	public void modificarAtributos() {
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.defensa = this.calcularPuntosDeDefensa();
