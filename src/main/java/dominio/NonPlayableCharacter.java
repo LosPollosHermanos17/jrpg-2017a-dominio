@@ -99,6 +99,14 @@ public class NonPlayableCharacter extends Peleable {
     public boolean serAtacadoSinDefensa(final Personaje atacante) {
         return false;
     }
+    
+    /**
+     * Permite que al personaje le den salud
+     * @param caster : Personaje que le va a dar salud
+     */
+    public boolean serCurado(final Personaje caster) {     
+        return false;
+    }
 
     public void ganarExperiencia(final int exp) {
 

@@ -54,10 +54,7 @@ public class Hechicero extends Casta {
     public boolean habilidad2(final Personaje caster, final Peleable aliado) {
         if (caster.getEnergia() > ENERGIAMINIMA) {
             caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
-            if (aliado instanceof Personaje) {
-                ((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
-                return true;
-            }
+            return aliado.serCurado(caster);           
         }
         return false;
     }

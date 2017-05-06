@@ -41,6 +41,8 @@ public abstract class Peleable {
     }
 
     public abstract boolean serAtacadoSinDefensa(Personaje atacante);
+    
+    public abstract boolean serCurado(Personaje caster);
 
     public abstract int atacar(Peleable atacado);
 
