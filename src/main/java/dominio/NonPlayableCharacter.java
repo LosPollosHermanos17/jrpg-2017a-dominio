@@ -1,6 +1,8 @@
 package dominio;
+
 /**
- * Establece, de acuerdo a la dificultad deseada, el conjunto de caracter�sticas deseadas para estos personajes controlados en forma autom�tica.
+ * Establece, de acuerdo a la dificultad deseada, el conjunto de caracter�sticas
+ * deseadas para estos personajes controlados en forma autom�tica.
  */
 public class NonPlayableCharacter extends Peleable {
 
@@ -19,17 +21,17 @@ public class NonPlayableCharacter extends Peleable {
 
 		switch (dificultad) {
 		case 0:
-			this.setFuerza(10 + (nivel - 1) * 3);// 30%
+			this.setFuerza(10 + (nivel - 1) * 3);
 			this.setSalud(30 + (nivel - 1) * 15);
 			this.defensa = 2 + (nivel - 1) * 1;
 			break;
 		case 1:
-			this.setFuerza(20 + (nivel - 1) * 6);// 50%
+			this.setFuerza(20 + (nivel - 1) * 6);
 			this.setSalud(40 + (nivel - 1) * 20);
 			this.defensa = 5 + (nivel - 1) * 2;
 			break;
 		case 2:
-			this.setFuerza(30 + (nivel - 1) * 10);// 50%
+			this.setFuerza(30 + (nivel - 1) * 10);
 			this.setSalud(50 + (nivel - 1) * 25);
 			this.defensa = 4 + (nivel - 1) * 4;
 			break;
@@ -41,7 +43,6 @@ public class NonPlayableCharacter extends Peleable {
 		return this.nivel * 30;
 	}
 
-
 	public int getNivel() {
 		return nivel;
 	}
@@ -49,8 +50,6 @@ public class NonPlayableCharacter extends Peleable {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-
-	
 
 	public int getDefensa() {
 		return defensa;
@@ -65,13 +64,14 @@ public class NonPlayableCharacter extends Peleable {
 	 * @param atacado Personaje a atacar
 	 * @return Devuelve el daño efectivo infligido al personaje
 	 */
+
 	public int atacar(Peleable atacado) {
-		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
+		if (MyRandom.nextDouble() <= 0.15) {
 			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
 		} else
 			return atacado.serAtacado(this.getAtaque());
 	}
-	
+
 	/**
 	 * Permite que el personaje sea atacado
 	 * @param danio : Cantidad que indica el daño a infligir sobre el personaje
@@ -81,15 +81,13 @@ public class NonPlayableCharacter extends Peleable {
 		if (MyRandom.nextDouble() >= 0.15) {
 			danio -= this.getDefensa() / 2;
 			if (danio > 0) {
-				this.setSalud(this.getSalud()-danio);
+				this.setSalud(this.getSalud() - danio);
 				return danio;
 			}
 			return 0;// no le hace daño ya que la defensa fue mayor
 		}
 		return 0;// esquivo el golpe
 	}
-
-	
 
 	public void ganarExperiencia(int exp) {
 
@@ -102,6 +100,7 @@ public class NonPlayableCharacter extends Peleable {
 
 	@Override
 	public void setAtaque(int ataque) {
-		this.setFuerza(ataque);;
+		this.setFuerza(ataque);
+		;
 	}
 }

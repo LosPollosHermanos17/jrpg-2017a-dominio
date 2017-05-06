@@ -1,4 +1,5 @@
 package dominio;
+
 /**
  * Define las caracteristicas y habilidades de un personaje Hechicero
  * 
@@ -7,29 +8,28 @@ package dominio;
  */
 public class Hechicero extends Casta {
 
+	private final int ENERGIAMINIMA = 10;
 	/**
-	 * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros recibidos
+	 * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros
+	 * recibidos
 	 * @param probCritico : Probabilidad de golpe critico.
 	 * @param evasion : Valor de evasion.
 	 * @param danioCritico : Valor del daño crítico.
-	 */	
+	 */
 	public Hechicero(double probCritico, double evasion, double danioCritico) {
 		super(probCritico, evasion, danioCritico);
 		this.nombreCasta = "Hechicero";
 	}
 
 	/**
-	 * Asigna un objeto Hechicero y lo inicializa 
-	 */	
+	 * Asigna un objeto Hechicero y lo inicializa
+	 */
 	public Hechicero() {
 		super();
 		this.nombreCasta = "Hechicero";
-		habilidadesCasta = new String[3];
-		habilidadesCasta[0] = "Bola de Fuego";
-		habilidadesCasta[1] = "Curar Aliado";
-		habilidadesCasta[2] = "Robar Energia y Salud";
-	}	
-	
+		habilidadesCasta = new String[] { "Bola de Fuego", "Curar Aliado", "Robar Energia y Salud" };
+	}
+
 	/**
 	 * Permite a un personaje pueda atacar usando una bola de fuego a otro
 	 * @param caster : Es el personaje atacante
@@ -37,8 +37,8 @@ public class Hechicero extends Casta {
 	 * @return True si el personaje pudo atacar al otro personaje.
 	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * 1.5)) > 0)
 				return true;
 		}
@@ -52,8 +52,8 @@ public class Hechicero extends Casta {
 	 * @return True si el personaje pudo curar al otro personaje.
 	 */
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (aliado instanceof Personaje) {
 				((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
 				return true;
@@ -69,8 +69,8 @@ public class Hechicero extends Casta {
 	 * @return True si el personaje pudo robar al otro personaje.
 	 */
 	public boolean habilidad3(Personaje caster, Peleable atacado) {
-		if (caster.getEnergia() > 10) {
-			caster.setEnergia(caster.getEnergia() - 10);
+		if (caster.getEnergia() > ENERGIAMINIMA) {
+			caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
 			if (atacado instanceof Personaje) {
 				int energiaRobada = ((Personaje) atacado).serDesernegizado(caster.calcularPuntosDeMagia());
 				int saludRobada = ((Personaje) atacado).serRobadoSalud(caster.calcularPuntosDeMagia() / 2);
@@ -82,15 +82,13 @@ public class Hechicero extends Casta {
 		}
 		return false;
 	}
-	
-	
+
 	/**
-	 * Inicializa un Personaje de tipo Hechicero, 
-	 * incrementando su atributo <b>inteligencia</b>.
+	 * Inicializa un Personaje de tipo Hechicero, incrementando su atributo
+	 * <b>inteligencia</b>.
 	 * @param p - objeto Personaje a inicializar.
 	 */
-	public void inicializarPersonaje(Personaje p)
-	{
+	public void inicializarPersonaje(Personaje p) {
 		p.setInteligencia(p.getInteligencia() + 5);
 	}
 }
