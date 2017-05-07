@@ -5,11 +5,6 @@ apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
 
-compileJava.options.encoding = 'UTF-8'
-tasks.withType(JavaCompile) {
-options.encoding = 'UTF-8'
-}
-
 // Configuración
 
 sourceCompatibility = 1.7
