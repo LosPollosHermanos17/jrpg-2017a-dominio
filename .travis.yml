@@ -10,5 +10,6 @@ notifications:
       - sergioamoruso91@gmail.com
       - alejandrobrude@gmail.com
       - matsamed@gmail.com
+      - matias.n.lell@gmail.com
     on_success: always
     on_failure: always
