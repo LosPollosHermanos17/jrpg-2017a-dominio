@@ -4,8 +4,11 @@ jdk:
   - openjdk7
 notifications:
   email:
-    - c.ctomalino@gmail.com
-    - cabralrodrigoariel@gmail.com
-    - sergioamoruso91@gmail.com
-    - alejandrobrude@gmail.com
-    - matsamed@gmail.com
+    recipients:
+      - c.ctomalino@gmail.com
+      - cabralrodrigoariel@gmail.com
+      - sergioamoruso91@gmail.com
+      - alejandrobrude@gmail.com
+      - matsamed@gmail.com
+    on_success: always
+    on_failure: always
