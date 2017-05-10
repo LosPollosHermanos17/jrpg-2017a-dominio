@@ -87,7 +87,7 @@ public class Asesino extends Casta {
     }
 
     /**
-     * Permite que un personaje pueda robar a otro personaje. *
+     * Permite que un personaje pueda robar a otro personaje.
      * @param caster - personaje que roba.
      * @param atacado - personaje robado.
      * @return false siempre.
@@ -96,11 +96,19 @@ public class Asesino extends Casta {
         return false;
     }
 
-    /**
-     * Inicializa un Personaje de tipo Asesino, incrementando su atributo <b>destreza</b>.
-     * @param p - objeto Personaje a inicializar.
-     */
-    public void inicializarPersonaje(final Personaje p) {
-        p.setDestreza(p.getDestreza() + 5);
-    }
+	@Override
+	public int getBonusFuerza() {
+		return 0;
+	}
+
+	@Override
+	public int getBonusInteligencia() {
+		return 0;
+	}
+
+	@Override
+	public int getBonusDestreza() {
+		return 5;
+	}
+    
 }

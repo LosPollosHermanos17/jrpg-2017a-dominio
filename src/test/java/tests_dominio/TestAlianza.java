@@ -36,7 +36,7 @@ public class TestAlianza {
         alianzaPrueba.eliminarPersonaje(guerreroPrueba);
 
         // THEN
-        Assert.assertEquals("No se elimino Personaje", 1, aliadosPrueba.size());
+        Assert.assertEquals("No se elimino Personaje", 1, alianzaPrueba.getAliados().size());
         Assert.assertEquals("No se elimino Personaje indicado", hechiceroPrueba, aliadosPrueba.getFirst());
     }
 
@@ -53,7 +53,7 @@ public class TestAlianza {
         alianzaPrueba.añadirPersonaje(guerreroPrueba);
 
         // THEN
-        Assert.assertEquals("No se añadió Personaje", 1, aliadosPrueba.size());
+        Assert.assertEquals("No se añadió Personaje", 1, alianzaPrueba.getAliados().size());
         Assert.assertEquals("No se añadió Personaje de manera correcta", guerreroPrueba, aliadosPrueba.getFirst());
     }
 

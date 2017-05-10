@@ -6,9 +6,9 @@ package dominio;
  * @version 1.0
  */
 public abstract class Peleable {
-    private int salud;
-    private int fuerza;
-    private String nombre;
+    protected int salud;
+    protected int fuerza;
+    protected String nombre;
 
     public abstract int serAtacado(int danio);
 
