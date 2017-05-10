@@ -60,11 +60,23 @@ public abstract class Casta implements Serializable {
      */
     public abstract boolean habilidad3(Personaje caster, Peleable atacado);
 
+	/**
+	 * Devuelve un bonus del atributo <b>fuerza</b> segun la casta a la que pertenece el personaje inicializado.
+	 * @return bonus de atributo <b>fuerza</b>.
+	 */
+    public abstract int getBonusFuerza();
+    
     /**
-     * Inicializa el personaje.
-     * @param p : Personaje a inicializar.
+     * Devuelve un bonus del atributo <b>inteligencia</b> segun la casta a la que pertenece el personaje inicializado.
+     * @return bonus de atributo <b>inteligencia</b>.
      */
-    public abstract void inicializarPersonaje(Personaje p);
+    public abstract int getBonusInteligencia();
+    
+    /**
+     * Devuelve un bonus del atributo <b>destreza</b> segun la casta a la que pertenece el personaje inicializado.
+     * @return bonus de atributo <b>destreza</b>.
+     */
+    public abstract int getBonusDestreza();
 
     /**
      * Devuelve el nombre casta.

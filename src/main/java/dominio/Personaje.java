@@ -53,7 +53,7 @@ public abstract class Personaje extends Peleable implements Serializable {
         this(nombre, casta, id);
         saludTope += incSalud;
         energiaTope += incEnergia;
-        this.setSalud(saludTope);
+        salud = saludTope;
         energia = energiaTope;
     }
 
@@ -80,29 +80,27 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param casta - casta a la cual pertenece.
      * @param id - numero identificador del personaje.
      */
-    public Personaje(final String nombre, final Casta casta, final int id) {
-        this.setNombre(nombre);
+    public Personaje(final String nombre, final Casta casta, final int idPersonaje) {
+        this.nombre = nombre;
         this.casta = casta;
-        this.idPersonaje = id;
+        this.idPersonaje = idPersonaje;
         experiencia = 0;
         nivel = 1;
-        this.setFuerza(10);
-        inteligencia = 10;
-        destreza = 10;
-
-        casta.inicializarPersonaje(this);
+        fuerza 		 = 10 + this.casta.getBonusFuerza();
+        inteligencia = 10 + this.casta.getBonusInteligencia();
+        destreza 	 = 10 + this.casta.getBonusDestreza();
 
         x = 0;
         y = 0;
         saludTope = 100;
         energiaTope = 100;
 
-        this.setSalud(saludTope);
+        salud = saludTope;
         energia = energiaTope;
 
-        ataque = this.calcularPuntosDeAtaque();
-        defensa = this.calcularPuntosDeDefensa();
-        magia = this.calcularPuntosDeMagia();
+        ataque = calcularPuntosDeAtaque();
+        defensa = calcularPuntosDeDefensa();
+        magia = calcularPuntosDeMagia();
     }
 
     /**
@@ -122,23 +120,23 @@ public abstract class Personaje extends Peleable implements Serializable {
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
             final int idPersonaje) {
 
-        this.setNombre(nombre);
-        this.setSalud(salud);
+        this.nombre = nombre;
+        this.salud = salud;
         this.energia = energia;
-        this.setFuerza(fuerza);
+        this.fuerza = fuerza;
         this.destreza = destreza;
         this.inteligencia = inteligencia;
         this.casta = casta;
         this.experiencia = experiencia;
         this.nivel = nivel;
-
-        this.saludTope = this.getSalud();
-        this.energiaTope = this.energia;
-
         this.idPersonaje = idPersonaje;
-        this.defensa = this.calcularPuntosDeDefensa();
-        this.ataque = this.calcularPuntosDeAtaque();
-        this.magia = this.calcularPuntosDeMagia();
+        
+        this.saludTope = this.salud;
+        this.energiaTope = this.energia;
+        
+        this.defensa = calcularPuntosDeDefensa();
+        this.ataque = calcularPuntosDeAtaque();
+        this.magia = calcularPuntosDeMagia();
     }
 
     /**
@@ -158,9 +156,9 @@ public abstract class Personaje extends Peleable implements Serializable {
      */
     public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
-            final int idPersonaje, final String nomRaza, final String[] habilidadesRaza) {
+            final int idPersonaje, final String nombreRaza, final String[] habilidadesRaza) {
         this(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
-        this.nombreRaza = nomRaza;
+        this.nombreRaza = nombreRaza;
         this.habilidadesRaza = habilidadesRaza;
     }
 
@@ -411,10 +409,10 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return Devuelve el daño efectivo infligido al personaje.
      */
     public int atacar(final Peleable atacado) {
-        if (this.getSalud() == 0) {
+        if (this.salud == 0) {
             return 0;
         }
-        if (atacado.getSalud() > 0) {
+        if (atacado.salud > 0) {
             if (MyRandom.nextDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
                 return atacado.serAtacado(this.golpe_critico());
             } else {
@@ -429,7 +427,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return daño ocasionado cuando el personaje realiza un golpe critico.
      */
     public int golpe_critico() {
-        return (int) (this.ataque * this.getCasta().getDañoCritico());
+        return (int) (ataque * getCasta().getDañoCritico());
     }
 
     /**
@@ -445,7 +443,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return la cantidad de puntos de ataque.
      */
     public int calcularPuntosDeAtaque() {
-        return (int) (this.getFuerza() * 1.5);
+        return (int) (fuerza * 1.5);
     }
 
     /**
@@ -453,7 +451,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return la cantidad de puntos de defensa.
      */
     public int calcularPuntosDeDefensa() {
-        return (int) (this.getDestreza());
+        return (int) (destreza);
     }
 
     /**
@@ -461,30 +459,30 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return la cantidad de puntos de magia.
      */
     public int calcularPuntosDeMagia() {
-        return (int) (this.getInteligencia() * 1.5);
+        return (int) (inteligencia * 1.5);
     }
 
     /**
      * Restaura la salud del personaje hasta el tope.
      */
     public void restablecerSalud() {
-        this.setSalud(this.saludTope);
+        salud = saludTope;
     }
 
     /**
      * Restaura la energia del personaje hasta el tope.
      */
     public void restablecerEnergia() {
-        this.energia = this.energiaTope;
+        energia = energiaTope;
     }
 
     /**
      * Calcula el ataque, defensa y magia.
      */
     public void modificarAtributos() {
-        this.ataque = this.calcularPuntosDeAtaque();
-        this.defensa = this.calcularPuntosDeDefensa();
-        this.magia = this.calcularPuntosDeMagia();
+        ataque = calcularPuntosDeAtaque();
+        defensa = calcularPuntosDeDefensa();
+        magia = calcularPuntosDeMagia();
     }
 
     /**
@@ -493,14 +491,14 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return Devuelve el daño efectivo infligido al personaje
      */
     public int serAtacado(int danio) {
-        if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
-            danio -= this.defensa;
+        if (MyRandom.nextDouble() >= getCasta().getProbabilidadEvitarDaño()) {
+            danio -= defensa;
             if (danio > 0) {
-                if (this.getSalud() <= danio) {
-                    danio = this.getSalud();
-                    this.setSalud(0);
+                if (salud <= danio) {
+                    danio = salud;
+                    salud = 0;
                 } else {
-                    this.setSalud(this.getSalud() - danio);
+                    salud = salud - danio;
                 }
                 return danio;
             }
@@ -515,10 +513,10 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return Devuelve si el atacante pudo atacar
      */
     public boolean serAtacadoSinDefensa(final Personaje atacante) {
-        int defensaOriginal = this.getDefensa();
-        this.setDefensa(0);
-        if (this.serAtacado(atacante.ataque) > 0) {
-            this.setDefensa(defensaOriginal);
+        int defensaOriginal = defensa;
+        defensa = 0;
+        if (serAtacado(atacante.ataque) > 0) {
+            defensa = defensaOriginal;
             return true;
         }
         return false;
@@ -534,11 +532,11 @@ public abstract class Personaje extends Peleable implements Serializable {
         if (danio <= 0) {
             return 0;
         }
-        if ((this.getSalud() - danio) >= 0) {
-            this.setSalud(this.getSalud() - danio);
+        if ((salud - danio) >= 0) {
+            salud -= danio;
         } else {
-            danio = this.getSalud();
-            this.setSalud(0);
+            danio = salud;
+            salud = 0;
         }
         return danio;
     }
@@ -567,10 +565,10 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param salud : Cantidad que indica la saluda a agregar.
      */
     public void serCurado(final int salud) {
-        if ((this.getSalud() + salud) <= this.saludTope) {
-            this.setSalud(this.getSalud() + salud);
+        if ((this.salud + salud) <= this.saludTope) {
+        	this.salud += salud;
         } else {
-            this.setSalud(this.saludTope);
+            this.salud = this.saludTope;
         }
     }
 
@@ -590,8 +588,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return true si pudo ser robado y desenergizado
      */
     public boolean serRobadoYDesenergizado(final Personaje atacante) {
-        int energiaRobada = this.serDesernegizado(atacante.calcularPuntosDeMagia());
-        int saludRobada = this.serRobadoSalud(atacante.calcularPuntosDeMagia() / 2);
+        int energiaRobada = serDesernegizado(atacante.calcularPuntosDeMagia());
+        int saludRobada = serRobadoSalud(atacante.calcularPuntosDeMagia() / 2);
         atacante.serEnergizado(energiaRobada);
         atacante.serCurado(saludRobada);
         return true;
@@ -614,17 +612,17 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param nombreAlianza : Nombre que identificara la nueva alinza.
      */
     public void crearAlianza(final String nombreAlianza) {
-        this.clan = new Alianza(nombreAlianza);
-        this.clan.añadirPersonaje(this);
+        clan = new Alianza(nombreAlianza);
+        clan.añadirPersonaje(this);
     }
 
     /**
      * Elimina un personaje de la alianza.
      */
     public void salirDeAlianza() {
-        if (this.clan != null) {
-            this.clan.eliminarPersonaje(this);
-            this.clan = null;
+        if (clan != null) {
+            clan.eliminarPersonaje(this);
+            clan = null;
         }
     }
 
@@ -634,7 +632,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return true si pudo ser añadido.
      */
     public boolean aliar(final Personaje nuevoAliado) {
-        if (this.clan == null) {
+        
+    	if (this.clan == null) {
             Alianza a = new Alianza("Alianza 1");
             this.clan = a;
             a.añadirPersonaje(this);
@@ -656,17 +655,17 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param inteligencia : Inteligencia a incrementar.
      */
     public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
-        final int max = 200;
-        if (this.getFuerza() + fuerza <= max) {
-            this.setFuerza(this.getFuerza() + fuerza);
+        final int maxSkill = 200;
+        if (this.fuerza + fuerza <= maxSkill) {
+            this.fuerza += fuerza;
         }
-        if (this.destreza + destreza <= max) {
+        if (this.destreza + destreza <= maxSkill) {
             this.destreza += destreza;
         }
-        if (this.inteligencia + inteligencia <= max) {
+        if (this.inteligencia + inteligencia <= maxSkill) {
             this.inteligencia += inteligencia;
         }
-        this.modificarAtributos();
+        modificarAtributos();
     }
 
     /**
@@ -678,29 +677,31 @@ public abstract class Personaje extends Peleable implements Serializable {
         final int experienciaMaxima = 100;
         final int salud = 25;
         final int energia = 20;
-        if (this.nivel == experienciaMaxima) {
+        
+        if (nivel == experienciaMaxima) {
             return;
         }
-        while (this.nivel != experienciaMaxima
-                && (this.experiencia >= Personaje.tablaDeNiveles[this.nivel + 1] + acumuladorExperiencia)) {
-            acumuladorExperiencia += Personaje.tablaDeNiveles[this.nivel + 1];
-            this.nivel++;
-            this.modificarAtributos();
-            this.saludTope += salud;
-            this.energiaTope += energia;
+        
+        while (nivel != experienciaMaxima
+                && (experiencia >= Personaje.tablaDeNiveles[nivel + 1] + acumuladorExperiencia)) {
+            acumuladorExperiencia += Personaje.tablaDeNiveles[nivel + 1];
+            nivel++;
+            modificarAtributos();
+            saludTope += salud;
+            energiaTope += energia;
         }
-        this.experiencia -= acumuladorExperiencia;
+        experiencia -= acumuladorExperiencia;
     }
 
     /**
      * Verifica si un personaje aumenta su nivel.
-     * @param exp : Experiencia recibida.
+     * @param experiencia : Experiencia recibida.
      * @return true si sube de nivel.
      */
-    public boolean ganarExperiencia(final int exp) {
-        this.experiencia += exp;
+    public boolean ganarExperiencia(final int experiencia) {
+        this.experiencia += experiencia;
 
-        if (experiencia >= Personaje.tablaDeNiveles[this.nivel + 1]) {
+        if (this.experiencia >= Personaje.tablaDeNiveles[this.nivel + 1]) {
             subirNivel();
             return true;
         }
@@ -712,8 +713,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return el nivel multiplicado por la experiencia obtenida.
      */
     public int otorgarExp() {
-        final int ex = 40;
-        return this.nivel * ex;
+        final int exp = 40;
+        return this.nivel * exp;
     }
 
     /**
@@ -739,7 +740,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return habilidad dependiendo del personaje atacado.
      */
     public boolean habilidadCasta1(final Peleable atacado) {
-        return this.getCasta().habilidad1(this, atacado);
+        return getCasta().habilidad1(this, atacado);
     }
 
     /**
@@ -748,7 +749,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return habilidad dependiendo del personaje atacado.
      */
     public boolean habilidadCasta2(final Peleable atacado) {
-        return this.getCasta().habilidad2(this, atacado);
+        return getCasta().habilidad2(this, atacado);
     }
 
     /**
@@ -757,7 +758,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return habilidad dependiendo del personaje atacado.
      */
     public boolean habilidadCasta3(final Peleable atacado) {
-        return this.getCasta().habilidad3(this, atacado);
+        return getCasta().habilidad3(this, atacado);
     }
 
     /**
