@@ -1,10 +1,10 @@
 TP1
 
-Para hacer la documentación de javadocs:
+Para hacer la documentaciï¿½n de javadocs:
 https://es.wikipedia.org/wiki/Javadoc
 http://www.oracle.com/technetwork/articles/java/index-137868.html
 
-Alianza, Peliable y Casa ya están.
+Alianza, Peliable y Casa ya estï¿½n.
 
 Fede: Asesino
 Rodrigo: Elfo
@@ -32,6 +32,16 @@ Carlos : Hechisero, Humano,
 3) Crear abstraccion de Personaje y NonPlayableCharacter (Ale)
 4) Orco,Humano y Elfo: codigo duplicado en cosntructor (Matias) 
 5) Personaje,  eliminar instanceof Eliminarlo de todos lados instance Of (Fede)
+
+Consigna:
+https://github.com/programacion-avanzada/jrpg-2017a-consigna/blob/master/20170520-tercera-entrega.md
+
+
+1) My Random ( Charly )
+2) Alianza ( Fede )
+3) Personaje Relevamientos - Ale
+4) Errores en juego
+
 
 
 
