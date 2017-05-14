@@ -7,10 +7,28 @@ package dominio;
  */
 public class Hechicero extends Casta {
 
-    private final int ENERGIAMINIMA = 10;
+    /**
+     * Cantidad de energia minima necesaria para ejecutar una habilidad.
+     */
+	private final int CANT_ENERGIA_MINIMA = 10;
 
     /**
-     * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros recibidos
+     * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Hechicero.
+     */
+    private final int BONUS_FUERZA = 0;
+
+    /**
+     * Bonus de atributo <b>inteligencia</b> que se otorga al personaje creado por pertenecer a la casta Hechicero.
+     */
+    private final int BONUS_INTELIGENCIA = 5;
+
+    /**
+     * Bonus de atributo <b>destreza</b> que se otorga al personaje creado por pertenecer a la casta Hechicero.
+     */
+    private final int BONUS_DESTREZA = 0;
+
+    /**
+     * Asigna un objeto Hechicero y lo inicializa de acuerdo a los parámetros recibidos.
      * @param probCritico : Probabilidad de golpe critico.
      * @param evasion : Valor de evasion.
      * @param danioCritico : Valor del daño crítico.
@@ -36,8 +54,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > ENERGIAMINIMA) {
-            caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
+        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
+            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
             if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * 1.5)) > 0) {
                 return true;
             }
@@ -52,8 +70,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo curar al otro personaje.
      */
     public boolean habilidad2(final Personaje caster, final Peleable aliado) {
-        if (caster.getEnergia() > ENERGIAMINIMA) {
-            caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
+        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
+            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
             return aliado.serCurado(caster);           
         }
         return false;
@@ -66,8 +84,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo robar al otro personaje.
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > ENERGIAMINIMA) {
-            caster.setEnergia(caster.getEnergia() - ENERGIAMINIMA);
+        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
+            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
             return atacado.serRobadoYDesenergizado(caster);           
         }
         return false;
@@ -75,16 +93,16 @@ public class Hechicero extends Casta {
 
 	@Override
 	public int getBonusFuerza() {
-		return 0;
+		return BONUS_FUERZA;
 	}
 
 	@Override
 	public int getBonusInteligencia() {
-		return 5;
+		return BONUS_INTELIGENCIA;
 	}
 
 	@Override
 	public int getBonusDestreza() {
-		return 0;
+		return BONUS_DESTREZA;
 	}
 }

@@ -21,40 +21,34 @@ public class TestAlianza {
         // eliminarlo, en vez de usar el método "añadirPersonaje".
         // De esta manera, logro pruebas atómicas.
 
-        // GIVEN
-        Alianza alianzaPrueba = new Alianza("Alianza Prueba");
+        // GIVEN        
         LinkedList<Personaje> aliadosPrueba = new LinkedList<Personaje>();
-        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0,
-                1, 1);
-        Humano hechiceroPrueba = new Humano("Hechicero Prueba", 100, 100, 100, 20, 30, new Hechicero(0.2, 0.3, 1.5),
-                0, 1, 1);
+        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
+        Humano hechiceroPrueba = new Humano("Hechicero Prueba", 100, 100, 100, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
         aliadosPrueba.add(guerreroPrueba);
         aliadosPrueba.add(hechiceroPrueba);
-        alianzaPrueba.setAliados(aliadosPrueba);
+        Alianza alianzaPrueba = new Alianza("Alianza Prueba", aliadosPrueba);
 
         // WHEN
         alianzaPrueba.eliminarPersonaje(guerreroPrueba);
 
         // THEN
         Assert.assertEquals("No se elimino Personaje", 1, alianzaPrueba.getAliados().size());
-        Assert.assertEquals("No se elimino Personaje indicado", hechiceroPrueba, aliadosPrueba.getFirst());
+        Assert.assertEquals("No se elimino Personaje indicado", hechiceroPrueba, alianzaPrueba.getAliados().getFirst());
     }
 
     @Test
-    public void testAñadirPersonaje() {
+    public void testAgregarPersonaje() {
         // GIVEN
         Alianza alianzaPrueba = new Alianza("Alianza Prueba");
-        LinkedList<Personaje> aliadosPrueba = new LinkedList<Personaje>();
-        alianzaPrueba.setAliados(aliadosPrueba);
-        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0,
-                1, 1);
+        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
 
         // WHEN
-        alianzaPrueba.añadirPersonaje(guerreroPrueba);
+        alianzaPrueba.agregarPersonaje(guerreroPrueba);
 
         // THEN
         Assert.assertEquals("No se añadió Personaje", 1, alianzaPrueba.getAliados().size());
-        Assert.assertEquals("No se añadió Personaje de manera correcta", guerreroPrueba, aliadosPrueba.getFirst());
+        Assert.assertEquals("No se añadió Personaje de manera correcta", guerreroPrueba, alianzaPrueba.getAliados().getFirst());
     }
 
 }

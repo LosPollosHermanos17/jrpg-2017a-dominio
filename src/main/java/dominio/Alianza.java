@@ -15,7 +15,7 @@ public class Alianza {
     private String nombre;
 
     /**
-     * Vector de tipo LinkedList<Personaje> que contiene los personajes que forman parte de dicha alianza.
+     * Array de tipo LinkedList<Personaje> que contiene los personajes que forman parte de dicha alianza.
      */
     private LinkedList<Personaje> aliados;
 
@@ -29,19 +29,22 @@ public class Alianza {
     }
 
     /**
-     * Devuelve la lista de personajes aliados.
-     * @return un array de tipo LinkedList<Personaje> con los integrantes de la alianza.
+     * Inicializa un objeto Alianza con el nombre y el array de aliados especificado.
+     * @param nombre - nombre de la alianza.
+     * @param aliados - array de tipo LinkedList<Personaje> con los integrantes de la nueva alianza.
      */
-    public LinkedList<Personaje> getAliados() {
-        return aliados;
+    public Alianza(final String nombre, final LinkedList<Personaje> aliados) {
+        this.nombre = nombre;
+        this.aliados = aliados;
     }
 
     /**
-     * Setea el array de tipo LinkedList<Personaje> con los integrantes de la alianza.
-     * @param aliados - personajes que formaran parte de la alianza.
+     * Devuelve array que contiene los integrantes de la alianza.
+     * @return copia superficial del array de tipo LinkedList<Personaje> con los integrantes de la alianza.
      */
-    public void setAliados(final LinkedList<Personaje> aliados) {
-        this.aliados = aliados;
+    public LinkedList<Personaje> getAliados() {
+        LinkedList<Personaje> aux = new LinkedList<Personaje>(aliados);
+        return aux;
     }
 
     /**
@@ -64,7 +67,7 @@ public class Alianza {
      * Agrega el Personaje especificado al array <b>aliados</b>.
      * @param pj - Personaje a añadir al array.
      */
-    public void añadirPersonaje(final Personaje pj) {
+    public void agregarPersonaje(final Personaje pj) {
         aliados.add(pj);
     }
 
