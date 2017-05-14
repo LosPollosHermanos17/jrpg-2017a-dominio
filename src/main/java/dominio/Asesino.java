@@ -8,24 +8,34 @@ package dominio;
 public class Asesino extends Casta {
 
     /**
-     * Cantidad de Habilidades del Asesino.
+     * Cantidad de energia minima necesaria para ejecutar una habilidad.
      */
-    private final int cantHabilidades = 3;
+    private final int CANT_ENERGIA_MINIMA = 10;
+    
+    /**
+     * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Asesino.
+     */
+    private final int BONUS_FUERZA = 0;
 
     /**
-     * Cantidad de energia minima necesaria para ejecutar una hablidad.
+     * Bonus de atributo <b>inteligencia</b> que se otorga al personaje creado por pertenecer a la casta Asesino.
      */
-    private final int cantEnergiaMinima = 10;
+    private final int BONUS_INTELIGENCIA = 0;
+
+    /**
+     * Bonus de atributo <b>destreza</b> que se otorga al personaje creado por pertenecer a la casta Asesino.
+     */
+    private final int BONUS_DESTREZA = 5;
 
     /**
      * Maxima probabilidad de evitar daño.
      */
-    private final double probEvitarDanioMaxima = 0.5;
+    private final double PROB_EVITAR_DANIO_MAXIMA = 0.5;
 
     /**
      * Probabilidad de evitar daño a incrementar con la ejecución de la habilidad.
      */
-    private final double probEvitarDanioAIncrementar = 0.15;
+    private final double PROB_EVITAR_DANIO_A_INCREMENTAR = 0.15;
 
     /**
      * Constructor por defecto. Inicializa un objeto Asesino asignandole las habilidades.
@@ -33,10 +43,7 @@ public class Asesino extends Casta {
     public Asesino() {
         super();
         this.nombreCasta = "Asesino";
-        habilidadesCasta = new String[cantHabilidades];
-        habilidadesCasta[0] = "Golpe Critico";
-        habilidadesCasta[1] = "Aumentar Evasion";
-        habilidadesCasta[2] = "Robar";
+        habilidadesCasta = new String[] {"Golpe Critico", "Aumentar Evasion", "Robar"};  
     }
 
     /**
@@ -58,8 +65,8 @@ public class Asesino extends Casta {
      * @return true si se puede realizar el ataque o false en caso contrario
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > cantEnergiaMinima) {
-            caster.setEnergia(caster.getEnergia() - cantEnergiaMinima);
+        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
+            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
             if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDañoCritico())) > 0) {
                 return true;
             }
@@ -74,12 +81,12 @@ public class Asesino extends Casta {
      * @return true si el personaje pudo aumentar su probabilidad de evasion o false en caso contrario.
      */
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > cantEnergiaMinima) {
-            caster.setEnergia(caster.getEnergia() - cantEnergiaMinima);
-            if (this.getProbabilidadEvitarDaño() + probEvitarDanioAIncrementar < probEvitarDanioMaxima) {
-                this.probabilidadEvitarDanio += probEvitarDanioAIncrementar;
+        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
+            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
+            if (this.getProbabilidadEvitarDaño() + PROB_EVITAR_DANIO_A_INCREMENTAR < PROB_EVITAR_DANIO_MAXIMA) {
+                this.probabilidadEvitarDanio += PROB_EVITAR_DANIO_A_INCREMENTAR;
             } else {
-                this.probabilidadEvitarDanio = probEvitarDanioMaxima;
+                this.probabilidadEvitarDanio = PROB_EVITAR_DANIO_MAXIMA;
             }
             return true;
         }
@@ -96,19 +103,19 @@ public class Asesino extends Casta {
         return false;
     }
 
-	@Override
-	public int getBonusFuerza() {
-		return 0;
-	}
+    @Override
+    public int getBonusFuerza() {
+        return BONUS_FUERZA;
+    }
 
-	@Override
-	public int getBonusInteligencia() {
-		return 0;
-	}
+    @Override
+    public int getBonusInteligencia() {
+        return BONUS_INTELIGENCIA;
+    }
 
-	@Override
-	public int getBonusDestreza() {
-		return 5;
-	}
-    
+    @Override
+    public int getBonusDestreza() {
+        return BONUS_DESTREZA;
+    }
+
 }

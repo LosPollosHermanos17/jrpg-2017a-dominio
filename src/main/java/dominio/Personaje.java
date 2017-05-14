@@ -224,7 +224,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      */
     public void setClan(final Alianza clan) {
         this.clan = clan;
-        clan.añadirPersonaje(this);
+        clan.agregarPersonaje(this);
     }
 
     /**
@@ -613,7 +613,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      */
     public void crearAlianza(final String nombreAlianza) {
         clan = new Alianza(nombreAlianza);
-        clan.añadirPersonaje(this);
+        clan.agregarPersonaje(this);
     }
 
     /**
@@ -636,12 +636,12 @@ public abstract class Personaje extends Peleable implements Serializable {
     	if (this.clan == null) {
             Alianza a = new Alianza("Alianza 1");
             this.clan = a;
-            a.añadirPersonaje(this);
+            a.agregarPersonaje(this);
         }
 
         if (nuevoAliado.clan == null) {
             nuevoAliado.clan = this.clan;
-            this.clan.añadirPersonaje(nuevoAliado);
+            this.clan.agregarPersonaje(nuevoAliado);
             return true;
         } else {
             return false;

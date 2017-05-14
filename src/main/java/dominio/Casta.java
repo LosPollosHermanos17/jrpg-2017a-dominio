@@ -12,7 +12,6 @@ public abstract class Casta implements Serializable {
     protected double probabilidadEvitarDanio;
     protected double danioCritico;
     protected String nombreCasta;
-
     protected String[] habilidadesCasta;
 
     /**
