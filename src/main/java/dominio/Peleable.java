@@ -9,6 +9,16 @@ public abstract class Peleable {
     protected int salud;
     protected int fuerza;
     protected String nombre;
+    protected RandomGenerator random;
+    
+    public Peleable()
+    {
+    	this.random = new MyRandom();
+    }
+    
+    public void setRandomGenerator(RandomGenerator random)    {
+    	this.random = random;
+    }
 
     public abstract int serAtacado(int danio);
 

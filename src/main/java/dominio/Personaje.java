@@ -413,7 +413,7 @@ public abstract class Personaje extends Peleable implements Serializable {
             return 0;
         }
         if (atacado.salud > 0) {
-            if (MyRandom.nextDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
+            if (this.random.nextDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
                 return atacado.serAtacado(this.golpe_critico());
             } else {
                 return atacado.serAtacado(this.ataque);
@@ -491,7 +491,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return Devuelve el daño efectivo infligido al personaje
      */
     public int serAtacado(int danio) {
-        if (MyRandom.nextDouble() >= getCasta().getProbabilidadEvitarDaño()) {
+        if (this.random.nextDouble() >= getCasta().getProbabilidadEvitarDaño()) {
             danio -= defensa;
             if (danio > 0) {
                 if (salud <= danio) {

@@ -1,20 +1,33 @@
 package dominio;
 
-public class MyRandom {
+import java.util.*;
+public class MyRandom extends RandomGenerator{
+	private Random random;
+	
     /**
-     * Devuelve una constante
-     * @return valor 0.49
+     * Asigna un objeto MyRandom y lo inicializa.
      */
-    public static double nextDouble() {
-        return 0.49;
+	public MyRandom()
+	{
+		this.random = new Random();
+	}
+	
+	/**
+     * Devuelve numero entero doble aleatorio
+     * @return numero aleatorio
+     */
+	@Override
+	public double nextDouble() {
+        return random.nextDouble();
     }
 
     /**
-     * Resta uno al valor recibido
-     * @param val : valor
-     * @return numero restado
+     * Devuelve un numero entero aleatorio basado en un valor inicial
+     * @param val : valor inicial
+     * @return numero aleatorio
      */
-    public static int nextInt(final int val) {
-        return val - 1;
+	@Override
+	public int nextInt(final int n) {
+        return random.nextInt(n);
     }
 }
