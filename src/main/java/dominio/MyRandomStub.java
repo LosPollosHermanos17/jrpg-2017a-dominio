@@ -3,13 +3,13 @@ package dominio;
 import java.util.Random;
 
 public class MyRandomStub extends RandomGenerator {
-	private int n;
+	private double n;
 
     /**
      * Asigna un objeto MyRandomStub y lo inicializa.
      * @param n es el numero que devolverán todos sus métodos
      */
-	public MyRandomStub(int n)
+	public MyRandomStub(double n)
 	{
 		this.n = n;
 	}
@@ -30,6 +30,6 @@ public class MyRandomStub extends RandomGenerator {
 	 */
 	@Override
 	public int nextInt(final int n) {
-		return this.n;
+		return (int)this.n;
 	}
 }
