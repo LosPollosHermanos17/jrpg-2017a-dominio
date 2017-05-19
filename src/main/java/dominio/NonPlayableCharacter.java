@@ -8,18 +8,24 @@ public class NonPlayableCharacter extends Peleable {
 
 	private int defensa;
 	private int nivel;
+	private int dificultad;
 	private static final int DIFICULTADALEATORIA = -1;
 
     /**
      * Asigna un objeto Hechicero y lo inicializa.
      * @param nombre  es el nombre del jugador
      * @param nivel es el nivel inicial
-     * @param dificultadNPC puede ser 0,1,2 o -1 y asigna una dificultad por defecto
+     * @param dificultadNPC puede ser 0,1,2 o -1 y asigna una dificultad aleatoria
      */
 	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
 		this.setNombre(nombre);
 		this.nivel = nivel;
-
+		this.dificultad = dificultadNPC;
+		this.setDificultad(dificultadNPC);		
+	}
+	
+	private void setDificultad(int dificultadNPC)
+	{
 		int dificultad = dificultadNPC == DIFICULTADALEATORIA ? this.random.nextInt(3) : dificultadNPC;
 
 		switch (dificultad) {
@@ -42,6 +48,11 @@ public class NonPlayableCharacter extends Peleable {
 			break;
 		}
 	}
+	@Override
+	public void setRandomGenerator(RandomGenerator random)    {
+		super.setRandomGenerator(random);
+		this.setDificultad(this.dificultad);
+	}			
 
 	public int otorgarExp() {
 		return this.nivel * 30;

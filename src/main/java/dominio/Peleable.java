@@ -13,7 +13,7 @@ public abstract class Peleable {
     
     public Peleable()
     {
-    	this.random = new MyRandom();
+    	this.setRandomGenerator(new MyRandom());
     }
     
     public void setRandomGenerator(RandomGenerator random)    {
