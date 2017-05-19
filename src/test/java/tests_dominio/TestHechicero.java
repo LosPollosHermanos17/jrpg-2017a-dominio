@@ -49,12 +49,24 @@ public class TestHechicero {
 
     @Test
     public void testRobarEnergiaYSalud() {
-        Humano h = new Humano("Nico", 100, 100, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
+        
+        // Parametros constructor Personaje:
+        // String nombre
+        // int salud
+        // int energia
+        // int fuerza
+        // int destreza
+        // int inteligencia
+        // Casta casta
+        // int experiencia
+        // int nivel
+        // int idPersonaje
+    	
+    	Humano h = new Humano("Nico", 50, 50, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
         Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
         Assert.assertTrue(e.getSalud() == 100);
-        h.setSalud(50);
-        h.setEnergia(50);
+
         Assert.assertTrue(h.habilidadCasta3(e));
         Assert.assertTrue(e.getSalud() < 100);
         Assert.assertTrue(h.getEnergia() > 50);

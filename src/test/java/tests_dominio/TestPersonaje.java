@@ -9,20 +9,32 @@ import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
 import dominio.Orco;
+import dominio.Personaje;
 
 public class TestPersonaje {
 
     @Test
     public void testPersonaje() {
-        Humano p1 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 100, 100);
+        
+        // Parametros constructor Personaje:
+        // String nombre
+        // int salud
+        // int energia
+        // int fuerza
+        // int destreza
+        // int inteligencia
+        // Casta casta
+        // int experiencia
+        // int nivel
+        // int idPersonaje
+    	
+    	Humano p1 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 100, 100);
         Humano p2 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 0, 100);
-        Humano p3 = new Humano("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0);
-        p1.cargarTablaNivel();
+        Humano p3 = new Humano("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 10, 0, 0);
+        Personaje.cargarTablaNivel();
         p1.subirNivel();
         p3.subirNivel();
         Assert.assertTrue(p3.getNivel() == 1);
-        p3.setExperiencia(10);
-        Assert.assertTrue(p3.getExperiencia() == 10);
         p3.ganarExperiencia(10);
         Assert.assertTrue(p3.getExperiencia() == 20);
         p3.setNombre("Nombre");
@@ -36,32 +48,11 @@ public class TestPersonaje {
         Assert.assertTrue(p3.getMagia() == 10);
         p3.setSalud(10);
         Assert.assertTrue(p3.getSalud() == 10);
-        p3.setSaludTope(10);
-        Assert.assertTrue(p3.getSaludTope() == 10);
         p3.setFuerza(10);
         Assert.assertTrue(p3.getFuerza() == 10);
-        p3.setEnergia(10);
-        Assert.assertTrue(p3.getEnergia() == 10);
-        p3.setInteligencia(10);
-        Assert.assertTrue(p3.getInteligencia() == 10);
-        p3.setDefensa(10);
-        Assert.assertTrue(p3.getDefensa() == 10);
-        p3.setDestreza(10);
-        Assert.assertTrue(p3.getDestreza() == 10);
         p3.serEnergizado(10);
         Assert.assertTrue(p3.getEnergia() == 20);
-        p3.setEnergiaTope(10);
-        Assert.assertTrue(p3.getEnergiaTope() == 10);
-        p3.setSaludTope(10);
-        Assert.assertTrue(p3.getSaludTope() == 10);
-        p3.setIdPersonaje(10);
-        Assert.assertTrue(p3.getIdPersonaje() == 10);
-        p3.setNivel(1);
         Assert.assertTrue(p3.otorgarExp() == 40);
-        Assert.assertTrue(p3.getNivel() == 1);
-        p3.setCasta(new Hechicero());
-        p3.setExperiencia(10);
-        Assert.assertTrue(p3.getExperiencia() == 10);
         p2.crearAlianza("Nombre");
         Assert.assertTrue(p2.getClan().obtenerNombre() == "Nombre");
 

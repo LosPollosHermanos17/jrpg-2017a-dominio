@@ -7,8 +7,6 @@ package dominio;
  */
 public class Orco extends Personaje {
 
-    private final int ENERGIAMINIMA = 10;
-
     /**
      * Asigna un objeto Orco y lo inicializa de acuerdo a los parámetros recibidos
      * @param nombre : Nombre del personaje
@@ -45,8 +43,8 @@ public class Orco extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza1(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
-            this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+    	if (tieneEnergiaMinima()) {
+    		consumirEnergiaMinima();
             if (atacado.serAtacado(this.getDefensa() * 2) > 0) {
                 return true;
             }
@@ -60,8 +58,8 @@ public class Orco extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza2(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
-            this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+    	if (tieneEnergiaMinima()) {
+    		consumirEnergiaMinima();
             int danio = atacado.serAtacado(this.getFuerza());
             if (danio > 0) {
                 this.serCurado(danio);

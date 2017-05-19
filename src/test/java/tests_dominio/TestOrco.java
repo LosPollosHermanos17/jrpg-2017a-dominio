@@ -26,8 +26,21 @@ public class TestOrco {
     @Test
     public void testNoGolpeDefensivo() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
-        Orco o = new Orco("Hernan", new Guerrero(), 1);
-        o.setEnergia(5);
+                
+        // Parametros constructor Personaje:
+        // String nombre
+        // int salud
+        // int energia
+        // int fuerza
+        // int destreza
+        // int inteligencia
+        // Casta casta
+        // int experiencia
+        // int nivel
+        // int idPersonaje
+    	
+    	Orco o = new Orco("Hernan", 50, 5, 55, 20, 50, new Guerrero(), 0, 1, 1);
+    	
         Assert.assertTrue(h.getSalud() == 105);
         o.habilidadRaza1(h);
         Assert.assertTrue(h.getSalud() == 105);
