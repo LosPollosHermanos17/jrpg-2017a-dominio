@@ -7,8 +7,6 @@ package dominio;
  */
 public class Humano extends Personaje {
 
-    private final int ENERGIAMINIMA = 10;
-
     /**
      * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
      * @param nombre : Nombre del personaje
@@ -45,8 +43,8 @@ public class Humano extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza1(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
-            this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+        if (tieneEnergiaMinima()) {
+            consumirEnergiaMinima();
             atacado.setAtaque(atacado.getAtaque() + this.getMagia());
             return true;
         }
@@ -59,13 +57,13 @@ public class Humano extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza2(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
+    	if (tieneEnergiaMinima()) {
             if (atacado.serAtacado(atacado.getSalud() / 2) > 0) {
-                this.setEnergia(this.getEnergia() / 2);
+                consumirMediaEnergia();
                 return true;
             }
         }
-        this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+    	consumirEnergiaMinima();
         return false;
     }
 }

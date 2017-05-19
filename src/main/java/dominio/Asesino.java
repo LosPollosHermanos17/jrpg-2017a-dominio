@@ -6,12 +6,7 @@ package dominio;
  */
 
 public class Asesino extends Casta {
-
-    /**
-     * Cantidad de energia minima necesaria para ejecutar una habilidad.
-     */
-    private final int CANT_ENERGIA_MINIMA = 10;
-    
+   
     /**
      * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Asesino.
      */
@@ -65,8 +60,8 @@ public class Asesino extends Casta {
      * @return true si se puede realizar el ataque o false en caso contrario
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
-            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
+    	if (caster.tieneEnergiaMinima()) {
+            caster.consumirEnergiaMinima();
             if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDañoCritico())) > 0) {
                 return true;
             }
@@ -81,8 +76,8 @@ public class Asesino extends Casta {
      * @return true si el personaje pudo aumentar su probabilidad de evasion o false en caso contrario.
      */
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
-            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
+    	if (caster.tieneEnergiaMinima()) {
+            caster.consumirEnergiaMinima();
             if (this.getProbabilidadEvitarDaño() + PROB_EVITAR_DANIO_A_INCREMENTAR < PROB_EVITAR_DANIO_MAXIMA) {
                 this.probabilidadEvitarDanio += PROB_EVITAR_DANIO_A_INCREMENTAR;
             } else {

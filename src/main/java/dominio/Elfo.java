@@ -8,8 +8,6 @@ package dominio;
 
 public class Elfo extends Personaje {
 
-    private final int ENERGIAMINIMA = 10;
-
     /**
      * Asigna un objeto Elfo y lo inicializa de acuerdo a los parámetros recibidos
      * @param nombre : Nombre del personaje
@@ -46,8 +44,8 @@ public class Elfo extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza1(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
-            this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+        if (tieneEnergiaMinima()) {
+        	consumirEnergiaMinima();
             if (atacado.serAtacado(this.getFuerza() + this.getNivel() * 10) > 0) {
                 return true;
             }
@@ -61,8 +59,8 @@ public class Elfo extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza2(final Peleable atacado) {
-        if (this.getEnergia() > ENERGIAMINIMA) {
-            this.setEnergia(this.getEnergia() - ENERGIAMINIMA);
+    	if (tieneEnergiaMinima()) {
+    		consumirEnergiaMinima();
             if (atacado.serAtacado((int) (this.magia)) > 0) {
                 return true;
             }

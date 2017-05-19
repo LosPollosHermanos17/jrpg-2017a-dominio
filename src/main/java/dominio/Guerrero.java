@@ -8,11 +8,6 @@ package dominio;
 public class Guerrero extends Casta {
 
    /**
-    * Cantidad de energia minima necesaria para ejecutar una habilidad.
-    */
-   private final int CANT_ENERGIA_MINIMA = 10;
-
-   /**
     * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Guerrero.
     */
    private final int BONUS_FUERZA = 5;
@@ -54,8 +49,8 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
-            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
+    	if (caster.tieneEnergiaMinima()) {
+            caster.consumirEnergiaMinima();
             if (atacado.serAtacado(caster.ataque * 2) > 0) {
                 return true;
             }
@@ -70,9 +65,9 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
-            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
-            caster.setDefensa(caster.getDefensa() + caster.magia);
+    	if (caster.tieneEnergiaMinima()) {
+            caster.consumirEnergiaMinima();
+            caster.aumentarDefensa(caster.magia);
             return true;
         }
         return false;
@@ -85,8 +80,8 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
-        if (caster.getEnergia() > CANT_ENERGIA_MINIMA) {
-            caster.setEnergia(caster.getEnergia() - CANT_ENERGIA_MINIMA);
+    	if (caster.tieneEnergiaMinima()) {
+            caster.consumirEnergiaMinima();
             return atacado.serAtacadoSinDefensa(caster);
         }
         return false;

@@ -9,7 +9,12 @@ import java.io.Serializable;
  */
 public abstract class Personaje extends Peleable implements Serializable {
 
-    protected int energia;
+    /**
+     * Cantidad de energia minima necesaria para ejecutar una habilidad.
+     */
+	private final int CANT_ENERGIA_MINIMA = 10;
+	
+	protected int energia;
     protected int defensa;
     protected int ataque;
     protected int magia;
@@ -235,13 +240,6 @@ public abstract class Personaje extends Peleable implements Serializable {
         return energia;
     }
 
-    /**
-     * Asigna la energia.
-     * @param energia - puntos de energia del personaje.
-     */
-    public void setEnergia(final int energia) {
-        this.energia = energia;
-    }
 
     /**
      * Devuelve las habilidades de la raza.
@@ -268,27 +266,11 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Asigna la destreza.
-     * @param destreza - puntos de destreza del personaje.
-     */
-    public void setDestreza(final int destreza) {
-        this.destreza = destreza;
-    }
-
-    /**
      * Devuelve la inteligencia.
      * @return - puntos de inteligencia del personaje.
      */
     public int getInteligencia() {
         return inteligencia;
-    }
-
-    /**
-     * Asigna la inteligencia.
-     * @param inteligencia - puntos de inteligencia del personaje.
-     */
-    public void setInteligencia(final int inteligencia) {
-        this.inteligencia = inteligencia;
     }
 
     /**
@@ -300,27 +282,11 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Asigna la Casta.
-     * @param casta - Casta del personaje.
-     */
-    public void setCasta(final Casta casta) {
-        this.casta = casta;
-    }
-
-    /**
      * Devuelve la experiencia.
      * @return - experiencia del personaje.
      */
     public int getExperiencia() {
         return experiencia;
-    }
-
-    /**
-     * Asigna la experiencia
-     * @param experiencia - experiencia del personaje.
-     */
-    public void setExperiencia(final int experiencia) {
-        this.experiencia = experiencia;
     }
 
     /**
@@ -332,27 +298,11 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Asigna el nivel.
-     * @param nivel - nivel del personaje.
-     */
-    public void setNivel(final int nivel) {
-        this.nivel = nivel;
-    }
-
-    /**
      * Devuelve el idPersonaje.
      * @return - identificacion del personaje.
      */
     public int getIdPersonaje() {
         return idPersonaje;
-    }
-
-    /**
-     * Asigna el idPersonaje.
-     * @param idPersonaje - identificacion del personaje.
-     */
-    public void setIdPersonaje(final int idPersonaje) {
-        this.idPersonaje = idPersonaje;
     }
 
     /**
@@ -364,14 +314,6 @@ public abstract class Personaje extends Peleable implements Serializable {
     }
 
     /**
-     * Asigna la defensa.
-     * @param defensa - defensa del personaje.
-     */
-    public void setDefensa(final int defensa) {
-        this.defensa = defensa;
-    }
-
-    /**
      * Devuelve la saludTope.
      * @return - salud maxima del personaje.
      */
@@ -379,13 +321,6 @@ public abstract class Personaje extends Peleable implements Serializable {
         return saludTope;
     }
 
-    /**
-     * Asigna la saludTope.
-     * @param saludTope - saluda maxima del personaje.
-     */
-    public void setSaludTope(final int saludTope) {
-        this.saludTope = saludTope;
-    }
 
     /**
      * Devuelve energiaTope.
@@ -393,14 +328,6 @@ public abstract class Personaje extends Peleable implements Serializable {
      */
     public int getEnergiaTope() {
         return energiaTope;
-    }
-
-    /**
-     * Asigna la energiaTope.
-     * @param energiaTope - energia maxima del personaje.
-     */
-    public void setEnergiaTope(final int energiaTope) {
-        this.energiaTope = energiaTope;
     }
 
     /**
@@ -774,4 +701,42 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return true si obtiene habilidad.
      */
     public abstract boolean habilidadRaza2(Peleable atacado);
+    
+    /**
+     * Determina si el Personaje tiene la energia minima necesaria para realizar una determinada accion.
+     * @return true si tiene la energia necesaria; false en caso contrario.
+     */
+    public boolean tieneEnergiaMinima()
+    {
+    	if (energia > CANT_ENERGIA_MINIMA)
+    		return true;
+    	else
+    		return false;
+    }
+    
+    /**
+     * Decrementa la cantidad minima del atributo <b>energia</b>.
+     */
+    public void consumirEnergiaMinima()
+    {
+    	energia -= CANT_ENERGIA_MINIMA; 
+    }
+    
+    /**
+     * Decrementa la mitad del atributo <b>energia</b>.
+     */
+    public void consumirMediaEnergia()
+    {
+    	energia /= 2;
+    }
+    
+    /**
+     * Aumenta el atributo <b>defensa</b> segun la cantidad recibida por parametro.
+     * @param incremento - cantidad de defensa a incrementar.
+     */
+    public void aumentarDefensa(int incremento)
+    {
+    	defensa += incremento;
+    }
+    
 }
