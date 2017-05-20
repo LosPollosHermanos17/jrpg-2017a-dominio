@@ -8,6 +8,11 @@ package dominio;
 public class Humano extends Personaje {
 
     /**
+     * Consumo de energia al ejecutar una habilidad.
+     */
+	private final int CONSUMO_DE_ENERGIA = 10;
+	
+	/**
      * Asigna un objeto Humano y lo inicializa de acuerdo a los parámetros recibidos
      * @param nombre : Nombre del personaje
      * @param casta : Casta a la que deberá pertenecer.
@@ -43,8 +48,8 @@ public class Humano extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza1(final Peleable atacado) {
-        if (tieneEnergiaMinima()) {
-            consumirEnergiaMinima();
+        if (tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            consumirEnergia(CONSUMO_DE_ENERGIA);
             atacado.setAtaque(atacado.getAtaque() + this.getMagia());
             return true;
         }
@@ -57,13 +62,13 @@ public class Humano extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza2(final Peleable atacado) {
-    	if (tieneEnergiaMinima()) {
+    	if (tieneEnergia(CONSUMO_DE_ENERGIA)) {
             if (atacado.serAtacado(atacado.getSalud() / 2) > 0) {
-                consumirMediaEnergia();
+                consumirEnergia(getEnergia()/2);
                 return true;
             }
         }
-    	consumirEnergiaMinima();
+    	consumirEnergia(CONSUMO_DE_ENERGIA);
         return false;
     }
 }

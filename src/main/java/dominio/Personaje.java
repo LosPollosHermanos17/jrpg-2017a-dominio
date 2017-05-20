@@ -8,11 +8,6 @@ import java.io.Serializable;
  * @version 1.0
  */
 public abstract class Personaje extends Peleable implements Serializable {
-
-    /**
-     * Cantidad de energia minima necesaria para ejecutar una habilidad.
-     */
-	private final int CANT_ENERGIA_MINIMA = 10;
 	
 	protected int energia;
     protected int defensa;
@@ -320,7 +315,6 @@ public abstract class Personaje extends Peleable implements Serializable {
     public int getSaludTope() {
         return saludTope;
     }
-
 
     /**
      * Devuelve energiaTope.
@@ -700,34 +694,28 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param atacado : Personaje a ser atacado.
      * @return true si obtiene habilidad.
      */
-    public abstract boolean habilidadRaza2(Peleable atacado);
-    
+    public abstract boolean habilidadRaza2(Peleable atacado);    
+
     /**
-     * Determina si el Personaje tiene la energia minima necesaria para realizar una determinada accion.
+     * Determina si tiene la energia necesaria para realizar una determinada accion.
+     * @param consumo - cantidad de energia a consumir.
      * @return true si tiene la energia necesaria; false en caso contrario.
      */
-    public boolean tieneEnergiaMinima()
+    public boolean tieneEnergia(int consumo)
     {
-    	if (energia > CANT_ENERGIA_MINIMA)
+    	if (energia > consumo)
     		return true;
     	else
     		return false;
-    }
-    
+    }    
+   
     /**
-     * Decrementa la cantidad minima del atributo <b>energia</b>.
+     * Decrementa el atributo <b>energia</b> segun la cantidad recibida por parametro.
+     * @param decremento - cantidad de energia a decrementar.
      */
-    public void consumirEnergiaMinima()
+    public void consumirEnergia(int decremento)
     {
-    	energia -= CANT_ENERGIA_MINIMA; 
-    }
-    
-    /**
-     * Decrementa la mitad del atributo <b>energia</b>.
-     */
-    public void consumirMediaEnergia()
-    {
-    	energia /= 2;
+    	energia -= decremento; 
     }
     
     /**

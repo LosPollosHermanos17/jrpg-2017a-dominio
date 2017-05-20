@@ -8,6 +8,11 @@ package dominio;
 public class Hechicero extends Casta {
 
     /**
+     * Consumo de energia al ejecutar una habilidad.
+     */
+	private final int CONSUMO_DE_ENERGIA = 10;
+	
+	/**
      * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Hechicero.
      */
     private final int BONUS_FUERZA = 0;
@@ -49,8 +54,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * 1.5)) > 0) {
                 return true;
             }
@@ -65,8 +70,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo curar al otro personaje.
      */
     public boolean habilidad2(final Personaje caster, final Peleable aliado) {
-    	if (caster.tieneEnergiaMinima()) {
-        	caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+        	caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             return aliado.serCurado(caster);           
         }
         return false;
@@ -79,8 +84,8 @@ public class Hechicero extends Casta {
      * @return True si el personaje pudo robar al otro personaje.
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-        	caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+        	caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             return atacado.serRobadoYDesenergizado(caster);           
         }
         return false;
