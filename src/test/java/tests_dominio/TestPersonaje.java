@@ -8,6 +8,7 @@ import dominio.Elfo;
 import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.MyRandomStub;
 import dominio.Orco;
 import dominio.Personaje;
 
@@ -31,6 +32,10 @@ public class TestPersonaje {
     	Humano p1 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 100, 100);
         Humano p2 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 0, 100);
         Humano p3 = new Humano("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 10, 0, 0);
+        p1.setRandomGenerator(new MyRandomStub(0.43));
+        p2.setRandomGenerator(new MyRandomStub(0.43));
+        p3.setRandomGenerator(new MyRandomStub(0.43));
+        
         Personaje.cargarTablaNivel();
         p1.subirNivel();
         p3.subirNivel();
@@ -48,10 +53,8 @@ public class TestPersonaje {
         Assert.assertTrue(p3.getMagia() == 10);
         p3.serCurado(10 - p3.getSalud());
         Assert.assertTrue(p3.getSalud() == 10);
-        p3.serCurado(10 - p3.getSalud());
-        Assert.assertTrue(p3.getFuerza() == 10);
         p3.serEnergizado(10);
-        Assert.assertTrue(p3.getEnergia() == 20);
+        Assert.assertTrue(p3.getEnergia() == 10);
         Assert.assertTrue(p3.otorgarExp() == 40);
         p2.crearAlianza("Nombre");
         Assert.assertTrue(p2.getClan().obtenerNombre() == "Nombre");
@@ -152,8 +155,9 @@ public class TestPersonaje {
     @Test
     public void testElfo() {
         Elfo e1 = new Elfo("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0);
-
+        e1.setRandomGenerator(new MyRandomStub(0.43));
         Elfo e = new Elfo("Nicolas", new Guerrero(), 1);
+        e.setRandomGenerator(new MyRandomStub(0.43));
         Assert.assertTrue(e.getSalud() == 100);
         Assert.assertTrue(e.getEnergia() == 110);
         Assert.assertTrue(e.getFuerza() == 15);
@@ -161,6 +165,7 @@ public class TestPersonaje {
         Assert.assertTrue(e.getInteligencia() == 10);
 
         Elfo e2 = new Elfo("Lautaro", new Hechicero(), 2);
+        e2.setRandomGenerator(new MyRandomStub(0.43));
         Assert.assertTrue(e2.getSalud() == 100);
         Assert.assertTrue(e2.getEnergia() == 110);
         Assert.assertTrue(e2.getFuerza() == 10);
@@ -168,6 +173,7 @@ public class TestPersonaje {
         Assert.assertTrue(e2.getInteligencia() == 15);
 
         Elfo e3 = new Elfo("Hernan", new Asesino(), 3);
+        e3.setRandomGenerator(new MyRandomStub(0.43));
         Assert.assertTrue(e3.getSalud() == 100);
         Assert.assertTrue(e3.getEnergia() == 110);
         Assert.assertTrue(e3.getFuerza() == 10);
@@ -185,8 +191,10 @@ public class TestPersonaje {
     @Test
     public void testOrco() {
         Orco o1 = new Orco("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0);
-
         Orco o = new Orco("Nicolas", new Guerrero(), 1);
+        o1.setRandomGenerator(new MyRandomStub(0.43));
+        o.setRandomGenerator(new MyRandomStub(0.43));
+        
         Assert.assertTrue(o.getSalud() == 110);
         Assert.assertTrue(o.getEnergia() == 100);
         Assert.assertTrue(o.getFuerza() == 15);
@@ -194,6 +202,7 @@ public class TestPersonaje {
         Assert.assertTrue(o.getInteligencia() == 10);
 
         Orco o2 = new Orco("Lautaro", new Hechicero(), 2);
+        o2.setRandomGenerator(new MyRandomStub(0.43));
         Assert.assertTrue(o2.getSalud() == 110);
         Assert.assertTrue(o2.getEnergia() == 100);
         Assert.assertTrue(o2.getFuerza() == 10);
@@ -201,6 +210,7 @@ public class TestPersonaje {
         Assert.assertTrue(o2.getInteligencia() == 15);
 
         Orco o3 = new Orco("Hernan", new Asesino(), 3);
+        o3.setRandomGenerator(new MyRandomStub(0.43));
         Assert.assertTrue(o3.getSalud() == 110);
         Assert.assertTrue(o3.getEnergia() == 100);
         Assert.assertTrue(o3.getFuerza() == 10);
