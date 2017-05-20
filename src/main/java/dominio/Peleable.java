@@ -24,19 +24,11 @@ public abstract class Peleable {
 
     public int getSalud() {
         return this.salud;
-    }
-
-    public void setSalud(final int salud) {
-        this.salud = salud;
-    }
+    }  
 
     public int getFuerza() {
         return this.fuerza;
-    }
-
-    public void setFuerza(final int fuerza) {
-        this.fuerza = fuerza;
-    }
+    } 
 
     public String getNombre() {
         return this.nombre;

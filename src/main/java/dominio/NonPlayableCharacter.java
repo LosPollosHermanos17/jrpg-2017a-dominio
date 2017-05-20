@@ -30,18 +30,18 @@ public class NonPlayableCharacter extends Peleable {
 
 		switch (dificultad) {
 		case 0:
-			this.setFuerza(10 + (nivel - 1) * 3);
-			this.setSalud(30 + (nivel - 1) * 15);
+			this.fuerza = 10 + (nivel - 1) * 3;
+			this.salud = 30 + (nivel - 1) * 15;
 			this.defensa = 2 + (nivel - 1) * 1;
 			break;
 		case 1:
-			this.setFuerza(20 + (nivel - 1) * 6);
-			this.setSalud(40 + (nivel - 1) * 20);
+			this.fuerza = 20 + (nivel - 1) * 6;
+			this.salud = 40 + (nivel - 1) * 20;
 			this.defensa = 5 + (nivel - 1) * 2;
 			break;
 		case 2:
-			this.setFuerza(30 + (nivel - 1) * 10);
-			this.setSalud(50 + (nivel - 1) * 25);
+			this.fuerza = 30 + (nivel - 1) * 10;
+			this.salud = 50 + (nivel - 1) * 25;
 			this.defensa = 4 + (nivel - 1) * 4;
 			break;
 		default:
@@ -108,7 +108,7 @@ public class NonPlayableCharacter extends Peleable {
 		if (this.random.nextDouble() >= 0.15) {
 			danio -= this.getDefensa() / 2;
 			if (danio > 0) {
-				this.setSalud(this.getSalud() - danio);
+				this.salud = this.getSalud() - danio;
 				return danio;
 			}
 			return 0;
@@ -152,6 +152,6 @@ public class NonPlayableCharacter extends Peleable {
 
 	@Override
 	public void setAtaque(final int ataque) {
-		this.setFuerza(ataque);
+		this.fuerza = ataque;
 	}
 }
