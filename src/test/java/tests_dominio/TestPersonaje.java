@@ -140,7 +140,7 @@ public class TestPersonaje {
         h3.serCurado(1000);
         Assert.assertTrue(h3.getSalud() == h3.getSaludTope());
 
-        h3.serDesernegizado(1000);
+        h3.serDesenergizado(1000);
         Assert.assertTrue(h3.getEnergia() == 0);
 
         h3.serRobadoSalud(1);

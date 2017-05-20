@@ -467,7 +467,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param danio : Cantidad que indica el daño que recibe el personaje
      * @return Devuelve el daño efectivo infligido al personaje
      */
-    public int serDesernegizado(int danio) {
+    public int serDesenergizado(int danio) {
         danio -= this.defensa;
         if (danio <= 0) {
             return 0;
@@ -509,7 +509,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @return true si pudo ser robado y desenergizado
      */
     public boolean serRobadoYDesenergizado(final Personaje atacante) {
-        int energiaRobada = serDesernegizado(atacante.calcularPuntosDeMagia());
+        int energiaRobada = serDesenergizado(atacante.calcularPuntosDeMagia());
         int saludRobada = serRobadoSalud(atacante.calcularPuntosDeMagia() / 2);
         atacante.serEnergizado(energiaRobada);
         atacante.serCurado(saludRobada);

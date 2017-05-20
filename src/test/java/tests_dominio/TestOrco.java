@@ -15,8 +15,11 @@ public class TestOrco {
     @Test
     public void testGolpeDefensivo() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        
         Orco o = new Orco("Hernan", new Guerrero(), 1);
-        o.setRandomGenerator(new MyRandomStub(0.49));   
+        o.setRandomGenerator(new MyRandomStub(0.43));   
+        
         Assert.assertTrue(h.getSalud() == 105);
         o.habilidadRaza1(h);
         Assert.assertTrue(h.getSalud() == 95);
@@ -26,6 +29,7 @@ public class TestOrco {
     @Test
     public void testNoGolpeDefensivo() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
                 
         // Parametros constructor Personaje:
         // String nombre
@@ -40,6 +44,7 @@ public class TestOrco {
         // int idPersonaje
     	
     	Orco o = new Orco("Hernan", 50, 5, 55, 20, 50, new Guerrero(), 0, 1, 1);
+    	o.setRandomGenerator(new MyRandomStub(0.43));
     	
         Assert.assertTrue(h.getSalud() == 105);
         o.habilidadRaza1(h);
@@ -66,12 +71,11 @@ public class TestOrco {
         Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
         Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 
-        Assert.assertTrue(h.getSalud() == 100);
+        Assert.assertEquals(100, h.getSalud());
         o.serCurado(100 - o.getSalud());
         o.habilidadRaza2(h);
 
-        Assert.assertTrue(o.getSalud() == 100);
-        // Assert.assertTrue(h.getSalud() == 100);
+        Assert.assertEquals(100, o.getSalud());
     }
 
     @Test

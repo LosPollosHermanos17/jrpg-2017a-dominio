@@ -14,7 +14,10 @@ public class TestAliarCombatir {
     @Test
     public void testCrearAlianza() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        
         Humano h2 = new Humano("Lautaro", new Guerrero(), 1);
+        h2.setRandomGenerator(new MyRandomStub(0.43));
 
         Assert.assertNull(h.getClan());
         Assert.assertNull(h2.getClan());
@@ -26,9 +29,12 @@ public class TestAliarCombatir {
     @Test
     public void testDañar() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
-        Humano h2 = new Humano("Lautaro", new Asesino(), 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
         
-        h.setRandomGenerator(new MyRandomStub(0.49));   
+        Humano h2 = new Humano("Lautaro", new Asesino(), 1);
+        h2.setRandomGenerator(new MyRandomStub(0.43));
+        
+        h.setRandomGenerator(new MyRandomStub(0.43));   
         
         Assert.assertTrue(h2.getSalud() == 105);
         h.atacar(h2);
@@ -38,7 +44,10 @@ public class TestAliarCombatir {
     @Test
     public void testNoDañar() {
         Humano h = new Humano("Lautaro", 0, 5, 100, 20, 100, new Asesino(), 10, 10, 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        
         Humano h2 = new Humano("Nicolas", new Guerrero(), 1);
+        h2.setRandomGenerator(new MyRandomStub(0.43));
 
         Assert.assertTrue(h2.getSalud() == 105);
         h.atacar(h2);
@@ -48,7 +57,11 @@ public class TestAliarCombatir {
     @Test
     public void testAliar() {
         Humano h = new Humano("Nicolas", new Guerrero(), 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        
         Humano h2 = new Humano("Lautaro", new Guerrero(), 1);
+        h2.setRandomGenerator(new MyRandomStub(0.43));
+        
         Alianza a1 = new Alianza("Los CacheFC");
 
         Assert.assertNull(h2.getClan());

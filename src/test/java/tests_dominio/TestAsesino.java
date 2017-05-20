@@ -6,6 +6,7 @@ import org.junit.Test;
 import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Humano;
+import dominio.MyRandomStub;
 
 public class TestAsesino {
 
@@ -27,6 +28,7 @@ public class TestAsesino {
         // int idPersonaje
 
         Humano asesino = new Humano("Asesino Prueba", 100, 100, 100, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+        asesino.setRandomGenerator(new MyRandomStub(0.43));
 
         // String nombre = "Asesino Prueba"
         // int salud = 100
@@ -40,6 +42,7 @@ public class TestAsesino {
         // int idPersonaje = 1
 
         Elfo elfo = new Elfo("Elfo Prueba", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 2);
+        elfo.setRandomGenerator(new MyRandomStub(0.43));
 
         // String nombre = "Elfo Prueba"
         // int salud = 100
@@ -76,6 +79,7 @@ public class TestAsesino {
         // (el daño critico es el tercer parametro del constructor de Casta)
 
         Humano asesino2 = new Humano("Asesino Prueba 2", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 0), 0, 3, 2);
+        asesino2.setRandomGenerator(new MyRandomStub(0.43));
 
         resPrueba2 = asesino2.habilidadCasta1(elfo);
 
@@ -87,7 +91,9 @@ public class TestAsesino {
         // (la energía es el tercer parámetro del constructor de Personaje)
 
         Humano asesino3 = new Humano("Asesino Prueba 3", 100, 0, 25, 20, 30, new Asesino(0.2, 0.3, 0), 0, 3, 2);
+        asesino3.setRandomGenerator(new MyRandomStub(0.43));
         Elfo elfo3 = new Elfo("Elfo Prueba 3", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 2);
+        elfo3.setRandomGenerator(new MyRandomStub(0.43));
 
         asesino3.habilidadCasta1(elfo3);
 
@@ -116,6 +122,7 @@ public class TestAsesino {
         // la energia del asesino no es mayor que la energia minima
         Humano asesino = new Humano("Asesino Prueba 1", 100, 0, 25, 20, 30, new Asesino(0.2, 0.3, 0), 0, 3, 2);
         Elfo elfo = new Elfo("Elfo Prueba 1", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 2);
+        elfo.setRandomGenerator(new MyRandomStub(0.43));
 
         asesino.habilidadCasta2(elfo);
 
@@ -129,6 +136,7 @@ public class TestAsesino {
         // 0.6 + 0.15 < 0.5
         Humano asesino2 = new Humano("Asesino Prueba 2", 100, 100, 25, 20, 30, new Asesino(0.2, 0.6, 0), 0, 3, 2);
         Elfo elfo2 = new Elfo("Elfo Prueba 2", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 2);
+        elfo2.setRandomGenerator(new MyRandomStub(0.43));
 
         boolean resPrueba2 = asesino2.habilidadCasta2(elfo2);
 
