@@ -30,7 +30,7 @@ public class TestHechicero {
         Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
         Assert.assertTrue(e.getSalud() == 100);
-        e.setSalud(65);
+        e.serCurado(65 - e.getSalud());
         Assert.assertTrue(e.getSalud() == 65);
         h.habilidadCasta2(e);
         Assert.assertTrue(e.getSalud() > 65);

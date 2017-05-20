@@ -46,9 +46,9 @@ public class TestPersonaje {
         p1.golpe_critico();
         p3.setMagia(10);
         Assert.assertTrue(p3.getMagia() == 10);
-        p3.setSalud(10);
+        p3.serCurado(10 - p3.getSalud());
         Assert.assertTrue(p3.getSalud() == 10);
-        p3.setFuerza(10);
+        p3.serCurado(10 - p3.getSalud());
         Assert.assertTrue(p3.getFuerza() == 10);
         p3.serEnergizado(10);
         Assert.assertTrue(p3.getEnergia() == 20);

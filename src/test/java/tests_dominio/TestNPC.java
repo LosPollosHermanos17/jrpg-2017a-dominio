@@ -54,10 +54,8 @@ public class TestNPC {
         npc.getSalud();
         npc.setAtaque(10);
         npc.setDefensa(10);
-        npc.setFuerza(10);
         npc.setNivel(10);
         npc.setNombre("Nombre");
-        npc.setSalud(10);
         npc.estaVivo();
         npc.atacar(npc2);
         npc.despuesDeTurno();	
