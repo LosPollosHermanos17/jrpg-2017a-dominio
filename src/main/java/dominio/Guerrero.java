@@ -7,6 +7,11 @@ package dominio;
  */
 public class Guerrero extends Casta {
 
+    /**
+     * Consumo de energia al ejecutar una habilidad.
+     */
+	private final int CONSUMO_DE_ENERGIA = 10;
+	
    /**
     * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Guerrero.
     */
@@ -49,8 +54,8 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             if (atacado.serAtacado(caster.ataque * 2) > 0) {
                 return true;
             }
@@ -65,8 +70,8 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             caster.aumentarDefensa(caster.magia);
             return true;
         }
@@ -80,8 +85,8 @@ public class Guerrero extends Casta {
      * @return True si el personaje pudo atacar al otro personaje.
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             return atacado.serAtacadoSinDefensa(caster);
         }
         return false;

@@ -8,6 +8,11 @@ package dominio;
 public class Asesino extends Casta {
    
     /**
+     * Consumo de energia al ejecutar una habilidad.
+     */
+	private final int CONSUMO_DE_ENERGIA = 10;
+	
+	/**
      * Bonus de atributo <b>fuerza</b> que se otorga al personaje creado por pertenecer a la casta Asesino.
      */
     private final int BONUS_FUERZA = 0;
@@ -60,8 +65,8 @@ public class Asesino extends Casta {
      * @return true si se puede realizar el ataque o false en caso contrario
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDañoCritico())) > 0) {
                 return true;
             }
@@ -76,8 +81,8 @@ public class Asesino extends Casta {
      * @return true si el personaje pudo aumentar su probabilidad de evasion o false en caso contrario.
      */
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
-    	if (caster.tieneEnergiaMinima()) {
-            caster.consumirEnergiaMinima();
+    	if (caster.tieneEnergia(CONSUMO_DE_ENERGIA)) {
+            caster.consumirEnergia(CONSUMO_DE_ENERGIA);
             if (this.getProbabilidadEvitarDaño() + PROB_EVITAR_DANIO_A_INCREMENTAR < PROB_EVITAR_DANIO_MAXIMA) {
                 this.probabilidadEvitarDanio += PROB_EVITAR_DANIO_A_INCREMENTAR;
             } else {

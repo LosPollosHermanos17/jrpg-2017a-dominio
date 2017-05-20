@@ -8,6 +8,11 @@ package dominio;
 public class Orco extends Personaje {
 
     /**
+     * Consumo de energia al ejecutar una habilidad.
+     */
+	private final int CONSUMO_DE_ENERGIA = 10;
+	
+	/**
      * Asigna un objeto Orco y lo inicializa de acuerdo a los parámetros recibidos
      * @param nombre : Nombre del personaje
      * @param casta : Casta a la que deberá pertenecer.
@@ -43,8 +48,8 @@ public class Orco extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza1(final Peleable atacado) {
-    	if (tieneEnergiaMinima()) {
-    		consumirEnergiaMinima();
+    	if (tieneEnergia(CONSUMO_DE_ENERGIA)) {
+    		consumirEnergia(CONSUMO_DE_ENERGIA);
             if (atacado.serAtacado(this.getDefensa() * 2) > 0) {
                 return true;
             }
@@ -58,8 +63,8 @@ public class Orco extends Personaje {
      * @return True si se pudo atacar al otro personaje.
      */
     public boolean habilidadRaza2(final Peleable atacado) {
-    	if (tieneEnergiaMinima()) {
-    		consumirEnergiaMinima();
+    	if (tieneEnergia(CONSUMO_DE_ENERGIA)) {
+    		consumirEnergia(CONSUMO_DE_ENERGIA);
             int danio = atacado.serAtacado(this.getFuerza());
             if (danio > 0) {
                 this.serCurado(danio);
