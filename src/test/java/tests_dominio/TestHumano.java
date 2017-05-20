@@ -7,6 +7,7 @@ import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.MyRandomStub;
 
 public class TestHumano {
 
@@ -37,6 +38,8 @@ public class TestHumano {
     public void testGolpeFatal() {
         Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
         Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        e.setRandomGenerator(new MyRandomStub(0.43));
 
         Assert.assertTrue(h.getEnergia() == 100);
         Assert.assertTrue(e.getSalud() == 100);

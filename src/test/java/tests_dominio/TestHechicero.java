@@ -7,6 +7,9 @@ import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.MyRandomStub;
+import dominio.Peleable;
+import dominio.Personaje;
 
 public class TestHechicero {
 
@@ -41,6 +44,9 @@ public class TestHechicero {
         Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
         Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
+        h.setRandomGenerator(new MyRandomStub(0.43));
+        e.setRandomGenerator(new MyRandomStub(0.43));
+        
         Assert.assertTrue(e.getSalud() == 100);
         Assert.assertTrue(h.habilidadCasta1(e));
         Assert.assertTrue(e.getSalud() < 100);
@@ -49,28 +55,19 @@ public class TestHechicero {
 
     @Test
     public void testRobarEnergiaYSalud() {
-        
-        // Parametros constructor Personaje:
-        // String nombre
-        // int salud
-        // int energia
-        // int fuerza
-        // int destreza
-        // int inteligencia
-        // Casta casta
-        // int experiencia
-        // int nivel
-        // int idPersonaje
     	
+    	// GIVEN    	
     	Humano h = new Humano("Nico", 50, 50, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
-
-        Assert.assertTrue(e.getSalud() == 100);
-
-        Assert.assertTrue(h.habilidadCasta3(e));
-        Assert.assertTrue(e.getSalud() < 100);
-        Assert.assertTrue(h.getEnergia() > 50);
-        Assert.assertTrue(h.getSalud() > 50);
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1); 
+        
+        // WHEN
+        h.habilidadCasta3(e);        
+        
+        // THEN
+        Assert.assertEquals("No se incremento energia de atacante", 50, h.getEnergia());
+        Assert.assertEquals("No se incremento salud de atacante", 50, h.getEnergia());
+        Assert.assertEquals("No se decremento energia de atacado", 45, e.getEnergia());
+        Assert.assertEquals("No se decremento salud de atacado", 83, e.getSalud());
 
     }
 
