@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="jrpg-2017a-dominio/jrpg-2017a-dominio.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/jrpg-2017a-dominio/CrearJar.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/jrpg-2017a-dominio/.classpath"/>
+        <javaElement handleIdentifier="=jrpg-2017a-dominio/src\/test\/java"/>
+        <file path="/jrpg-2017a-dominio/humans.md"/>
+        <file path="/jrpg-2017a-dominio/.checkstyle"/>
+        <javaElement handleIdentifier="=jrpg-2017a-dominio/src\/test\/resources"/>
+        <file path="/jrpg-2017a-dominio/Pendientes.txt"/>
+        <file path="/jrpg-2017a-dominio/LICENSE.txt"/>
+        <javaElement handleIdentifier="=jrpg-2017a-dominio/src\/main\/resources"/>
+        <javaElement handleIdentifier="=jrpg-2017a-dominio/src\/main\/java"/>
+        <file path="/jrpg-2017a-dominio/.gitignore"/>
+        <file path="/jrpg-2017a-dominio/.project"/>
+        <file path="/jrpg-2017a-dominio/.travis.yml"/>
+        <file path="/jrpg-2017a-dominio/README.md"/>
+        <folder path="/jrpg-2017a-dominio/src"/>
+        <file path="/jrpg-2017a-dominio/build.gradle"/>
+        <folder path="/jrpg-2017a-dominio/build"/>
+    </selectedElements>
+</jardesc>
