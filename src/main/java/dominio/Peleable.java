@@ -10,6 +10,7 @@ public abstract class Peleable {
     protected int fuerza;
     protected String nombre;
     protected RandomGenerator random;
+    protected Inventario inventario;
     
     public Peleable()
     {
@@ -24,7 +25,7 @@ public abstract class Peleable {
 
     public int getSalud() {
         return this.salud;
-    }  
+    }
 
     public int getFuerza() {
         return this.fuerza;
