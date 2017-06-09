@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * Define las caracteristicas y habilidades de un Personaje
@@ -747,5 +748,13 @@ public abstract class Personaje extends Peleable implements Serializable {
     {
     	defensa += incremento;
     }
+    
+    /**
+	 * Actualiza los atributos del personaje.
+	 */
+    public void actualizarAtributos(HashMap<String, Integer> atributos) {
+		this.salud = atributos.get("salud");
+		this.energia  = atributos.get("energia");		
+	}
     
 }
