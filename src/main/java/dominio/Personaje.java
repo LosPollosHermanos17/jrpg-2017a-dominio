@@ -26,7 +26,8 @@ public abstract class Personaje extends Peleable implements Serializable {
     protected int idPersonaje;
     protected Alianza clan = null;
     public static int[] tablaDeNiveles;
-    protected String[] habilidadesRaza;
+    protected String[] habilidadesRaza;    
+    protected Inventario inventario;
 
     /**
      * Inicializa los valores correspondientes a cada nivel del personaje.
@@ -92,15 +93,17 @@ public abstract class Personaje extends Peleable implements Serializable {
 
         x = 0;
         y = 0;
-        saludTope = 100;
-        energiaTope = 100;
+        
+        this.inventario = new Inventario();
+        saludTope = 100 + this.inventario.getBonusSalud();
+        energiaTope = 100 + this.inventario.getBonusEnergia();;
 
         salud = saludTope;
         energia = energiaTope;
 
-        ataque = calcularPuntosDeAtaque();
-        defensa = calcularPuntosDeDefensa();
-        magia = calcularPuntosDeMagia();
+        ataque = calcularPuntosDeAtaque() + this.inventario.getBonusAtaque();
+        defensa = calcularPuntosDeDefensa() + this.inventario.getBonusDefensa();
+        magia = calcularPuntosDeMagia() + this.inventario.getBonusMagia();
     }
 
     /**
@@ -114,15 +117,16 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param casta - Casta a la que el personaje deberá pertenecer.
      * @param experiencia - Cantidad de experiencia inicial del personaje.
      * @param nivel - Nivel inicial del personaje.
-     * @param idPersonaje - Identificador único del personaje
+     * @param idPersonaje - Identificador único del personaje.
+     * @param inventario - Inventario del personaje con los items que posee.
      */
     public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
-            final int idPersonaje) {
+            final int idPersonaje, final Inventario inventario) {
 
         this.nombre = nombre;
-        this.salud = salud;
-        this.energia = energia;
+        this.salud = salud + this.inventario.getBonusSalud();
+        this.energia = energia + this.inventario.getBonusEnergia();
         this.fuerza = fuerza;
         this.destreza = destreza;
         this.inteligencia = inteligencia;
@@ -134,9 +138,9 @@ public abstract class Personaje extends Peleable implements Serializable {
         this.saludTope = this.salud;
         this.energiaTope = this.energia;
         
-        this.defensa = calcularPuntosDeDefensa();
-        this.ataque = calcularPuntosDeAtaque();
-        this.magia = calcularPuntosDeMagia();
+        this.defensa = calcularPuntosDeDefensa() + this.inventario.getBonusDefensa();
+        this.ataque = calcularPuntosDeAtaque() + this.inventario.getBonusAtaque();
+        this.magia = calcularPuntosDeMagia() + this.inventario.getBonusMagia(); 
     }
 
     /**
@@ -153,11 +157,12 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param idPersonaje - numero identificador de personaje.
      * @param nomRaza - nombre de la raza a la cual pertenecera.
      * @param habilidadesRaza - habilidades que tendra su raza.
+     * @param inventario - Inventario del personaje con los items que posee.
      */
     public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
-            final int idPersonaje, final String nombreRaza, final String[] habilidadesRaza) {
-        this(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje);
+            final int idPersonaje, final String nombreRaza, final String[] habilidadesRaza, final Inventario inventario) {
+        this(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje, inventario);
         this.nombreRaza = nombreRaza;
         this.habilidadesRaza = habilidadesRaza;
     }

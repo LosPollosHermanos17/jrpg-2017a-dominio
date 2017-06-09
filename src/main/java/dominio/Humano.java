@@ -34,12 +34,13 @@ public class Humano extends Personaje {
      * @param experiencia : Cantidad de experiencia inicial del personaje.
      * @param nivel : Nivel inicial del personaje.
      * @param idPersonaje : Identificador único del personaje
+     * @param inventario - Inventario del personaje con los items que posee.
      */
     public Humano(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
-            final int idPersonaje) {
+            final int idPersonaje, final Inventario inventario) {
         super(nombre, salud, energia, fuerza, destreza, inteligencia, casta, experiencia, nivel, idPersonaje,
-                "Humano", new String[] { "Incentivar", "Golpe Fatal" });
+                "Humano", new String[] { "Incentivar", "Golpe Fatal" }, inventario);
     }
 
     /**
