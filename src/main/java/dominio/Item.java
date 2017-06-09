@@ -2,9 +2,9 @@ package dominio;
 
 public class Item {
 
-	private int id;
-	private int tipo;
+	private int id;	
 	private String nombre;
+	private String tipo;
 	private int bonoAtaque;
 	private int bonoDefensa;
 	private int bonoMagia;
@@ -15,7 +15,7 @@ public class Item {
 	private int destrezaRequerida;
 	private int inteligenciaRequerida;
 
-	public Item(int id, int tipo, String nombre, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
+	public Item(int id, String tipo, String nombre, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
 			int fuerzaRequerida, int destrezaRequerida, int inteligenciaRequerida) {
 
 		this.id = id;
@@ -36,7 +36,7 @@ public class Item {
 		return id;
 	}
 	
-	public int getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
