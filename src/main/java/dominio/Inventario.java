@@ -12,12 +12,16 @@ public class Inventario {
 		this.items = new HashMap<Integer, Item>();
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getId() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
+	
+	public Map<Integer, Item> getItems() {
+		return items;
 	}
 
 	public int getBonusSalud() {
