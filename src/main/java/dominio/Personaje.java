@@ -26,8 +26,8 @@ public abstract class Personaje extends Peleable implements Serializable {
     protected int idPersonaje;
     protected Alianza clan = null;
     public static int[] tablaDeNiveles;
-    protected String[] habilidadesRaza;    
-    protected Inventario inventario;
+    protected String[] habilidadesRaza;  
+
 
     /**
      * Inicializa los valores correspondientes a cada nivel del personaje.
@@ -95,15 +95,15 @@ public abstract class Personaje extends Peleable implements Serializable {
         y = 0;
         
         this.inventario = new Inventario();
-        saludTope = 100 + this.inventario.getBonusSalud();
-        energiaTope = 100 + this.inventario.getBonusEnergia();;
+        saludTope = 100;
+        energiaTope = 100;
 
         salud = saludTope;
         energia = energiaTope;
 
-        ataque = calcularPuntosDeAtaque() + this.inventario.getBonusAtaque();
-        defensa = calcularPuntosDeDefensa() + this.inventario.getBonusDefensa();
-        magia = calcularPuntosDeMagia() + this.inventario.getBonusMagia();
+        ataque = calcularPuntosDeAtaque();
+        defensa = calcularPuntosDeDefensa();
+        magia = calcularPuntosDeMagia();
     }
 
     /**
@@ -123,20 +123,21 @@ public abstract class Personaje extends Peleable implements Serializable {
     public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
             final int inteligencia, final Casta casta, final int experiencia, final int nivel,
             final int idPersonaje, final Inventario inventario) {
-
+    	
+    	this.inventario = inventario;
+    	this.saludTope = salud;
+        this.energiaTope = energia;
+        
         this.nombre = nombre;
-        this.salud = salud + this.inventario.getBonusSalud();
-        this.energia = energia + this.inventario.getBonusEnergia();
+        this.salud = this.saludTope + this.inventario.getBonusSalud();
+        this.energia = this.energiaTope + this.inventario.getBonusEnergia();
         this.fuerza = fuerza;
         this.destreza = destreza;
         this.inteligencia = inteligencia;
         this.casta = casta;
         this.experiencia = experiencia;
         this.nivel = nivel;
-        this.idPersonaje = idPersonaje;
-        
-        this.saludTope = this.salud;
-        this.energiaTope = this.energia;
+        this.idPersonaje = idPersonaje;  
         
         this.defensa = calcularPuntosDeDefensa() + this.inventario.getBonusDefensa();
         this.ataque = calcularPuntosDeAtaque() + this.inventario.getBonusAtaque();
@@ -240,7 +241,6 @@ public abstract class Personaje extends Peleable implements Serializable {
         return energia;
     }
 
-
     /**
      * Devuelve las habilidades de la raza.
      * @return habilidades de la raza a la cual pertenece el personaje.
@@ -320,6 +320,14 @@ public abstract class Personaje extends Peleable implements Serializable {
     public int getSaludTope() {
         return saludTope;
     }
+    
+    /**
+     * Devuelve la saludTope mas bonus de inventario.
+     * @return - salud maxima del personaje.
+     */
+    public int getSaludTopeConBonus() {
+        return saludTope + inventario.getBonusSalud();
+    }
 
     /**
      * Devuelve energiaTope.
@@ -327,6 +335,14 @@ public abstract class Personaje extends Peleable implements Serializable {
      */
     public int getEnergiaTope() {
         return energiaTope;
+    }
+    
+    /**
+     * Devuelve energiaTope mas bonus de inventario.
+     * @return - energia maxima del personaje.
+     */
+    public int getEnergiaTopeConBonus() {
+        return energiaTope + inventario.getBonusEnergia();
     }
 
     /**
@@ -392,14 +408,14 @@ public abstract class Personaje extends Peleable implements Serializable {
      * Restaura la salud del personaje hasta el tope.
      */
     public void restablecerSalud() {
-        salud = saludTope;
+        salud = saludTope + inventario.getBonusSalud();
     }
 
     /**
      * Restaura la energia del personaje hasta el tope.
      */
     public void restablecerEnergia() {
-        energia = energiaTope;
+        energia = energiaTope + inventario.getBonusEnergia();
     }
 
     /**
@@ -491,10 +507,10 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param salud : Cantidad que indica la saluda a agregar.
      */
     public void serCurado(final int salud) {
-        if ((this.salud + salud) <= this.saludTope) {
+        if (this.salud + salud <= this.saludTope + this.inventario.getBonusSalud()) {
         	this.salud += salud;
         } else {
-            this.salud = this.saludTope;
+            this.salud = this.saludTope + this.inventario.getBonusSalud();
         }
     }
 
@@ -526,10 +542,10 @@ public abstract class Personaje extends Peleable implements Serializable {
      * @param energia :Cantidad que indica la energia a agregar.
      */
     public void serEnergizado(final int energia) {
-        if ((this.energia + energia) <= this.energiaTope) {
+        if (this.energia + energia <= this.energiaTope + this.inventario.getBonusEnergia()) {
             this.energia += energia;
         } else {
-            this.energia = this.energiaTope;
+            this.energia = this.energiaTope + this.inventario.getBonusEnergia();
         }
     }
 
