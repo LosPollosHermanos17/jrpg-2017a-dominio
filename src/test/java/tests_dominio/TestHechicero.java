@@ -7,6 +7,7 @@ import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.MyRandomStub;
 import dominio.Peleable;
 import dominio.Personaje;
@@ -15,8 +16,8 @@ public class TestHechicero {
 
     @Test
     public void testSinEnergia() {
-        Humano h = new Humano("Nico", 100, 3, 25, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+        Humano h = new Humano("Nico", 100, 3, 25, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
         Assert.assertFalse(h.habilidadCasta1(e));
         Assert.assertFalse(h.habilidadCasta2(e));
         Assert.assertFalse(h.habilidadCasta3(e));
@@ -29,8 +30,8 @@ public class TestHechicero {
 
     @Test
     public void testCurar() {
-        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
 
         Assert.assertTrue(e.getSalud() == 100);
         e.serCurado(65 - e.getSalud());
@@ -41,8 +42,8 @@ public class TestHechicero {
 
     @Test
     public void testBolaDeFuego() {
-        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
 
         h.setRandomGenerator(new MyRandomStub(0.43));
         e.setRandomGenerator(new MyRandomStub(0.43));
@@ -57,8 +58,8 @@ public class TestHechicero {
     public void testRobarEnergiaYSalud() {
     	
     	// GIVEN    	
-    	Humano h = new Humano("Nico", 50, 50, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1); 
+    	Humano h = new Humano("Nico", 50, 50, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario()); 
         
         // WHEN
         h.habilidadCasta3(e);        

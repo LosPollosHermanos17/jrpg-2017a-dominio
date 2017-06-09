@@ -8,6 +8,7 @@ import dominio.Elfo;
 import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.MyRandomStub;
 import dominio.Orco;
 import dominio.Personaje;
@@ -29,9 +30,9 @@ public class TestPersonaje {
         // int nivel
         // int idPersonaje
     	
-    	Humano p1 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 100, 100);
-        Humano p2 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 0, 100);
-        Humano p3 = new Humano("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 10, 0, 0);
+    	Humano p1 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 100, 100,new Inventario());
+        Humano p2 = new Humano("Personaje", 100, 100, 100, 100, 100, new Hechicero(), 100, 0, 100,new Inventario());
+        Humano p3 = new Humano("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 10, 0, 0,new Inventario());
         p1.setRandomGenerator(new MyRandomStub(0.43));
         p2.setRandomGenerator(new MyRandomStub(0.43));
         p3.setRandomGenerator(new MyRandomStub(0.43));
@@ -154,7 +155,7 @@ public class TestPersonaje {
 
     @Test
     public void testElfo() {
-        Elfo e1 = new Elfo("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0);
+        Elfo e1 = new Elfo("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0,new Inventario());
         e1.setRandomGenerator(new MyRandomStub(0.43));
         Elfo e = new Elfo("Nicolas", new Guerrero(), 1);
         e.setRandomGenerator(new MyRandomStub(0.43));
@@ -190,7 +191,7 @@ public class TestPersonaje {
 
     @Test
     public void testOrco() {
-        Orco o1 = new Orco("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0);
+        Orco o1 = new Orco("Personaje", 0, 0, 0, 0, 0, new Hechicero(), 0, 0, 0,new Inventario());
         Orco o = new Orco("Nicolas", new Guerrero(), 1);
         o1.setRandomGenerator(new MyRandomStub(0.43));
         o.setRandomGenerator(new MyRandomStub(0.43));

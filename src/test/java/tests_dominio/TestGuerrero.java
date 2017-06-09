@@ -7,6 +7,7 @@ import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Guerrero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.MyRandomStub;
 import dominio.RandomGenerator;
 
@@ -14,8 +15,8 @@ public class TestGuerrero {
 
     @Test
     public void testSinEnergia() {
-        Humano h = new Humano("Nico", 100, 3, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+        Humano h = new Humano("Nico", 100, 3, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
         Assert.assertFalse(h.habilidadCasta1(e));
         Assert.assertFalse(h.habilidadCasta2(e));
         Assert.assertFalse(h.habilidadCasta3(e));
@@ -25,8 +26,8 @@ public class TestGuerrero {
     public void testDobleGolpe() {
         
     	// GIVEN
-    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
         e.setRandomGenerator(new MyRandomStub(0.43));
         
         // WHEN
@@ -41,7 +42,7 @@ public class TestGuerrero {
     public void testAutoDefensa() {
         
     	// GIVEN
-    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
+    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
 
         // WHEN
     	h.habilidadCasta2(null);
@@ -55,8 +56,8 @@ public class TestGuerrero {
     public void testIgnoraDefensa() {
         
     	// GIVEN
-    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
-        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+    	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1,new Inventario());
         e.setRandomGenerator(new MyRandomStub(0.43));
 
         // WHEN

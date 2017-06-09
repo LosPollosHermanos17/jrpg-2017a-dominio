@@ -7,6 +7,7 @@ import dominio.Asesino;
 import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.MyRandomStub;
 import dominio.Orco;
 
@@ -43,7 +44,7 @@ public class TestOrco {
         // int nivel
         // int idPersonaje
     	
-    	Orco o = new Orco("Hernan", 50, 5, 55, 20, 50, new Guerrero(), 0, 1, 1);
+    	Orco o = new Orco("Hernan", 50, 5, 55, 20, 50, new Guerrero(), 0, 1, 1,new Inventario());
     	o.setRandomGenerator(new MyRandomStub(0.43));
     	
         Assert.assertTrue(h.getSalud() == 105);
@@ -53,8 +54,8 @@ public class TestOrco {
 
     @Test
     public void testMordiscoDeVida() {
-        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
         h.setRandomGenerator(new MyRandomStub(0.49));
         o.setRandomGenerator(new MyRandomStub(0.49));   
         
@@ -68,8 +69,8 @@ public class TestOrco {
 
     @Test
     public void testNoMordiscoDeVida() {
-        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-        Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+        Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
+        Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
 
         Assert.assertEquals(100, h.getSalud());
         o.serCurado(100 - o.getSalud());
@@ -80,9 +81,9 @@ public class TestOrco {
 
     @Test
     public void habilidadesTest() {
-        Orco orco = new Orco("monstruo1", 50, 30, 200, 100, 40, new Guerrero(), 3000, 4, 444);
-        Orco orcoSinEnergia = new Orco("monstruo2", 300, 5, 1000, 100, 40, new Guerrero(), 3000, 4, 222);
-        Orco orcoSinFuerzaNiDestreza = new Orco("monstruo1", 50, 30, 0, 0, 40, new Guerrero(), 3000, 4, 4434);
+        Orco orco = new Orco("monstruo1", 50, 30, 200, 100, 40, new Guerrero(), 3000, 4, 444,new Inventario());
+        Orco orcoSinEnergia = new Orco("monstruo2", 300, 5, 1000, 100, 40, new Guerrero(), 3000, 4, 222,new Inventario());
+        Orco orcoSinFuerzaNiDestreza = new Orco("monstruo1", 50, 30, 0, 0, 40, new Guerrero(), 3000, 4, 4434,new Inventario());
         
         
         orco.setRandomGenerator(new MyRandomStub(0.49));

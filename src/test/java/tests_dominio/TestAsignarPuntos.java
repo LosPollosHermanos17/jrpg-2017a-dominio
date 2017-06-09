@@ -6,6 +6,7 @@ import org.junit.Test;
 import dominio.Asesino;
 import dominio.Guerrero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.Personaje;
 
 public class TestAsignarPuntos {
@@ -45,7 +46,7 @@ public class TestAsignarPuntos {
         // int nivel
         // int idPersonaje
     	
-    	Humano h = new Humano("Nicolas", 100, 100, 199, 199, 199, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+    	Humano h = new Humano("Nicolas", 100, 100, 199, 199, 199, new Asesino(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
     	
         h.AsignarPuntosSkills(2, 2, 2);
         Assert.assertTrue(h.getFuerza() == 199);

@@ -9,6 +9,7 @@ import dominio.Alianza;
 import dominio.Guerrero;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.Personaje;
 
 public class TestAlianza {
@@ -23,8 +24,8 @@ public class TestAlianza {
 
         // GIVEN        
         LinkedList<Personaje> aliadosPrueba = new LinkedList<Personaje>();
-        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
-        Humano hechiceroPrueba = new Humano("Hechicero Prueba", 100, 100, 100, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
+        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1, new Inventario());
+        Humano hechiceroPrueba = new Humano("Hechicero Prueba", 100, 100, 100, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
         aliadosPrueba.add(guerreroPrueba);
         aliadosPrueba.add(hechiceroPrueba);
         Alianza alianzaPrueba = new Alianza("Alianza Prueba", aliadosPrueba);
@@ -41,7 +42,7 @@ public class TestAlianza {
     public void testAgregarPersonaje() {
         // GIVEN
         Alianza alianzaPrueba = new Alianza("Alianza Prueba");
-        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
+        Humano guerreroPrueba = new Humano("Guerrero Prueba", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1,new Inventario());
 
         // WHEN
         alianzaPrueba.agregarPersonaje(guerreroPrueba);
