@@ -7,6 +7,7 @@ import dominio.Alianza;
 import dominio.Asesino;
 import dominio.Guerrero;
 import dominio.Humano;
+import dominio.Inventario;
 import dominio.MyRandomStub;
 
 public class TestAliarCombatir {
@@ -43,7 +44,7 @@ public class TestAliarCombatir {
 
     @Test
     public void testNoDañar() {
-        Humano h = new Humano("Lautaro", 0, 5, 100, 20, 100, new Asesino(), 10, 10, 1);
+        Humano h = new Humano("Lautaro", 0, 5, 100, 20, 100, new Asesino(), 10, 10, 1, new Inventario());
         h.setRandomGenerator(new MyRandomStub(0.43));
         
         Humano h2 = new Humano("Nicolas", new Guerrero(), 1);
@@ -66,7 +67,7 @@ public class TestAliarCombatir {
 
         Assert.assertNull(h2.getClan());
         Assert.assertNull(h.getClan());
-        h.setClan(a1);
+        h.aliarce(a1);
         Assert.assertNotNull(h.getClan());
         h.aliar(h2);
         Assert.assertTrue(h.getClan() == h2.getClan());
