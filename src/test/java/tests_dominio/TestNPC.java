@@ -52,7 +52,7 @@ public class TestNPC {
         npc.getNivel();
         npc.getNombre();
         npc.getSalud();
-        npc.setAtaque(10);
+        npc.incrementarAtaque(10);
         npc.setDefensa(10);
         npc.setNivel(10);
         npc.setNombre("Nombre");

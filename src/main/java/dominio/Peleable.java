@@ -55,10 +55,11 @@ public abstract class Peleable {
 
     public abstract int getAtaque();
 
-    public abstract void setAtaque(int ataque);
 
     public boolean estaVivo() {
         return salud > 0;
     }
+
+	public abstract void incrementarAtaque(int incAtaque);
 
 }

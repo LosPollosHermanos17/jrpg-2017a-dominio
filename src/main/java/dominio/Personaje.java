@@ -181,7 +181,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * Asigna el nombre de la raza.
      * @param nombreRaza nombre de la raza a la cual pertenece el personaje.
      */
-    public void setNombreRaza(final String nombreRaza) {
+    public void renombrarRaza(final String nombreRaza) {
         this.nombreRaza = nombreRaza;
     }
 
@@ -193,13 +193,6 @@ public abstract class Personaje extends Peleable implements Serializable {
         return ataque;
     }
 
-    /**
-     * Asigna el ataque.
-     * @param ataque - cantidad de puntos de ataque.
-     */
-    public void setAtaque(final int ataque) {
-        this.ataque = ataque;
-    }
 
     /**
      * Devuelve la magia.
@@ -213,8 +206,8 @@ public abstract class Personaje extends Peleable implements Serializable {
      * Asigna la magia.
      * @param magia - cantidad de puntos de magia del personaje.
      */
-    public void setMagia(final int magia) {
-        this.magia = magia;
+    public void incrementarMagia(final int magia) {
+        this.magia += magia;
     }
 
     /**
@@ -229,7 +222,7 @@ public abstract class Personaje extends Peleable implements Serializable {
      * Asigna el clan.
      * @param clan - alianza a la cual pertenece el personaje.
      */
-    public void setClan(final Alianza clan) {
+    public void aliarce(final Alianza clan) {
         this.clan = clan;
         clan.agregarPersonaje(this);
     }
@@ -757,4 +750,7 @@ public abstract class Personaje extends Peleable implements Serializable {
 		this.energia  = atributos.get("energia");		
 	}
     
+    public void incrementarAtaque(int incAtaque){
+    	this.ataque += incAtaque;
+    }
 }

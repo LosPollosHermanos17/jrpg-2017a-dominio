@@ -44,14 +44,14 @@ public class Humano extends Personaje {
     }
 
     /**
-     * Permite atacar a otro personaje utilizando la habilidad de incentivar
+     * Permite incrementar el ataque de un aliado
      * @param atacado : Es el personaje que recibe el ataque.
      * @return True si se pudo atacar al otro personaje.
      */
-    public boolean habilidadRaza1(final Peleable atacado) {
+    public boolean habilidadRaza1(final Peleable aliado) {
         if (tieneEnergia(CONSUMO_DE_ENERGIA)) {
             consumirEnergia(CONSUMO_DE_ENERGIA);
-            atacado.setAtaque(atacado.getAtaque() + this.getMagia());
+            aliado.incrementarAtaque(this.getMagia());
             return true;
         }
         return false;

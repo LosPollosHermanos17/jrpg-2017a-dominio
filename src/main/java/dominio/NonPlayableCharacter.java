@@ -150,8 +150,8 @@ public class NonPlayableCharacter extends Peleable {
 		return this.getFuerza();
 	}
 
-	@Override
-	public void setAtaque(final int ataque) {
-		this.fuerza = ataque;
+
+	public void incrementarAtaque(int incAtaque){
+		
 	}
 }

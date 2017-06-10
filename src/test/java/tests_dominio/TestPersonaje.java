@@ -45,12 +45,12 @@ public class TestPersonaje {
         Assert.assertTrue(p3.getExperiencia() == 20);
         p3.setNombre("Nombre");
         Assert.assertTrue(p3.getNombre() == "Nombre");
-        p3.setNombreRaza("Raza");
+        p3.renombrarRaza("Raza");
         Assert.assertTrue(p3.getNombreRaza() == "Raza");
         p3.getCasta();
         p1.getClan();
         p1.golpe_critico();
-        p3.setMagia(10);
+        p3.incrementarMagia(10);
         Assert.assertTrue(p3.getMagia() == 10);
         p3.serCurado(10 - p3.getSalud());
         Assert.assertTrue(p3.getSalud() == 10);

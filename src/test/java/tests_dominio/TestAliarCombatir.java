@@ -67,7 +67,7 @@ public class TestAliarCombatir {
 
         Assert.assertNull(h2.getClan());
         Assert.assertNull(h.getClan());
-        h.setClan(a1);
+        h.aliarce(a1);
         Assert.assertNotNull(h.getClan());
         h.aliar(h2);
         Assert.assertTrue(h.getClan() == h2.getClan());
