@@ -6,59 +6,62 @@ package dominio;
  * @version 1.0
  */
 public abstract class Peleable {
-    protected int salud;
-    protected int fuerza;
-    protected String nombre;
-    protected RandomGenerator random;
-    protected Inventario inventario;
-    
-    public Peleable()
-    {
-    	this.setRandomGenerator(new MyRandom());
-    }
-    
-    public void setRandomGenerator(RandomGenerator random)    {
-    	this.random = random;
-    }
+	protected int salud;
+	protected int fuerza;
+	protected String nombre;
+	protected RandomGenerator random;
+	protected Inventario inventario;
 
-    public abstract int serAtacado(int danio);
+	public Peleable() {
+		this.setRandomGenerator(new MyRandom());
+	}
 
-    public int getSalud() {
-        return this.salud;
-    }
+	public void setRandomGenerator(RandomGenerator random) {
+		this.random = random;
+	}
 
-    public int getFuerza() {
-        return this.fuerza;
-    } 
+	public abstract int serAtacado(int danio);
 
-    public String getNombre() {
-        return this.nombre;
-    }
+	public int getSalud() {
+		return this.salud;
+	}
 
-    public void setNombre(final String nombre) {
-        this.nombre = nombre;
-    }
+	public int getFuerza() {
+		return this.fuerza;
+	}
 
-    public void despuesDeTurno() {
+	public String getNombre() {
+		return this.nombre;
+	}
 
-    }
+	public void setNombre(final String nombre) {
+		this.nombre = nombre;
+	}
 
-    public abstract boolean serAtacadoSinDefensa(Personaje atacante);
-    
-    public abstract boolean serCurado(Personaje caster);
-    
-    public abstract boolean serRobadoYDesenergizado(Personaje atacante);
+	public Inventario getInventario() {
+		return this.inventario;
+	}
 
-    public abstract int atacar(Peleable atacado);
+	public void despuesDeTurno() {
 
-    public abstract int otorgarExp();
+	}
 
-    public abstract int getAtaque();
+	public abstract boolean serAtacadoSinDefensa(Personaje atacante);
 
-    public abstract void setAtaque(int ataque);
+	public abstract boolean serCurado(Personaje caster);
 
-    public boolean estaVivo() {
-        return salud > 0;
-    }
+	public abstract boolean serRobadoYDesenergizado(Personaje atacante);
+
+	public abstract int atacar(Peleable atacado);
+
+	public abstract int otorgarExp();
+
+	public abstract int getAtaque();
+
+	public abstract void setAtaque(int ataque);
+
+	public boolean estaVivo() {
+		return salud > 0;
+	}
 
 }

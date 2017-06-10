@@ -4,6 +4,7 @@ public class Item {
 
 	private int id;	
 	private String nombre;
+	private int idTipo;
 	private String tipo;
 	private int bonoAtaque;
 	private int bonoDefensa;
@@ -15,10 +16,11 @@ public class Item {
 	private int destrezaRequerida;
 	private int inteligenciaRequerida;
 
-	public Item(int id, String tipo, String nombre, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
+	public Item(int id, int idTipo, String tipo, String nombre, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
 			int fuerzaRequerida, int destrezaRequerida, int inteligenciaRequerida) {
 
 		this.id = id;
+		this.idTipo = idTipo;
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.bonoAtaque = bonoAtaque;
@@ -34,6 +36,10 @@ public class Item {
 
 	public int getId() {
 		return id;
+	}
+	
+	public int getIdTipo() {
+		return idTipo;
 	}
 	
 	public String getTipo() {

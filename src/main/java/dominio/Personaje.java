@@ -756,5 +756,13 @@ public abstract class Personaje extends Peleable implements Serializable {
 		this.salud = atributos.get("salud");
 		this.energia  = atributos.get("energia");		
 	}
-    
+
+    /**
+     * Asigna al personaje un item ganado
+     */
+	public boolean ganarItem(Item item) {
+		if(this.inventario != null)
+			return this.inventario.agregarItem(item);
+		return false;
+	}    
 }
