@@ -15,6 +15,8 @@ public class Item {
 	private int fuerzaRequerida;
 	private int destrezaRequerida;
 	private int inteligenciaRequerida;
+	
+	private boolean ofertado;
 
 	public Item(int id, int idTipo, String tipo, String nombre, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
 			int fuerzaRequerida, int destrezaRequerida, int inteligenciaRequerida) {
@@ -81,4 +83,13 @@ public class Item {
 	public int getInteligenciaRequerida() {
 		return inteligenciaRequerida;
 	}
+
+	public boolean isOfertado() {
+		return ofertado;
+	}
+
+	public void setOfertado(boolean ofertado) {
+		this.ofertado = ofertado;
+	}
+	
 }
