@@ -6,7 +6,5 @@
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jrpg-2017a-cliente"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jrpg-2017a-servidor"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,8 +1,5 @@
 package mensajeria;
 
-import cliente.EscuchaMensajes;
-import juego.Juego;
-
 public class ComandoMensajeChat {
 	private String from;
 	private String to;

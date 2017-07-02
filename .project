@@ -3,8 +3,6 @@
 	<name>dominio</name>
 	<comment></comment>
 	<projects>
-		<project>jrpg-2017a-cliente</project>
-		<project>jrpg-2017a-servidor</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
