@@ -1,5 +1,9 @@
 package mensajeria;
-
+/**
+ * Paquete que se encarga del flujo de mensajes del chat.
+ * @author dmem2
+ *
+ */
 public class ComandoMensajeChat {
 	private String from;
 	private String to;
